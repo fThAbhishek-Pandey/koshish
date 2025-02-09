@@ -1,33 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useState, useContext ,useEffect} from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import IndexApp from './pages/App'
+import IndexStudent from './pages/student'
+import IndexTeacher from './pages/teachers'
+import { StudentContext } from './context/StudentContext'
+import { TeacherContext } from './context/TeacherContext'
 function App() {
-  const [count, setCount] = useState(0)
-
+    const {stuToken}= useContext(StudentContext);
+    const {teaToken}= useContext(TeacherContext);
+     console.log("hi--> ", stuToken,teaToken )
+     const notify = () => toast("Wow so easy!");
+useEffect (()=>{
+  notify ()
+},[])
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {
+        !(stuToken || teaToken ) 
+        ? <IndexApp/>
+        : <div>
+          {stuToken&& <IndexStudent/>}
+          {teaToken && <IndexTeacher/>}
+        </div>
+      }
+       <ToastContainer />
     </>
   )
 }
