@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
 import IndexApp from './pages/App/IndexApp'
 import Indexcocirculer from './pages/cocerculer/indexcocirculer'
 import Indexcoordinator from './pages/coordinater/Indexcoordinator'
@@ -7,6 +8,10 @@ import { CoordinatorContext } from './context/coordinater'
 function App() {
      const {cirToken}= useContext( CocirculerContext);
      const {ordiToken}= useContext(CoordinatorContext);
+     const notify = () => toast("Wow so easy!");
+     useEffect (()=>{
+       notify ()
+     },[])
   return (
     <>
       { 
@@ -17,6 +22,7 @@ function App() {
           { ordiToken && <Indexcoordinator/>}
          </div>
          }
+         <ToastContainer/>
     </>
   )
 }
