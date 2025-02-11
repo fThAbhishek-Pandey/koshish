@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Header = () => {
+const IndexHeader = () => {
   return (
     <div>header it has included image scoller</div>
   )
 }
 
-export default Header
+export default IndexHeader
