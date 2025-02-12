@@ -2,7 +2,7 @@ import React from 'react'
 
 const IndexAchievement = () => {
   return (
-    <div>IndexAchievement</div>
+    <div className='w-full text-8xl text-amber-300'>IndexAchievement</div>
   )
 }
 
