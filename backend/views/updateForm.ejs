@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Teacher Details</title>
+    <style>
+    
+
+    </style>
+</head>
+<body>
+       <h3>Update details of : <b><%=teacher.name%></b></h3>
+       <form method="POST" action="/teacher/<%=teacher.id%>?_method=PATCH">
+        <label for="name">Name : </label>
+        <textarea name="name" id="name" ><%= teacher.name %></textarea>
+        <br> <br>
+
+        <label for="branch">Branch : </label>
+            <textarea name="branch" id="branch"><%=teacher.branch%></textarea>
+        <br>  <br>
+
+       <label for="classesAlloted">ClassesAlloted : </label>
+          <textarea name="classesAlloted" id="classesAlloted"><%=teacher.classesAlloted%></textarea>
+       
+        <br>  <br>
+        <label id="phone">Phone : </label>
+           <textarea  name="phone" id="phone"><%=teacher.phone%></textarea>
+       
+        <br>  <br>
+         <label for="subjects"> Subjects : </label>
+          <textarea name="subjects"id="subjects"><%=teacher.subjects%></textarea>
+        
+        <br>  <br>
+        <label for="createdAt">CreatedAt :  </label>
+        <textarea name="createdAt" id="created"><%=teacher.createdAt%></textarea>
+        <br>  <br>
+        
+        <label for="passingYear">PassingYear : </label>
+        <textarea name="passingYear" id="passingYear"><%=teacher.passingYear%></textarea>
+        <br>  <br>
+
+        <label for="isActive">IsActive :  </label>
+        <textarea name="isActive" id="isActive"><%=teacher.isActive%></textarea>
+        <br>  <br>
+       
+        <button>Update</button>
+       </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All teachers</title>
+</head>
+<body>
+    <h3>Teachers and their Details</h3>
+        <br><br>
+        <% for(let teacher of allteachers){ %>
+            <p>Name : <%=teacher.name%></p>
+            <p>Branch : <%=teacher.branch%></p>
+            <p>ClassesAlloted : <%=teacher.classesAlloted.join(", ")%></p>
+            <p>Phone : <%=teacher.phone%></p>
+             <p>Subjects : <%=teacher.subjects%></p>
+             <p>JoinOn : <%=teacher.createdAt%></p>
+             <p> passingYear : <%=teacher. passingYear%></p>
+             <p>isActive : <%=teacher.isActive%></p>
+             <p><form method="GET" action="updateTeacher/<%=teacher._id%>">
+                <button>Update</button>
+             </form></p>
+             <p><form method="POST" action="teacher/<%=teacher._id%>?_method=DELETE">
+                <button>Delete</button>
+             </form></p>
+             <hr>
+                <%  } %> 
+
+                <form method="GET" action="/addNewTeacher">
+                    <button>Add Teacher</button>
+                </form>
+        
+</body>
+</html>

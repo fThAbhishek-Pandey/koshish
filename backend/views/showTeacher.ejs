@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Details</title>
+</head>
+<body>
+   <% for(let teacher of teachers) { %>
+     <p>Name : <b><%=teacher.name%></b></p>
+     <p>Branch : <%=teacher.branch%></p>
+     <p>ClassesAlloted : <%=teacher.classesAlloted%></p>
+     <p>Phone : <%=teacher.phone%></p>
+     <p>Subjects : <%=teacher.subjects%></p>
+     <p>CreatedAt : <%=teacher.createdAt%></p>
+     <p>PassingYear : <%=teacher.passingYear%></p>
+     <p>IsActive : <%=teacher.isActive%></p>
+     <hr>
+  <%  } %>
+</body>
+</html>
