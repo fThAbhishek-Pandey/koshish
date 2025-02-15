@@ -17,7 +17,7 @@ const CocicularSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: true,
+      required: false,
     },
     speciality: {
       type: String,
@@ -25,7 +25,8 @@ const CocicularSchema = new mongoose.Schema(
     },
     degree: {
       type: String,
-      required: true,
+      // required: true,
+      default:"B.tech"
     },
     about: {
       type: String,
@@ -35,10 +36,13 @@ const CocicularSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    
+    isactive :{
+      type: Boolean,
+      default:true
+    }
   },
   { minimize: false }
 );
 const CocicularModel =
-  mongoose.models.Cocicular || mongoose.model("doctor", CocicularSchema);
+  mongoose.models.Cocicular || mongoose.model("Cocicular", CocicularSchema);
 export default CocicularModel;
