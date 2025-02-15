@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken'
-const loginCociculer = async (req,res)=>{
+const loginCoordinater = async (req,res)=>{
     try {
      const {email, password} =  req.body;
      console.log("req.body : ",req.body);
      console.log("email and password : ",email, password);
-     console.log("email and password : ",process.env.COCICULAR_USERNAME, process.env.COCICULAR_PASSWORD );
-     if(email === process.env.COCICULAR_USERNAME && password === process.env.COCICULAR_PASSWORD ){
+     console.log("email and password : ",process.env.COORDINATOR_USERNAME, process.env.COORDINATER_PASSWORD );
+     if(email === process.env.COORDINATOR_USERNAME && password === process.env.COORDINATER_PASSWORD ){
            const token = jwt.sign (email+password,process.env.JWT_SECKRET) 
 
            res.json({success:true,cocirculertoken:`${token}`, message:"You are login"});
@@ -20,4 +20,4 @@ else {
        res.json({success:false, msg:`admin login ${error.message}`})
     }
 }
-export default loginCociculer
+export default loginCoordinater

@@ -23,7 +23,7 @@ app.use(express.json());
 app.use('/api/user',userRoutes);
 app.use('/api/teacher',teacherRoutes)
 app.use('/api/cocirculer',coCirculerRoutes)
-app.use('/api/coordinate',coordinaterRoutes)
+app.use('/api/coordinater',coordinaterRoutes)
 // localhost:4000/api/admin/add-doctor
 
 app.get('/' ,   (req,res)=>{

@@ -40,5 +40,5 @@ const CocicularSchema = new mongoose.Schema(
   { minimize: false }
 );
 const CocicularModel =
-  mongoose.models.Cocicular || mongoose.model("doctor", CocicularSchema);
+  mongoose.models.Cocicular || mongoose.model("Cocicular", CocicularSchema);
 export default CocicularModel;
