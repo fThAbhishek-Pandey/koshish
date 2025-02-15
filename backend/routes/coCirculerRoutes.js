@@ -5,5 +5,6 @@ import updatecocerculerprofile from '../controller/cocirculer/updatecocerculerpr
 const coCirculerRoutes = express.Router();
 coCirculerRoutes.post('/login', loginCociculer);
 // coCirculerRoutes.get('/auth', authCociculer);
-coCirculerRoutes.get('/update/cocirculer-profile', authCociculer, updatecocerculerprofile);
+coCirculerRoutes.patch('/update/cocirculer-profile', authCociculer, updatecocerculerprofile);
+
 export default coCirculerRoutes

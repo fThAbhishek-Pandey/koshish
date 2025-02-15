@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 //  admin authentication middlewre
 const authCoodinater = async (req,res,next)=>{
-       console.log("i am authCociculer token : ", req.body)
+       console.log("i am authCoordinator token : ", req.body)
       try{
             const {authcooditoken} = req.headers;
             console.log("req : ",req.headers);
@@ -14,8 +14,8 @@ const authCoodinater = async (req,res,next)=>{
             if( tokenDecode !== process.env.COORDINATOR_USERNAME + process.env.COORDINATER_PASSWORD ){
                 return res.json({sucess:false, message:"Not Authorized Login again"})
             }
-            return res.json({success: true, message:"you are login" })
-            // next();
+            // return res.json({success: true, message:"you are login" })
+            next();
       }
       catch(error){
          console.log(error);

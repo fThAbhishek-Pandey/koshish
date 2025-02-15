@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken'
 const loginCoordinater = async (req,res)=>{
     try {
-     const {email, password} =  req.body;
+     const {username, password} =  req.body;
      console.log("req.body : ",req.body);
-     console.log("email and password : ",email, password);
+     console.log("email and password : ",username, password);
      console.log("email and password : ",process.env.COORDINATOR_USERNAME, process.env.COORDINATER_PASSWORD );
-     if(email === process.env.COORDINATOR_USERNAME && password === process.env.COORDINATER_PASSWORD ){
-           const token = jwt.sign (email+password,process.env.JWT_SECKRET) 
+     if(username=== process.env.COORDINATOR_USERNAME && password === process.env.COORDINATER_PASSWORD ){
+           const token = jwt.sign (username+password,process.env.JWT_SECKRET) 
 
            res.json({success:true,cocirculertoken:`${token}`, message:"You are login"});
      }
