@@ -7,9 +7,9 @@ const IndexApp = () => {
   return (
     <div>
         <Navbar/>
-        <div className="flex justify-start">
+        <div className="">
         IndexApp
-        <div className="w-full">
+        <div className="">
         
 
 

@@ -1,10 +1,10 @@
 import { useContext, useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
-import IndexApp from './pages/App/IndexApp'
 import Indexcocirculer from './pages/cocerculer/indexcocirculer'
 import Indexcoordinator from './pages/coordinater/Indexcoordinator'
 import { CocirculerContext } from './context/cocirculer'
 import { CoordinatorContext } from './context/coordinater'
+import Login from './components/login'
 function App() {
      const {cirToken}= useContext( CocirculerContext);
      const {ordiToken}= useContext(CoordinatorContext);
@@ -16,7 +16,7 @@ function App() {
     <>
       { 
          !( ordiToken || cirToken)
-         ? <IndexApp/>
+         ? <Login/>
          : <div>
           { cirToken && <Indexcocirculer/>}
           { ordiToken && <Indexcoordinator/>}
