@@ -11,10 +11,11 @@ const IndexApp = () => {
   return (
     <div>
           <Navbar />
-            <div>
-              <h2>koshish</h2>
-             <div> 
-   
+
+            <div className=''>
+              <h2 className=''>koshish</h2>
+             <div  className='' > 
+
               <Routes>
                 <Route path='/' element={<HomeApp/>} />
                 <Route path='/culture' element={<Culture/>} />
