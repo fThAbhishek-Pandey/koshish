@@ -11,9 +11,9 @@ const IndexApp = () => {
   return (
     <div>
           <Navbar />
-            <div className='flex justify-start'>
-              <h2 className='w-full'>koshish</h2>
-             <div  className='w-full' > 
+            <div>
+              <h2>koshish</h2>
+             <div> 
    
               <Routes>
                 <Route path='/' element={<HomeApp/>} />
