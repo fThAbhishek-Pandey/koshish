@@ -26,9 +26,10 @@
 ## Setup Instructions
 
 1. **Clone the repository:**
-
+```
 git clone https://github.com/fThAbhishek-Pandey/koshish.git
 
+```
 
 2. **Install dependencies:**
 
