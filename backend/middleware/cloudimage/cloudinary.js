@@ -1,12 +1,20 @@
-import ConnectCloudinary from "../../config/cloudinary";
-ConnectCloudinary();
-
+import {v2 as cloudinary} from 'cloudinary'
   // Cloudinary Upload Image
+import fs from 'fs'
 const cloudinaryUploadImage = async (fileToUpload) => {
     try {
-      const data = await cloudinary.uploader.upload(fileToUpload, {
+      console.log('i am cloudnaryupload function', fileToUpload);
+      if (!fileToUpload) return null;
+      const data = await cloudinary.uploader.upload(fileToUpload.path, {
         resource_type: "auto",
-      });
+      })
+      .then((responce)=>console.log("image is uploaded", responce))
+      .catch((error)=>console.log(error))
+      .finally(()=>{
+         console.log("image is going to delete temprary image on server")
+          fs.unlinkSync(fileToUpload.path)
+      })
+      console.log("data : ",data);
       return data;
     } catch (error) {
       console.log(error);
@@ -17,6 +25,7 @@ const cloudinaryUploadImage = async (fileToUpload) => {
   // Cloudinary Remove Image
 const cloudinaryRemoveImage = async (imagePublicId) => {
     try {
+      console.log("")
       const result = await cloudinary.uploader.destroy(imagePublicId);
       return result;
     } catch (error) {
@@ -36,7 +45,7 @@ const cloudinaryRemoveMultipleImage = async (publicIds) => {
     }
   };
 
-  module.exports = {
+  export default {
     cloudinaryUploadImage,
     cloudinaryRemoveImage,
     cloudinaryRemoveMultipleImage,
