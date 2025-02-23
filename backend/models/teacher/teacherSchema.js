@@ -10,6 +10,10 @@ const teacherSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
+  image:{
+    type:String,
+    required:true
+  },
   subject: {
     type: String,
     required: true

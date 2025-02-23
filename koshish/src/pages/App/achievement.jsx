@@ -1,8 +1,8 @@
 import React from 'react'
-
+import IndexAchievement from '../../component/App/Achievement/indexAchievement'
 const Achievement = () => {
   return (
-    <div> best Achievement of koshish </div>
+    <div> <IndexAchievement/> </div>
   )
 }
 
