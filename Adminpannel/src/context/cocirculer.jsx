@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 
 export const CocirculerContext = createContext(1);
 const  CocirculerContextProvider = (props) => {
-  const [cirToken , setCirToken]= useState(localStorage.getItem('cirToken')|| false);
+  const [cirToken , setCirToken]= useState(localStorage.getItem('cirToken')|| true);
 
 
   const value = {

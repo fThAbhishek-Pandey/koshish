@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import defaultImg from "../../controller/defaultimg.js";
 const teacherSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -12,7 +12,7 @@ const teacherSchema = new mongoose.Schema({
   },
   image:{
     type:String,
-    required:true
+    default:defaultImg
   },
   subject: {
     type: String,
@@ -25,18 +25,22 @@ const teacherSchema = new mongoose.Schema({
   },
   joinTime:{
     type: Date,
-    default: new Date.now()
+    required:true
   },
   speciality:{
     type:String,
     required:true,
 
   },
+  isActive:{
+    type: String ,
+    default:true
+  },
   about:{
     type: String,
     default:"I love Koshish"
   }
 });
+const TeacherModel = mongoose.model('TeacherModel', teacherSchema);
 
-
-export const Teacher = mongoose.model('Teacher', teacherSchema);
+export default  TeacherModel;
