@@ -45,7 +45,7 @@ const cloudinaryRemoveMultipleImage = async (publicIds) => {
     }
   };
 
-  export default {
+  export  {
     cloudinaryUploadImage,
     cloudinaryRemoveImage,
     cloudinaryRemoveMultipleImage,

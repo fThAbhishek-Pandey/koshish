@@ -1,7 +1,6 @@
 import validator from "validator";
 import bycrypt from "bcrypt";
-import CocicularModel from "../../models/Cocirculer/cocerculerProfile.js";
-import cloudinary from "../../middleware/cloudimage/cloudinary.js";
+import {cloudinaryUploadImage} from "../../middleware/cloudimage/cloudinary.js";
 import changeCocercular  from "../../repositories/coordinator/changeco-cercular.js";
 const changecocirculer = async (req, res) => {
   console.log("i am in change cocirculer controller", req.body, req.file);
@@ -41,8 +40,7 @@ const changecocirculer = async (req, res) => {
     const hashPassword = await bycrypt.hash(password, salt);
     console.log("hashpassword", hashPassword);
     //  upload image to cloudnary
-    const imageUpload = cloudinary
-      .cloudinaryUploadImage(imgfile)
+    const imageUpload = cloudinaryUploadImage(imgfile)
       .then(() => console.log("file is upload on cloud"));
     //  save in our database
     console.log("i am uploaded img : ",imageUpload)
@@ -61,7 +59,7 @@ const changecocirculer = async (req, res) => {
     if(imageUpload){
     // const newCocirculer = new CocicularModel(cocircularData);
     // await newCocirculer.save();
-   await changeCocercular()
+   await changeCocercular(cocircularData)
     
     res.json({ success: true, meg: "love u Abhishek" });
   }

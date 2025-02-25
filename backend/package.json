@@ -25,5 +25,19 @@
     "path": "^0.12.7",
     "url": "^0.11.4",
     "validator": "^13.12.0"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": { "*.{js,ts}": [ "eslint --fix", "prettier --write", "git add" ] }
 }
