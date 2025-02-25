@@ -7,6 +7,7 @@ import DashboardCociculer from './DashboardCociculer';
 import TerminateMentor from './TerminateMentor';
 import UpdateMentor from './UpdateMentor';
 import SidebarCocirculer from '../../components/cocercular/SidebarCocirculer';
+import Announcement from './Announcement';
 const Indexcocirculer = () => {
   return (
     <div>
@@ -20,6 +21,7 @@ const Indexcocirculer = () => {
                         <Route path='/addmentor' element={<AddMentor/>} />
                         <Route path='/terminate-mentor' element={<TerminateMentor/>} />
                         <Route path='/update-mentor' element={<UpdateMentor/>} />
+                        <Route path='/announcement' element={<Announcement/>} />
                       </Routes>
                      </div>
                     </div>
