@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaHome, FaUser } from 'react-icons/fa';
+// import React from 'react';
+import { FaHome, FaUserPlus, FaUserMinus,FaUserEdit } from 'react-icons/fa';
 
 const SidebarCocirculer = () => {
   return (
@@ -11,15 +11,15 @@ const SidebarCocirculer = () => {
             <span>Dashboard</span>
         </li>
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
-          <FaUser className="mr-3" />
+          <FaUserPlus className="mr-3" />
           <span>AddMentor</span>
         </li>
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
-          <FaUser className="mr-3" />
+          <FaUserMinus className="mr-3" />
           <span>TerminateMentor</span>
         </li>
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
-          <FaUser className="mr-3" />
+          <FaUserEdit className="mr-3" />
           <span>UpdateMentor</span>
         </li>
       </ul>
