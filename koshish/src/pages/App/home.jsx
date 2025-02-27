@@ -1,20 +1,19 @@
 import React from 'react'
-import IndexHeader from '../../component/App/header/indexHeader'
-import IndexCulture from '../../component/App/culture/indexCulture'
-import IndexEvent from '../../component/App/events/indexEvent'
-import IndexMentor from '../../component/App/mentor/indexMentor'
-import IndexAchievement from '../../component/App/Achievement/indexAchievement'
-import IndexTestimorals from '../../component/App/Testimorals/indexTestimorals'
+import IndexHeader from '../../component/App/home/header'
+import Culture from '../../component/App/home/culture'
+import Event from '../../component/App/home/event'
+import Mentor from '../../component/App/home/mentor'
+import Testimorals from '../../component/App/home/testimorals'
+import Achievement from '../../component/App/home/Achievement'
 const HomeApp = () => {
   return (
     <div>
        <IndexHeader/>
-        <IndexCulture/>
-        <IndexEvent/>
-        <IndexMentor/>
-        <IndexAchievement/>
-        <IndexTestimorals/>
-
+       <Culture/>
+        <Event/>
+        <Mentor/>
+        <Achievement/>
+        <Testimorals/>
     </div>
   )
 }
