@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const TopmentorScheema = new mongoose.Schema({
     name : {
         type: String,
-        require: require
+        require: true
     },
     LindinLink:{
         type: String,

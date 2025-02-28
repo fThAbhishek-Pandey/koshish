@@ -8,6 +8,9 @@ import TerminateMentor from './TerminateMentor';
 import UpdateMentor from './UpdateMentor';
 import SidebarCocirculer from '../../components/cocercular/SidebarCocirculer';
 import Announcement from './Announcement';
+import Handlehome from './handlehome';
+import AddTopMentor from '../../components/cocercular/home/AddTopMentor'
+import AddEvent from '../../components/cocercular/home/AddEvent'
 const Indexcocirculer = () => {
   return (
     <div>
@@ -22,6 +25,9 @@ const Indexcocirculer = () => {
                         <Route path='/terminate-mentor' element={<TerminateMentor/>} />
                         <Route path='/update-mentor' element={<UpdateMentor/>} />
                         <Route path='/announcement' element={<Announcement/>} />
+                        <Route path='/add-header' element={<Handlehome/>} />
+                        <Route path='/add-event' element={<AddEvent/>} />
+                        <Route path='/add-topmentor' element={<AddTopMentor/>} />
                       </Routes>
                      </div>
                     </div>

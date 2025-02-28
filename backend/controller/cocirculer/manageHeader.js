@@ -1,16 +1,25 @@
-import { headerModel } from "../../models/App/headerSchema";
-import { cloudinaryUploadImage } from "../../middleware/cloudimage/cloudinary";
+import { headerModel } from "../../models/App/headerSchema.js";
+import { cloudinaryUploadImage } from "../../middleware/cloudimage/cloudinary.js";
 
 const addHeader = async(req,res) => {
   try {
     const {heading, para}= req.body
     const imagefile = req.file
-    await cloudinaryUploadImage(imagefile)
-    clouldImg.then ((data)=>{
-          headerModel.create({image:data.secure_url, heading, para })
-          headerModel.save()
-    })
+    if (!heading|| !para) {
+      console.log("heading and para is not defined")
+      return res.json({success:false,message:"heading and para is not defined" })
+    }
+    if (!imagefile){
 
+      return res.json({success:false,message:"please upload header image" })
+    }
+    else console.log("img-->",imagefile)
+   const image = cloudinaryUploadImage(imagefile)
+    .then ((data)=>{
+       console.log("===> ",data)  
+    })
+   const newHeader = await headerModel.create({image:image.secure_url, heading, para })
+   await newHeader.save()
 
     res.json({success:true, message:"Top mentor is added"});
   } catch (error) {
