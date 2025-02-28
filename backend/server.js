@@ -10,13 +10,10 @@ import userRoutes from './routes/userRoutes.js';
 
 // app config
 const app = express();
-<<<<<<< HEAD
-const port = process.env.PORT || 4000
-=======
+
 ConnectDB()
 ConnectCloudinary()
 const port = process.env.PORT ||4000
->>>>>>> 7003b39365b74ea19a7ae16a2fb5a3bc0f47e631
 
 //  middleware
 app.use(cors());
