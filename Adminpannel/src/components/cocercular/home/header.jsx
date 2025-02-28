@@ -21,6 +21,7 @@ const Header = () => {
                 <h3>Upload Image for Header</h3>
                 <input 
                 type="file"
+                className='border-amber-400'
                 onChange={(e)=> setImage(e.target.files[0])}
                 // value={image}
                 />
@@ -28,6 +29,7 @@ const Header = () => {
             <div>
                 <h3>Header Heading</h3>
                 <input type="text"
+                 className='border-amber-400'
                 onChange={(e)=>setHeading(e.target.value)}
                 value={heading}
                 />
@@ -36,11 +38,12 @@ const Header = () => {
                 <h3>Write Paragraph</h3>
                 <textarea 
                  type="text"
+                  className='border-amber-400'
                  onChange={(e)=>setpara(e.target.value)}
                  value={para}
                > </textarea>
             </div>
-            <button>Add Header</button>
+            <button className='border-amber-950'>Add Header</button>
         </form>
     
     
