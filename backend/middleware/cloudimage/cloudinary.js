@@ -1,20 +1,21 @@
 import {v2 as cloudinary} from 'cloudinary'
   // Cloudinary Upload Image
 import fs from 'fs'
-const cloudinaryUploadImage = async (fileToUpload) => {
+const cloudinaryUploadImage =  async(fileToUpload) => {
     try {
-      console.log('i am cloudnaryupload function', fileToUpload);
+      // console.log('i am cloudnaryupload function', fileToUpload);
       if (!fileToUpload) return null;
       const data = await cloudinary.uploader.upload(fileToUpload.path, {
         resource_type: "auto",
       })
-      .then((responce)=>console.log("image is uploaded", responce))
-      .catch((error)=>console.log(error))
-      .finally(()=>{
-         console.log("image is going to delete temprary image on server")
-          fs.unlinkSync(fileToUpload.path)
-      })
-      console.log("data : ",data);
+      fs.unlink(fileToUpload.path, (err) => {
+        if (err) {
+            console.error("Error deleting temp file:", err);
+        } else {
+            console.log("Temporary image deleted:", fileToUpload.path);
+        }
+    });
+      // console.log("data : ",data);
       return data;
     } catch (error) {
       console.log(error);
