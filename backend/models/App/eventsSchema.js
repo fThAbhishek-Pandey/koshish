@@ -1,12 +1,23 @@
 import mongoose from "mongoose";
-import validator from "validator";
 
-const eventsSchema = new mongoose.Schema({
-  events: {
+const homeEventsSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true
   },
+  date:{
+    type: String, 
+    required:true
+  },
+  desc: {
+    type:String,
+    required:true
+  },
+  tumbnail:{
+    type:String,
+    required:true
+  }
 });
 
 
-export const Events = mongoose.model('Events', eventsSchema);
+export const homeEventsModel = mongoose.model('homeEventsModel', homeEventsSchema);

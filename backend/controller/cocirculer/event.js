@@ -1,17 +1,18 @@
-import { Events } from "../../models/App/eventsSchema.js" 
+import { homeEventsModel} from "../../models/App/eventsSchema.js" 
 import { cloudinaryUploadImage } from "../../middleware/cloudimage/cloudinary.js"
 const Addevent = async(req, res) => {
    try {
-       const {} =req.body
-       const tumbnail = req.file
-       if (true) {
-
+       const {eventName, date, desc} =req.body
+       console.log(req.body)
+       const thumbnail = req.file
+       if (!eventName || !date || !desc) {
+            return res.json({success:false,message: "fill all the filled" })
        }
-       if (!tumbnail){
-
+       if (!thumbnail){
+             res.json({success:false, message: "please upload thumbnail"})
        }
-       const imageData= cloudinaryUploadImage(tumbnail)
-       const newEvent = await Events.create({})
+       const imageData= await cloudinaryUploadImage(thumbnail)
+       const newEvent = await homeEventsModel.create({thumbnail:imageData.secure_url, name:eventName, date, desc })
        await newEvent.save();
        return res.json({success:true, message: "new event is created successfully" });
    } catch (error) {

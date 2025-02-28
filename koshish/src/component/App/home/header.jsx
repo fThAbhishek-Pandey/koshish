@@ -1,85 +1,15 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import pic1 from '../../../assets/Header_Pic/img1.jpg'
-import pic2 from '../../../assets/Header_Pic/img2.jpg'
-import pic3 from '../../../assets/Header_Pic/img3.jpg'
-import pic4 from '../../../assets/Header_Pic/img4.jpg'
-import pic5 from '../../../assets/Header_Pic/img5.jpg'
-import pic6 from '../../../assets/Header_Pic/img6.jpg'
-import pic7 from '../../../assets/Header_Pic/img7.jpg'
-import pic8 from '../../../assets/Header_Pic/img8.jpg'
-import pic9 from '../../../assets/Header_Pic/img9.jpg'
-import pic10 from '../../../assets/Header_Pic/img10.jpg'
-import pic11 from '../../../assets/Header_Pic/img11.jpg'
-import pic12 from '../../../assets/Header_Pic/img12.jpg'
-
+import { AppContext } from '../../../context/App';
 const IndexHeader = () => {
-
-  const sliderData = [
-    {
-      id: 1,
-      img: pic1,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 2,
-      img: pic2,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 3,
-      img: pic3,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 4,
-      img: pic4,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 5,
-      img: pic5,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 6,
-      img: pic6,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 7,
-      img: pic7,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 8,
-      img: pic8,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 9,
-      img: pic9,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 10,
-      img: pic10,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 11,
-      img: pic11,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-    {
-      id: 12,
-      img: pic12,
-      about: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, magni velit blanditiis dolor saepe omnis alias obcaecati, reiciendis quod enim quos qui. Voluptatum eos ut expedita voluptate dolores eius'
-    },
-  ];
-
+   const {headerData,handleHeader} = useContext(AppContext);
+   useEffect(()=>{
+    handleHeader();
+   },[])
+   console.log("slider data ", headerData)
+   const sliderData = headerData
   const settings = {
     dots: false,
     infinite: true,
@@ -100,19 +30,22 @@ const IndexHeader = () => {
       </div>
       
       <div className='mx-auto w-full px-4 sm:px-6 md:px-8 lg:w-4/5 xl:w-3/4 2xl:w-[70%]'>
-        <Slider {...settings} >
+     { sliderData &&  <Slider {...settings} >
           {sliderData.map((data) => (
-            <div key={data.id} className='bg-white rounded-xl shadow-lg overflow-hidden'>
+            <div key={data._id} className='bg-white rounded-xl shadow-lg overflow-hidden'>
               <div className='relative pt-[56.25%]'>
                 <img 
-                  src={data.img} 
-                  alt={`Slide ${data.id} - ${data.about.slice(0, 20)}...`} 
+                  src={data.image} 
+                  alt={`Slide ${data._id} - ${data.para.slice(0, 20)}...`} 
                   className='absolute top-0 left-0 w-full h-full object-cover rounded-xl'
                 />
+                <div  className='bg-amber-300' >{data._id}</div>
+                <div  className='bg-amber-300'>{data.heading}</div>
+                <div  className='bg-amber-300'>{data.para}</div>
               </div>
             </div>
           ))}
-        </Slider>
+        </Slider>}
       </div>
     </div>
   )
