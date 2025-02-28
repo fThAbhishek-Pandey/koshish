@@ -1,5 +1,5 @@
 import { Events } from "../../models/App/eventsSchema.js" 
-import { cloudinaryUploadImage } from "../../middleware/cloudimage/cloudinary"
+import { cloudinaryUploadImage } from "../../middleware/cloudimage/cloudinary.js"
 const Addevent = async(req, res) => {
    try {
        const {} =req.body
