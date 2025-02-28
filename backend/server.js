@@ -25,7 +25,7 @@ app.use('/api/user',userRoutes);
 app.use('/api/teacher',teacherRoutes)
 app.use('/api/cocirculer',coCirculerRoutes)
 app.use('/api/coordinater',coordinaterRoutes)
-app.use('/api/upload/coordinater',coordinaterRoutes)
+// app.use('/api/upload/coordinater',coordinaterRoutes)
 app.get('/' ,   (req,res)=>{
     res.send('Api is working')
 });

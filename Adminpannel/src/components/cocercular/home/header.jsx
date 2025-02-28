@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react'
 import { CocirculerContext } from '../../../context/cocirculer';
 const Header = () => {
     const {HeaderHandler} = useContext(CocirculerContext)
-    const [image, setImage] = useState(null);
-    const [heading, setHeading] = useState (null)
-    const [para, setpara]= useState(null);
+    const [image, setImage] = useState('');
+    const [heading, setHeading] = useState ('')
+    const [para, setpara]= useState('');
     const formdata = new FormData();
     formdata.append('image',image)
     formdata.append('heading',heading)
@@ -22,7 +22,7 @@ const Header = () => {
                 <input 
                 type="file"
                 onChange={(e)=> setImage(e.target.files[0])}
-                value={image}
+                // value={image}
                 />
             </div>
             <div>
@@ -34,11 +34,13 @@ const Header = () => {
             </div>
             <div>
                 <h3>Write Paragraph</h3>
-                <input type="text"
+                <textarea 
+                 type="text"
                  onChange={(e)=>setpara(e.target.value)}
                  value={para}
-                />
+               > </textarea>
             </div>
+            <button>Add Header</button>
         </form>
     
     
