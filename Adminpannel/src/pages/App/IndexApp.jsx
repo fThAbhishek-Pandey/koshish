@@ -2,13 +2,17 @@ import React from 'react'
 import { Routes, Route} from 'react-router-dom';
 import Navbar from "../../components/Navbar";
 import Footer from '../../components/Footer';
+
 const IndexApp = () => {
   return (
     <div>
         <Navbar/>
-        <div className="flex justify-start">
+        <div className="">
         IndexApp
-        <div className="w-full">
+        <div className="">
+        
+
+
           <Routes>
             {/* <Route path='/' element={<Dashboard/>} /> */}
         </Routes>
