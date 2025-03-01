@@ -13,7 +13,7 @@ const homeEventsSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-  tumbnail:{
+  thumbnail:{
     type:String,
     required:true
   }

@@ -15,7 +15,7 @@ const cloudinaryUploadImage =  async(fileToUpload) => {
             console.log("Temporary image deleted:", fileToUpload.path);
         }
     });
-      // console.log("data : ",data);
+      console.log("data : ",data);
       return data;
     } catch (error) {
       console.log(error);

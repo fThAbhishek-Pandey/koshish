@@ -17,12 +17,12 @@ const Event = () => {
       </p>
       
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer'>
-        {cardData && cardData.map(({ id, img, name, about }) => (
-          <div key={id} className='text-white shadow-md hover:rounded-2xl overflow-hidden relative group mb-4 transition-all duration-300'>
+        {cardData && cardData.map(({ _id, thumbnail, name,desc, date }) => (
+          <div key={_id} className='text-white shadow-md hover:rounded-2xl overflow-hidden relative group mb-4 transition-all duration-300'>
             <div className='relative w-full aspect-square'> 
               <img 
-                src={img} 
-                alt="Event" 
+                src={thumbnail} 
+                alt={name}
                 className='w-full h-full object-cover' 
               />
             </div>
@@ -32,7 +32,7 @@ const Event = () => {
                 <Slide cascade>
                   <h1 className='text-xl sm:text-2xl lg:text-3xl font-bold'>{name}</h1>
                   <Fade cascade damping={0.05}>
-                    <p className='text-xs sm:text-sm line-clamp-3 md:line-clamp-4'>{about}</p>
+                    <p className='text-xs sm:text-sm line-clamp-3 md:line-clamp-4'>{desc}</p>
                   </Fade>
                   <div className='text-center'>
                     <button className='border border-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-lg hover:bg-white/10 cursor-pointer transition-colors'>
