@@ -24,8 +24,8 @@ const Navbar = () => {
         <li><a href="#home" className="text-gray-700 hover:text-indigo-600 transition-colors">Events</a></li>
         <li><a href="#courses" className="text-gray-700 hover:text-indigo-600 transition-colors">Mentor</a></li>
         <li><a href="#about" className="text-gray-700 hover:text-indigo-600 transition-colors">Announcement</a></li>
-        <li><a href="#blog" className="text-gray-700 hover:text-indigo-600 transition-colors">About</a></li>
-        <li><a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact</a></li>
+        <li><a href="#blog" className="text-gray-700 hover:text-indigo-600 transition-colors">About us</a></li>
+        <li><a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact us</a></li>
       </ul>
 
       {/* Auth Buttons - Hidden on mobile */}
@@ -63,7 +63,7 @@ const Navbar = () => {
               <a href="#blog" className="text-gray-700 hover:text-indigo-600 transition-colors">About us</a>
             </li>
             <li className="py-2">
-              <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
+              <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact us</a>
             </li>
             <li className="py-2">
               <button className="w-full px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors">

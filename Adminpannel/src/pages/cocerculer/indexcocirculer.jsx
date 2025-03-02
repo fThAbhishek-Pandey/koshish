@@ -11,6 +11,7 @@ import Announcement from './Announcement';
 import Handlehome from './handlehome';
 import AddTopMentor from '../../components/cocercular/home/AddTopMentor'
 import AddEvent from '../../components/cocercular/home/AddEvent'
+import AddTestimorals from '../../components/cocercular/home/AddTestimorals';
 const Indexcocirculer = () => {
   return (
     <div>
@@ -28,6 +29,7 @@ const Indexcocirculer = () => {
                         <Route path='/add-header' element={<Handlehome/>} />
                         <Route path='/add-event' element={<AddEvent/>} />
                         <Route path='/add-topmentor' element={<AddTopMentor/>} />
+                        <Route path='/add-testimorals' element={<AddTestimorals/>} />
                       </Routes>
                      </div>
                     </div>
