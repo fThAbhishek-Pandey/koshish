@@ -5,6 +5,7 @@ const coordinatorLogin = async (backendURL,username,password,role,setToken) => {
     
    if (role=='coordinator'){
     console.log("login coordinate", backendURL,username,password,role,setToken)
+
     const {data} = await axios.post(backendURL+'/api/coordinater/login', {username,password});
     if (data.success){
         toast.success(data.massage);
@@ -17,6 +18,7 @@ const coordinatorLogin = async (backendURL,username,password,role,setToken) => {
 }
 else if(role=='cocircular') {
   console.log("login coordinate", backendURL,username,password,role,setToken)
+
         const {data} = await axios.post(backendURL+'/api/cocirculer/login', {username,password});
         console.log("responce data",data);
         if (data.success){
