@@ -12,15 +12,19 @@ const SidebarCocirculer = () => {
         </li>
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
           <FaUserPlus className="mr-3" />
-          <span>AddMentor</span>
+          <span>Mentor</span>
         </li>
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
           <FaUserMinus className="mr-3" />
-          <span>TerminateMentor</span>
+          <span>Land Page</span>
         </li>
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
           <FaUserEdit className="mr-3" />
-          <span>UpdateMentor</span>
+          <span>Announcement</span>
+        </li>
+        <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
+          <FaUserEdit className="mr-3" />
+          <span>contact</span>
         </li>
       </ul>
     </div>

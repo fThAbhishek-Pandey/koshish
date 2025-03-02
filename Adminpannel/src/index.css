@@ -1,1 +1,30 @@
 @import "tailwindcss";
+@theme {
+    /* Primary Green (Base Color) */
+   --color-green00 : #4C8826;
+   /* Secondary Greens (Lighter & Darker Variants) */
+         /*Lighter Green (For highlights, accents)*/
+   --color-green10 : #7CB342; /*(RGB: 124, 179, 66)*/
+   --color-green11 : #A5D6A7; /*(RGB: 165, 214, 167)*/
+        /*Darker Green (For contrast, depth)*/
+   --color-green12 : #2E7D32; /*(RGB: 46, 125, 50)*/
+   --color-green12 : #1B5E20; /*(RGB: 27, 94, 32)*/
+   /* Tertiary Greens (Supporting Shades for Gradient/Depth) */
+   --color-green20 : #8BC34A; /*  (RGB: 139, 195, 74) Muted Green (For softer looks)*/
+   --color-green21: #145A32; /*(RGB: 20, 90, 50) Deep Forest Green (For strong emphasis)*/
+    /* Primary Blue (Base Color) */
+    --color-blue00 : #0003FB;
+    /* Secondary Blues (Lighter & Darker Variants) */
+    /*Lighter Blues (For highlights, accents)*/
+    --color-blue10 :#2196F3; /*(RGB: 33, 150, 243) → Bright sky blue*/ 
+    --color-blue11 : #90CAF9; /*(RGB: 144, 202, 249) → Soft pastel blue*/
+   
+    /*Darker Blues (For contrast, depth)*/
+    --color-blue12 : #0D47A1;  /* (RGB: 13, 71, 161) → Deep navy blue*/
+    --color-blue12 : #1A237E; /* (RGB: 26, 35, 126) → Rich royal blue*/
+    /* Tertiary Greens (Supporting Shades for Gradient/Depth) */
+    --color-blue20 : #64B5F6; /*(RGB: 100, 181, 246) → Cool soft blue*/
+    --color-blue21 : #3F51B5; /*(RGB: 63, 81, 181) → Strong energetic blue*/
+   
+
+ }

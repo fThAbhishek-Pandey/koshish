@@ -37,7 +37,7 @@ const AddTestimorals = () => {
                 type="file" />
             </div>
             <div>
-                <label >HeadLine</label>
+                <label className={"bg-blue00"} >HeadLine</label>
                 <input 
                 value={headline}
                 onChange={(e)=> setHeadline(e.target.value)}
