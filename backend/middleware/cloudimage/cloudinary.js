@@ -19,7 +19,7 @@ const cloudinaryUploadImage =  async(fileToUpload) => {
       return data;
     } catch (error) {
       console.log(error);
-      throw new Error("Internal Server Error (cloudinary)");
+      throw new Error("Internal Server Error (cloudinary)",error);
     }
   };
 
