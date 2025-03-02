@@ -6,6 +6,7 @@ import{ addMentor, terminateMentor, AllMentor, updateMentor} from '../controller
 import { addHeader } from '../controller/cocirculer/manageHeader.js';
 import { addTopMentor } from '../controller/cocirculer/TopMentor.js';
 import { Addevent } from '../controller/cocirculer/event.js';
+import { addtestimorals } from '../controller/cocirculer/testimorals.js';
 import upload from '../middleware/cloudimage/multer.js'
 const coCirculerRoutes = express.Router();
 coCirculerRoutes.post('/login', loginCociculer);
@@ -18,4 +19,5 @@ coCirculerRoutes.get('/all-mentor', authCociculer, AllMentor )
 coCirculerRoutes.post('/addheader', authCociculer,upload.single('image'),addHeader)
 coCirculerRoutes.post('/addtopmentor', authCociculer,upload.single('image'),addTopMentor)
 coCirculerRoutes.post('/addevent', authCociculer,upload.single('image'),Addevent)
+coCirculerRoutes.post('/addtestimorals', authCociculer,upload.single('image'),addtestimorals )
 export default coCirculerRoutes

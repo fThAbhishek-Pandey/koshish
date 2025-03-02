@@ -1,4 +1,6 @@
 import React from 'react'
+
+import Education from '../../component/App/Education'
 import IndexHeader from '../../component/App/home/header'
 import Culture from '../../component/App/home/culture'
 import Event from '../../component/App/home/event'
@@ -11,6 +13,7 @@ const HomeApp = () => {
        <IndexHeader/>
        <Culture/>
         <Event/>
+        <Education/>
         <Mentor/>
         <Achievement/>
         <Testimorals/>

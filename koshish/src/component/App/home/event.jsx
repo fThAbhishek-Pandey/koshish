@@ -1,39 +1,13 @@
-import React from 'react';
+import React , {useContext, useEffect}from 'react';
 import { Slide, Fade } from 'react-awesome-reveal';
-import pic1 from '../../../assets/Events_Pic/img1.jpg'
-import pic2 from '../../../assets/Events_Pic/img2.jpg'
-import pic3 from '../../../assets/Events_Pic/img3.jpg'
-import pic4 from '../../../assets/Events_Pic/img4.jpg'
-
+import { AppContext } from '../../../context/App';
 const Event = () => {
-  const cardData = [
-    { 
-      id:1,
-      img: pic1, 
-      name: 'Event - 1', 
-      subject: 'Physics ',  
-      about: 'KOSHISH organizes cultural and technical events, fostering creativity, innovation, and teamwork among children, enhancing their skills and confidence'
-    },
-    { 
-      id:2,
-      img: pic2, 
-      name: 'Event - 2', 
-      about: 'KOSHISH organizes cultural and technical events, fostering creativity, innovation, and teamwork among children, enhancing their skills and confidence'
-    },
-    { 
-      id:3,
-      img: pic3, 
-      name: 'Event - 3', 
-      about: 'KOSHISH organizes cultural and technical events, fostering creativity, innovation, and teamwork among children, enhancing their skills and confidence' 
-    },
-    { 
-      id:4,
-      img: pic4, 
-      name: 'Event - 4', 
-      about: 'KOSHISH organizes cultural and technical events, fostering creativity, innovation, and teamwork among children, enhancing their skills and confidence' 
-    }
-  ];
-
+  const { homeEvent, handleHomeEvent} = useContext(AppContext);
+  useEffect(()=>{
+    handleHomeEvent();
+  },[])
+  const cardData=homeEvent
+  
   return (
     <div className='bg-[#222] pb-16 px-4 sm:px-6 lg:px-8'>
     <div className='bg-[#222] max-w-8xl mx-auto'>
@@ -43,12 +17,12 @@ const Event = () => {
       </p>
       
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer'>
-        {cardData.map(({ id, img, name, about }) => (
-          <div key={id} className='text-white shadow-md hover:rounded-2xl overflow-hidden relative group mb-4 transition-all duration-300'>
+        {cardData && cardData.map(({ _id, thumbnail, name,desc, date }) => (
+          <div key={_id} className='text-white shadow-md hover:rounded-2xl overflow-hidden relative group mb-4 transition-all duration-300'>
             <div className='relative w-full aspect-square'> 
               <img 
-                src={img} 
-                alt="Event" 
+                src={thumbnail} 
+                alt={name}
                 className='w-full h-full object-cover' 
               />
             </div>
@@ -58,7 +32,7 @@ const Event = () => {
                 <Slide cascade>
                   <h1 className='text-xl sm:text-2xl lg:text-3xl font-bold'>{name}</h1>
                   <Fade cascade damping={0.05}>
-                    <p className='text-xs sm:text-sm line-clamp-3 md:line-clamp-4'>{about}</p>
+                    <p className='text-xs sm:text-sm line-clamp-3 md:line-clamp-4'>{desc}</p>
                   </Fade>
                   <div className='text-center'>
                     <button className='border border-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-lg hover:bg-white/10 cursor-pointer transition-colors'>

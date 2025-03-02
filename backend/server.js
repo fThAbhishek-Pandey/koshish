@@ -7,7 +7,7 @@ import coCirculerRoutes from './routes/coCirculerRoutes.js';
 import coordinaterRoutes from './routes/coordinaterRoutes.js';
 import teacherRoutes from './routes/teacherRoutes.js';
 import userRoutes from './routes/userRoutes.js';
-
+import appRoutes from './routes/appRoutes.js';
 // app config
 const app = express();
 
@@ -22,6 +22,7 @@ app.use(express.json());
 // Parse URL-encoded bodies (HTML forms)
 app.use(express.urlencoded({ extended: true }));
 //  APIs endpoints
+app.use('/api/app',appRoutes);
 app.use('/api/user',userRoutes);
 app.use('/api/teacher',teacherRoutes)
 app.use('/api/cocirculer',coCirculerRoutes)

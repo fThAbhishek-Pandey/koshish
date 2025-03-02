@@ -13,7 +13,6 @@ const IndexApp = () => {
           <Navbar />
 
             <div className=''>
-              <h2 className=''>koshish</h2>
              <div  className='' > 
 
               <Routes>

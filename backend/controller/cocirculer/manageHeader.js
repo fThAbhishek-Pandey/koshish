@@ -14,10 +14,12 @@ const addHeader = async(req,res) => {
       return res.json({success:false,message:"please upload header image" })
     }
     else console.log("img-->",imagefile)
-   const image = cloudinaryUploadImage(imagefile)
-    .then ((data)=>{
-       console.log("===> ",data)  
-    })
+   const image = await cloudinaryUploadImage(imagefile)
+   if (!image || !image.secure_url) {
+    console.log("image --.",image)
+    throw new Error("Image upload failed");
+}
+   console.log("image -->",image)
    const newHeader = await headerModel.create({image:image.secure_url, heading, para })
    await newHeader.save()
 

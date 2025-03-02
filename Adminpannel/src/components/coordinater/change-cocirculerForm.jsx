@@ -1,113 +1,157 @@
 import React, { useContext, useState } from "react";
 import { CoordinatorContext } from "../../context/coordinater";
+
 const ChangeCocirculerForm = () => {
   const { hadleChangeCocirculer } = useContext(CoordinatorContext);
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [name, setName] = useState();
-  const [speciality, setSpeciality] = useState();
-  const [about, setAbout] = useState();
-  const [address, setAddress] = useState();
-  const [cocirImg, setCocirImg]= useState(false);
-  const handleform = (e) => {
-    e.preventDefault();
-    try {
-      const formData = new FormData();
-      formData.append("email", email);
-      formData.append("password", password);
-      formData.append("name", name);
-      formData.append('image',cocirImg)
-      formData.append("speciality", speciality);
-      formData.append("about", about);
-      formData.append("address", address);
-      formData.forEach((value, key) => {
-        console.log(key, " : ", value, "\n");
-      });
-      console.log("cocirculerimg : ",cocirImg);
-      hadleChangeCocirculer(formData);
-    } catch (error) {
-      console.log(error);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    speciality: "",
+    customSpeciality: "",
+    about: "",
+    address: "",
+  });
+
+  const [showCustomSpeciality, setShowCustomSpeciality] = useState(false);
+
+  
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    if (e.target.name === "speciality") {
+      if (e.target.value === "Other") {
+        setShowCustomSpeciality(true);
+      } else {
+        setShowCustomSpeciality(false);
+        setFormData({ ...formData, speciality: e.target.value, customSpeciality: "" });
+      }
     }
   };
+
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      const finalData = { ...formData };
+      if (showCustomSpeciality) {
+        finalData.speciality = formData.customSpeciality;
+      }
+      delete finalData.customSpeciality; 
+
+      console.log("Updated Data:", finalData);
+      hadleChangeCocirculer(finalData);
+      alert("Profile updated successfully!");
+    } catch (error) {
+      console.log("Error updating:", error);
+    }
+  };
+
   return (
-    <div>
-      <form onSubmit={handleform}>
+    <div className="p-4 w-1/3 mx-auto border rounded shadow-md">
+      <h2 className="text-xl font-bold mb-4">Add Teacher</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <div>
-          <h2>Upload image</h2>
-          <input 
-          onChange={e=> setCocirImg(e.target.files[0])}
-          className="border-2 border-amber-400"
-         
-          type="file"
-           />
-        </div>
-        <div>
-          <h3>name</h3>
+          <h3>Name</h3>
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="border rounded px-3 py-2 border-blue-500"
             type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="border rounded px-3 py-2 border-blue-500 w-full"
             placeholder="Abhishek"
             required
           />
         </div>
         <div>
-          <h3>email</h3>
+          <h3>Email</h3>
           <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="border rounded px-3 py-2 border-blue-500"
             type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="border rounded px-3 py-2 border-blue-500 w-full"
             placeholder="abhishek@gamil.com"
             required
           />
         </div>
         <div>
-          <h3>password</h3>
+          <h3>Password</h3>
           <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="border rounded px-3 py-2 border-blue-500"
             type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="border rounded px-3 py-2 border-blue-500 w-full"
             placeholder="A2k2024"
             required
           />
         </div>
         <div>
-          <h3>speciality</h3>
-          <input
-            value={speciality}
-            onChange={(e) => setSpeciality(e.target.value)}
-            className="border rounded px-3 py-2 border-blue-500"
-            type="text"
-            placeholder="B.tech"
+          <h3>Speciality</h3>
+          <select
+            name="speciality"
+            value={formData.speciality}
+            onChange={handleChange}
+            className="border rounded px-3 py-2 border-blue-500 w-full"
             required
-          />
+          >
+            <option value="">Select Speciality</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="M.Tech">M.Tech</option>
+            <option value="MBA">MBA</option>
+            <option value="PhD">PhD</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
+
+        
+        {showCustomSpeciality && (
+          <div>
+            <h3>Enter Speciality</h3>
+            <input
+              type="text"
+              name="customSpeciality"
+              value={formData.customSpeciality}
+              onChange={handleChange}
+              className="border rounded px-3 py-2 border-blue-500 w-full"
+              placeholder="Enter your speciality"
+              required
+            />
+          </div>
+        )}
+
         <div>
-          <h3>about</h3>
+          <h3>About</h3>
           <input
-            value={about}
-            onChange={(e) => setAbout(e.target.value)}
-            className="border rounded px-3 py-2 border-blue-500"
             type="text"
+            name="about"
+            value={formData.about}
+            onChange={handleChange}
+            className="border rounded px-3 py-2 border-blue-500 w-full"
             placeholder="about"
             required
           />
         </div>
         <div>
-          <h3>adderess</h3>
+          <h3>Address</h3>
           <input
-            onChange={(e) => setAddress(e.target.value)}
-            value={address}
-            className="border rounded px-3 py-2 border-blue-500"
             type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            className="border rounded px-3 py-2 border-blue-500 w-full"
             placeholder="my address"
             required
           />
         </div>
-        <button className="bg-blue-500 text-white">change cocirculer</button>
+        <button
+          type="submit"
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Change Cocirculer
+        </button>
       </form>
     </div>
   );

@@ -10,7 +10,7 @@ const addTopMentor = async (req, res) => {
         if (!imagefile){
             return res.json({success:true, message:"please upload top Mentor"})
         }
-     const image =  cloudinaryUploadImage(imagefile);
+     const image = await cloudinaryUploadImage(imagefile);
     const TopMentor= await  TopmentorModel.create({name,email,speciality,linkedinURL,year,image:image.secure_url})
     await  TopMentor.save()
     return res.json({success:true, message: "Top Mentor Add successfully"});
