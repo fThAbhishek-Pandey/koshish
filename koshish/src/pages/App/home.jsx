@@ -11,9 +11,9 @@ const HomeApp = () => {
   return (
     <div>
        <IndexHeader/>
-        <Education/>
        <Culture/>
         <Event/>
+        <Education/>
         <Mentor/>
         <Achievement/>
         <Testimorals/>
