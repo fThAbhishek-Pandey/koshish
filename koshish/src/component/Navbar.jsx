@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import koshishLogo from '../assets/koshish.png'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,11 +12,11 @@ const Navbar = () => {
       {/* Logo Section */}
       <div className="flex items-center gap-2">
         <img 
-          src="/api/placeholder/30/30" 
-          alt="Courses Logo" 
+          src={koshishLogo}
+          alt="koshish Logo" 
           className="h-8 w-8"
         />
-        <span className="text-xl font-bold text-gray-800">Courses</span>
+        <span className="text-xl font-bold text-gray-800">Koshish</span>
       </div>
 
       {/* Navigation Links - Hidden on mobile */}
