@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import ChangeCoordinator from "./changeCo-ordinator";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 const Indexcoordinator = () => {
@@ -7,11 +8,11 @@ const Indexcoordinator = () => {
     <div>
       <Navbar />
 
-      <div className="flex justify-start">
+      <div className="">
         Indexcoordinator
-        <div className="w-full">
+        <div className="">
           <Routes>
-            {/* <Route path='/' element={<Dashboard/>} /> */}
+            <Route path='/' element={<ChangeCoordinator/>} />
         </Routes>
         </div>
       </div>
