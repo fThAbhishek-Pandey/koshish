@@ -39,7 +39,7 @@ const Login = () => {
                 <input 
                 onChange={e=> setUsername(e.target.value)}
                 value={Username}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-lg hover:border-3 hover:border-blue-700"
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-lg hover:border-3 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
                 />
             </div>
@@ -49,7 +49,7 @@ const Login = () => {
                 <input 
                 onChange={e=> setPassword(e.target.value)}
                 value={password}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-lg hover:border-3 hover:border-blue-700"
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-lg hover:border-3 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="password"
                 required
                  />
@@ -57,13 +57,13 @@ const Login = () => {
             <div>
             
                 <label className='block text-sm font-medium text-gray-700'>Login as:</label>
-                <select name="role" onChange={e=>setRole(e.target.value)} id="" className='w-full mt-1 p-2 border rounded-lg hover:border-3 hover:border-blue-700'>
+                <select name="role" onChange={e=>setRole(e.target.value)} id="" className='w-full mt-1 p-2 border rounded-lg hover:border-3 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500'>
                     <option value="">--select--</option>
                     <option value="coordinator" >Coordinator</option>
                     <option value="cocircular">Cocircular</option>
                 </select>
             </div>
-            <button className='mt-8 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 w-full' type='submit'>Login</button>
+            <button className='mt-8 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 w-full focus:outline-none focus:ring-2 focus:ring-blue-500' type='submit'>Login</button>
         </form>
 
 
