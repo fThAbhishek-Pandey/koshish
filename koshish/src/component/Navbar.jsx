@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import koshishLogo from '../assets/koshish.png'
+import {NavLink} from 'react-router-dom'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -10,6 +11,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center px-8 py-4 bg-white shadow-sm">
       {/* Logo Section */}
+      <NavLink to={'/'}>
       <div className="flex items-center gap-2">
         <img 
           src={koshishLogo}
@@ -18,24 +20,27 @@ const Navbar = () => {
         />
         <span className="text-xl font-bold text-gray-800">Koshish</span>
       </div>
+        
+      </NavLink>
+     
 
       {/* Navigation Links - Hidden on mobile */}
       <ul className={`md:flex gap-8 items-center hidden`}>
-        <li><a href="#home" className="text-gray-700 hover:text-indigo-600 transition-colors">Events</a></li>
-        <li><a href="#courses" className="text-gray-700 hover:text-indigo-600 transition-colors">Mentor</a></li>
-        <li><a href="#about" className="text-gray-700 hover:text-indigo-600 transition-colors">Announcement</a></li>
-        <li><a href="#blog" className="text-gray-700 hover:text-indigo-600 transition-colors">About us</a></li>
-        <li><a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact us</a></li>
+        <NavLink to={'/events'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">Events</li></NavLink>
+        <NavLink to={'/mentors'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">Mentor</li></NavLink>
+        <NavLink to={'/announcement'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">Announcement</li></NavLink>
+        <NavLink to={'/about'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">About us</li></NavLink>
+        <NavLink to={'/contact'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">Contact us</li></NavLink>
       </ul>
 
       {/* Auth Buttons - Hidden on mobile */}
       <div className="hidden md:flex gap-4">
         <button className="px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors">
-          Join
+          Join us
         </button>
-        <button className="px-6 py-2 border border-indigo-600 text-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors">
+        {/* <button className="px-6 py-2 border border-indigo-600 text-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors">
           Log In
-        </button>
+        </button> */}
       </div>
 
       {/* Mobile Menu Button */}
@@ -67,14 +72,14 @@ const Navbar = () => {
             </li>
             <li className="py-2">
               <button className="w-full px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors">
-                Join
+                Join us
               </button>
             </li>
-            <li className="py-2">
+            {/* <li className="py-2">
               <button className="w-full px-6 py-2 border border-indigo-600 text-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors">
                 Log In
               </button>
-            </li>
+            </li> */}
           </ul>
         </div>
       )}
