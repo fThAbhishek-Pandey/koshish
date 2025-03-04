@@ -13,7 +13,8 @@ const terminateMentorDB = async(email)=>{
 const AllMentorDB = async ()=>{
    const data = await TeacherModel.find({});
    console.log(data);
-   return data.reverse
+//    const myData = 
+   return data.reverse()
 }
 const updateMentor = ()=>{
 

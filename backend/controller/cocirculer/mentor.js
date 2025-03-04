@@ -38,12 +38,8 @@ const terminateMentor = async (req,res)=>{
 }
 const AllMentor = async()=>{
   try {
-     await AllMentorDB () .then(
-      (data)=>{
-        return res.json({success:true, data});
-      }
-      
-     ) ;
+    const data =  await AllMentorDB () 
+     return res.json({success:true, data, message : "All Mentor is find"});
   } catch (error) {
            console.log(error)
            res.json({success:true, message: error.message})
