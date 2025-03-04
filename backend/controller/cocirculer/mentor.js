@@ -4,6 +4,7 @@ const addMentor = async(req, res ) => {
    try {
           const {name,email,subject,classTeacher,speciality, about}= req.body;
           if(!name|| !email|| !subject || !classTeacher|| !speciality|| !about){
+            console.log(name,email,subject,classTeacher,speciality, about)
             res.json({success:false, message:"fill all details"})
           }
           const mentorImg = req.file
@@ -15,15 +16,9 @@ const addMentor = async(req, res ) => {
           name,email,subject,classTeacher,speciality, about
           
          }
-          await  cloudinaryUploadImage(mentorImg)
-          .then (async (data)=>{
-             mentorData.push(image ,data.secure_url)
-             await  addMentorDB(mentorData)
-             .then (()=>{
-               res.json({success: true, message: "Mentor is added"});
-             })
-          })
-          
+        const imageData=   await  cloudinaryUploadImage(mentorImg)
+        await  addMentorDB({...mentorData,image: imageData.secure_url })
+         res.json({success:true,message: "New teacher is added"}) 
    } catch (error) {
             console.log(error)
             res.json({success:true, message: error.message})
