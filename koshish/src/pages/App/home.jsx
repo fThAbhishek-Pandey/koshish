@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Education from '../../component/App/Education'
+import Education from '../../component/App/home/Education'
 import IndexHeader from '../../component/App/home/header'
 import Culture from '../../component/App/home/culture'
 import Event from '../../component/App/home/event'

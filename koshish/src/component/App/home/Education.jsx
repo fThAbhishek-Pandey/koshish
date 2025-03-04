@@ -1,5 +1,5 @@
 import React from 'react'
-import education from '../../assets/edu.svg'
+import education from '../../../assets/edu.svg'
 import { LiaUserGraduateSolid } from "react-icons/lia";
 import { LiaUniversitySolid } from "react-icons/lia";
 
