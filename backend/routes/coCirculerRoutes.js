@@ -12,10 +12,10 @@ const coCirculerRoutes = express.Router();
 coCirculerRoutes.post('/login', loginCociculer);
 // coCirculerRoutes.get('/auth', authCociculer);
 coCirculerRoutes.patch('/update/cocirculer-profile', authCociculer, updatecocerculerprofile);
-coCirculerRoutes.post('/add-mentor', authCociculer,upload.single('image'),addMentor )
-coCirculerRoutes.patch('/update-mentor', authCociculer,updateMentor )
-coCirculerRoutes.patch('/terminate-mentor', authCociculer,upload.single('image'),terminateMentor )
-coCirculerRoutes.get('/all-mentor', authCociculer, AllMentor )
+coCirculerRoutes.post('/mentor/add', authCociculer,upload.single('image'),addMentor )
+coCirculerRoutes.patch('/mentor/update', authCociculer,upload.single('image'),updateMentor )
+coCirculerRoutes.patch('/mentor/terminate', authCociculer,terminateMentor )
+coCirculerRoutes.get('/mentor/all', authCociculer, AllMentor )
 coCirculerRoutes.post('/addheader', authCociculer,upload.single('image'),addHeader)
 coCirculerRoutes.post('/addtopmentor', authCociculer,upload.single('image'),addTopMentor)
 coCirculerRoutes.post('/addevent', authCociculer,upload.single('image'),Addevent)

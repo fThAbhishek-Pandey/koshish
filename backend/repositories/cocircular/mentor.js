@@ -3,8 +3,8 @@ import TeacherModel from '../../models/teacher/teacherSchema.js'
 
 const addMentorDB = async(mentorData)=>{
      console.log(mentorData)
-    await  TeacherModel.create(mentorData);
-    await TeacherModel.save()
+   const newMentor =  await  TeacherModel.create(mentorData);
+    await newMentor.save()
 }
 
 const terminateMentorDB = async(email)=>{

@@ -25,7 +25,7 @@ const teacherSchema = new mongoose.Schema({
   },
   joinTime:{
     type: Date,
-    required:true
+    default:Date.now ()
   },
   speciality:{
     type:String,
