@@ -18,11 +18,11 @@ const Education = () => {
             </p>
             <div className="flex flex-col items-start space-y-2 mb-2">
                 <div className="text-2xl font-bold flex items-center ml-13 ">
-                    <LiaUserGraduateSolid className="mr-2 rounded-full bg-violet-300" />
+                    <LiaUserGraduateSolid className="mr-2 rounded-full bg-violet-200" />
                     22,931 <span className="text-base font-normal m-2 ">Yearly Graduates</span>
                 </div>
                 <div className="text-2xl font-bold flex items-center p-1 ml-12">
-                    <LiaUniversitySolid className="mr-2 rounded-full bg-violet-300" />
+                    <LiaUniversitySolid className="mr-2 rounded-full bg-violet-200" />
                     150 <span className="text-base font-normal m-2">Universities Worldwide</span>
                 </div>
   
