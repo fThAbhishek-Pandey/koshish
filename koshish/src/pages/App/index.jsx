@@ -8,6 +8,7 @@ import HomeApp from './home';
 import Announcements from './announcements';
 import Contact from './contact';
 import About from './about';
+import Error404 from '../../component/Error404';
 const IndexApp = () => {
   return (
     <div>
@@ -23,6 +24,7 @@ const IndexApp = () => {
                 <Route path='/announcement' element={<Announcements/>} />
                 <Route path='/about' element={<About/>} />
                 <Route path='/contact' element={<Contact/>} />
+                <Route path='*' element={<Error404/>} />
               </Routes>
              </div>
             </div>

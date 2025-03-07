@@ -8,9 +8,11 @@ import AddMentor from "../utilities/cocirculer/Mentor/AddMentor";
 import AllMentor from "../utilities/cocirculer/Mentor/AllMentor";
 import updateMentor from "../utilities/cocirculer/Mentor/updateMentor";
 import terminateMentor from "../utilities/cocirculer/Mentor/terminateMentor";
+import contact from "../utilities/cocirculer/contact";
 export const CocirculerContext = createContext(1);
 const  CocirculerContextProvider = (props) => {
   const [cirToken , setCirToken]= useState(localStorage.getItem('cirToken'));
+  const [getcontact, setContact] = useState([]);
   const backendURL = import.meta.env.VITE_BACKEND_URL
   console.log(".env-->",import.meta.env)
   const HeaderHandler = (formdata)=>{
@@ -37,6 +39,9 @@ const handelUpdateMentor = ( formdata)=>{
 const handelTerminateMentor = (email)=>{
   terminateMentor (backendURL, email, cirToken)
 }
+const handelContact = ()=>{
+           contact(backendURL,setContact,cirToken )
+}
   const value = {
   cirToken , setCirToken,  backendURL,
   //  landpage
@@ -46,6 +51,8 @@ const handelTerminateMentor = (email)=>{
   // announcement section
 
   //  about section
+  //  contact
+  getcontact, setContact,handelContact
  }
 return (
     <>

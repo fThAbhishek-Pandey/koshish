@@ -1,4 +1,5 @@
 import React, {useContext, useEffect} from 'react'
+import Loader from '../../Loader';
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -30,8 +31,8 @@ const IndexHeader = () => {
       </div>
       
       <div className='mx-auto w-full px-4 sm:px-6 md:px-8 lg:w-4/5 xl:w-3/4 2xl:w-[70%]'>
-     { sliderData &&  <Slider {...settings} >
-          {sliderData.map((data) => (
+     {<Slider {...settings} >
+          { sliderData ? <div>Loading...</div> : sliderData.map((data) => (
             <div key={data._id} className='bg-white rounded-xl shadow-lg overflow-hidden'>
               <div className='relative pt-[56.25%]'>
                 <img 

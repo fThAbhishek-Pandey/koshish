@@ -1,5 +1,6 @@
 import React , {useContext, useEffect}from 'react';
 import { AppContext } from '../../../context/App';
+import Loader from '../../Loader';
 const Mentor = () => {
   const {TopMentor,handleTopMentor}= useContext(AppContext)
   useEffect(()=>{
@@ -16,7 +17,7 @@ const Mentor = () => {
           Meet our experienced and dedicated teachers who strive to provide the best education.
         </p>
           <div className="flex flex-wrap justify-center gap-4 xl:gap-6">
-            { teachers &&  teachers.map((teacher, index) => (
+            { !teachers? <Loader/>:  teachers.map((teacher, index) => (
               <div 
                 key={teacher._id} 
                 className="group bg-white shadow-lg rounded-lg p-4 sm:p-6 text-center w-full sm:w-[45%] lg:w-[22%] transition-transform duration-300"
