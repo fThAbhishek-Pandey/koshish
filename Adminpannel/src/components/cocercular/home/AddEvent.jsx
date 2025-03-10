@@ -17,40 +17,45 @@ const AddEvent = () => {
         EventHandler(formdata)
     }
   return (
-    <>
-        <h2>Add home Event</h2>
-        <form onSubmit={handleonsubmit}>
+    <div className='max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg'>
+      <h2 className='text-2xl font-bold mb-6 text-gray-800'>Add home Event</h2>
+        <form onSubmit={handleonsubmit} className='space-y-6'>
               <div>
-                <label >Event Name</label>
+                <label className='block text-gray-700 font-medium mb-2' >Event Name</label>
                 <input 
                  onChange={(e)=>setEventName(e.target.value)}
                  value={eventName}
+                 className='w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
                 type="text" />
               </div>
               <div>
-                <label >upload Thumbnail</label>
+                <label className='block text-gray-700 font-medium mb-2'>upload Thumbnail</label>
                 <input 
                 onChange={(e)=>setThumbnail(e.target.files[0])}
+                // value={thumbnail}
+                className='w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
                 type="file" />
               </div>
               <div>
-                <label >date</label>
+                <label className='block text-gray-700 font-medium mb-2' >date</label>
                 <input 
                 onChange={(e)=> setDate(e.target.value)}
                 value={date}
+                className='w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
                 type="text" />
               </div>
               <div>
-                <label >Description</label>
+                <label className='block text-gray-700 font-medium mb-2'>Description</label>
                 <textarea
-               onChange={(e)=>setDesp(e.target.value)}
-               value={desp}
-              >
-              </textarea>
+                 onChange={(e)=>setDesp(e.target.value)}
+                 value={desp}
+                 className='w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+                >
+                </textarea>
               </div>
-              <button>Add event</button>
+              <button className='w-full bg-blue-500 text-white p-3 rounded-lg font-medium hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500'>Add event</button>
         </form>
-    </>
+    </div>
   )
 }
 
