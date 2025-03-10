@@ -12,7 +12,7 @@ const addtestimorals = async(req,res) => {
          res.json({success:false, message:"please upload the images"});
       }
       const imageData = await cloudinaryUploadImage(imagefile)
-      const newTestimorals = await TestimoralModel.create({headline,quote, linkedin, image:imageData.secure_url});
+      const newTestimorals = await TestimoralModel.create({headline,about: quote, name, linkedin, image:imageData.secure_url});
        await newTestimorals.save()
 
        return res.json({success:true, message:"new Testimoral is added successfully"})

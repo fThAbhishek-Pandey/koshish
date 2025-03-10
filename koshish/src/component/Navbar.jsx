@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import koshishLogo from '../assets/koshish.png'
+import koshishLogo from '../assets/koshishLogo.png'
 import {NavLink} from 'react-router-dom'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +12,11 @@ const Navbar = () => {
     <nav className="flex justify-between items-center px-8 py-4 bg-white shadow-sm">
       {/* Logo Section */}
       <NavLink to={'/'}>
-      <div className="flex items-center gap-2">
+      <div className="flex  h-auto items-center gap-2">
         <img 
           src={koshishLogo}
           alt="koshish Logo" 
-          className="h-8 w-8"
+          className="h-16 w-16"
         />
         <span className="text-xl font-bold text-gray-800">Koshish</span>
       </div>
