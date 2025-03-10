@@ -27,44 +27,43 @@ const Login = () => {
         }
     }
   return (
-    <div className='mt-[13vh] w-3xl'>
-        <div>Login Page</div>
+    <div className='max-w-lg mx-auto bg-white p-6 shadow-md border border-gray-200 mt-20'>
+        <div className='text-center text-2xl font-bold mb-5'>Login Page</div>
         <form
-        className='flex flex-col max-w-fit p-5 items-center gap-3 border-2 w-'
+        className='space-y-8'
        onSubmit={onSubmitHandler}
         >
              
-            <div  className='bg-blue-200'>
-                <h3>Username</h3>
+            <div>
+                <label className='block text-sm font-medium text-gray-700'>Username</label>
                 <input 
                 onChange={e=> setUsername(e.target.value)}
                 value={Username}
-                className='bg-blue-100 border-2 hover:border-3 hover:border-blue-700 rounded border-r-blue-700' type="text" 
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-lg hover:border-3 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
                 />
             </div>
-            <div  className='bg-blue-200'>
+            <div>
                 
-                <h3>Password</h3>
+                <label className='block text-sm font-medium text-gray-700'>Password</label>
                 <input 
                 onChange={e=> setPassword(e.target.value)}
                 value={password}
-                className='bg-blue-100 border-2 hover:border-3 hover:border-blue-700 rounded border-r-blue-700'
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-lg hover:border-3 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="password"
                 required
                  />
-            </div >
-            <div  className='bg-blue-200'>
-                <label htmlFor="">
-                    login as: 
-            <select name="role" onChange={e=>setRole(e.target.value)} id="">
-                <option value="">--select--</option>
-                <option value="coordinator" >Coordinator</option>
-                <option value="cocircular">Cocicular</option>
-            </select>
-            </label>
             </div>
-            <button >Login</button>
+            <div>
+            
+                <label className='block text-sm font-medium text-gray-700'>Login as:</label>
+                <select name="role" onChange={e=>setRole(e.target.value)} id="" className='w-full mt-1 p-2 border rounded-lg hover:border-3 hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500'>
+                    <option value="">--select--</option>
+                    <option value="coordinator" >Coordinator</option>
+                    <option value="cocircular">Cocircular</option>
+                </select>
+            </div>
+            <button className='mt-8 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 w-full focus:outline-none focus:ring-2 focus:ring-blue-500' type='submit'>Login</button>
         </form>
 
 
