@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import koshishLogo from '../assets/koshishLogo.png'
+import koshishLogo from '../assets/koshishlogo.png'
 import {NavLink} from 'react-router-dom'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
