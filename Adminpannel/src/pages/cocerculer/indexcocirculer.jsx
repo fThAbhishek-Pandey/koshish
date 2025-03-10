@@ -23,6 +23,7 @@ import UpdateTestimorals from '../../components/cocercular/home/UpdateTestimoral
 import UpdateTopmentor from '../../components/cocercular/home/UpdateTopmentor';
 import UpdateAchievement from '../../components/cocercular/home/UpdateAchievement';
 import UpdateMentor from '../../components/cocercular/mentor/UpdateMentor';
+import Contact from '../../components/cocercular/contact';
 const Indexcocirculer = () => {
   return (
     <div>
@@ -59,6 +60,7 @@ const Indexcocirculer = () => {
                         <Route path='/landpage/achievement/:id' element={<UpdateAchievement/>} />
                         {/* Announcement */}
                         <Route path='/announcement' element={<Announcement/>} />
+                        <Route path='/contact' element={<Contact/>} />
                       </Routes>
                      </div>
                     </div>

@@ -5,6 +5,7 @@ import getTopmentor from '../utils/home/getTopmentor'
 import getHomeEvent from "../utils/home/getEvent";
 import getTestimorals from "../utils/home/getTestimorals";
 import getAllMentor from "../utils/mentor/getAllMentor";
+import contactus from "../utils/contactus";
 export const AppContext = createContext(1);
 const  AppContextProvider = (props) => {
  const [headerData,setHeaderData ] = useState([]);
@@ -28,12 +29,16 @@ const handelTestimorals =()=>{
 const handelgetAllMentor =()=>{
   getAllMentor(backendURL,setAllMentor)
 }
+const handleContactus = (data)=>{
+      contactus(backendURL, data);
+}
 const value = {
       headerData,setHeaderData ,handleHeader,
       TopMentor,setTopMentor,handleTopMentor,
       homeEvent, setHomeEvent,handleHomeEvent,
       testimorals, setTestimorals,handelTestimorals,
-      allMentor, setAllMentor,handelgetAllMentor
+      allMentor, setAllMentor,handelgetAllMentor,
+      handleContactus
  }
 return (
     <>

@@ -1,5 +1,6 @@
 import React , {useContext, useEffect}from 'react';
 import { AppContext } from '../../../context/App';
+import Loader from '../../Loader';
 const Mentor = () => {
   const {TopMentor,handleTopMentor}= useContext(AppContext)
   useEffect(()=>{
@@ -7,21 +8,21 @@ const Mentor = () => {
   },[])
   const teachers = TopMentor;
   return (
-    <div className="bg-black pb-20 sm:pb-16 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white pb-20 sm:pb-16 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-8xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl font-bold text-white pt-16 text-center">
+        <h1 className="text-4xl sm:text-5xl font-bold text-blue10 pt-16 text-center">
           Our Teachers
         </h1>
-        <p className="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] my-10 text-gray-400 text-center mx-auto text-sm sm:text-base">
+        <p className="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] my-10 text-gray-400 text-center mx-auto text-lg sm:text-base">
           Meet our experienced and dedicated teachers who strive to provide the best education.
         </p>
           <div className="flex flex-wrap justify-center gap-4 xl:gap-6">
-            { teachers &&  teachers.map((teacher, index) => (
+            { !teachers? <Loader/>:  teachers.map((teacher, index) => (
               <div 
                 key={teacher._id} 
-                className="group bg-white shadow-lg rounded-lg p-4 sm:p-6 text-center w-full sm:w-[45%] lg:w-[22%] transition-transform duration-300"
+                className="group bg-white border-2 border-blue11 shadow-lg rounded-lg p-4 sm:p-6 text-center w-full sm:w-[45%] lg:w-[22%] transition-transform duration-300"
               >
-                <div className="flex justify-center">
+                <div className="flex justify-center border-0 border-blue20">
                   <img 
                     src={teacher.image} 
                     alt={teacher.name} 

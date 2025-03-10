@@ -7,6 +7,8 @@ const AddMentor = () => {
       const [subject,setSubject] = useState('');
       const [classTeacher, setClassTeacher] = useState('');
       const [speciality, setSpeciality] = useState('');
+      const [ quote, setQuote] = useState('');
+      const [ aboutHead, setAboutHead] = useState('');
       const [ about, setAbout] = useState('');
       const [image , setImage] = useState('')
       const formData = new FormData();
@@ -15,6 +17,8 @@ const AddMentor = () => {
       formData.append('subject',subject)
       formData.append('classTeacher',classTeacher)
       formData.append('speciality',speciality)
+      formData.append('quote',quote)
+      formData.append('aboutHead',aboutHead)
       formData.append('about',about)
       formData.append('image',image);
       const onsubmitHandler =(e)=>{
@@ -75,7 +79,24 @@ const AddMentor = () => {
                 required
               type="text" />
             </div>
+            
             <div>
+              <label >Quote</label>
+              <textarea 
+               value ={quote}
+                onChange={(e)=>setQuote(e.target.value)}
+                required
+              type="text" ></textarea > 
+            </div>
+            <div>
+              <label >About Heading</label>
+              <input 
+               value ={ aboutHead}
+                onChange={(e)=>  setAboutHead(e.target.value)}
+                required
+              type="text" />
+              </div>
+              <div>
               <label >About</label>
               <textarea 
                value ={about}

@@ -13,12 +13,7 @@ const TestimoralSchema = new mongoose.Schema({
         type: String,
         require:true
     },
-    quote:{
-        tpye: String,
-        // default:"I love Koshish"
-        // require: true
-        // require:true
-    },
+   
     linkedin:{
         type: String,
         require:true
@@ -26,8 +21,11 @@ const TestimoralSchema = new mongoose.Schema({
     isActive:{
         type:Boolean,
         default:true
+    },
+    about:{
+        type:String,
+        require:true
     }
-
 
 })
 

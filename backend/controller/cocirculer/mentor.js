@@ -2,8 +2,8 @@ import  {cloudinaryUploadImage}  from '../../middleware/cloudimage/cloudinary.js
 import { addMentorDB, terminateMentorDB, AllMentorDB}   from '../../repositories/cocircular/mentor.js'
 const addMentor = async(req, res ) => {
    try {
-          const {name,email,subject,classTeacher,speciality, about}= req.body;
-          if(!name|| !email|| !subject || !classTeacher|| !speciality|| !about){
+          const {name,email,subject,classTeacher,speciality,quote, aboutHead, about}= req.body;
+          if(!name|| !email|| !subject || !classTeacher|| !speciality|| !about || !quote || !aboutHead){
             console.log(name,email,subject,classTeacher,speciality, about)
             res.json({success:false, message:"fill all details"})
           }
@@ -13,7 +13,7 @@ const addMentor = async(req, res ) => {
             res.json({success:false, message:"please upload mentor image"});
          }
          const mentorData ={
-          name,email,subject,classTeacher,speciality, about
+          name,email,subject,classTeacher,speciality, about,quote, aboutHead
           
          }
         const imageData=   await  cloudinaryUploadImage(mentorImg)

@@ -8,7 +8,6 @@ const teacherSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true
   },
   image:{
     type:String,
@@ -36,6 +35,14 @@ const teacherSchema = new mongoose.Schema({
     type: String ,
     default:true
   },
+  quote:{
+      type:String,
+      require:true
+  }, 
+  aboutHead:{
+      type: String,
+      require: true
+  }, 
   about:{
     type: String,
     default:"I love Koshish"
