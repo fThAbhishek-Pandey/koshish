@@ -10,15 +10,15 @@ const Event = () => {
   const cardData=homeEvent
   
   return (
-    <div className='bg-[#fff] pb-16 px-4 sm:px-6 lg:px-8'>
-    <div className='bg-[#fff] max-w-8xl mx-auto'>
+    <div className=' pb-16 px-4 sm:px-6 lg:px-8'>
+    <div className=' max-w-8xl mx-auto'>
       <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-blue10 pt-16 text-center'>Events</h1>
       <p className="w-full md:w-3/4 lg:w-1/2 my-8 sm:my-10 text-gray-400 text-center mx-auto text-sm sm:text-base px-4">
         KOSHISH is an organization dedicated to empowering children through cultural and technical events. They foster creativity, innovation, and talent, providing a platform for young minds to showcase their skills and potential.
       </p>
       
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer'>
-        {!cardData ?<Loader/> : cardData.map(({ _id, thumbnail, name,desc, date }) => (
+        {!cardData ?<Loader/> : cardData.slice(-4).map(({ _id, thumbnail, name,desc, date }) => (
           <div key={_id} className='text-green20  border-2 border-blue10 shadow-md hover:rounded-2xl overflow-hidden relative group mb-4 transition-all duration-300'>
             <div className='relative w-full aspect-square'> 
               <img 

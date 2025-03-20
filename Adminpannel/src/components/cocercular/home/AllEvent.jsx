@@ -1,8 +1,21 @@
-import React from 'react'
+import React, {useContext,useEffect} from 'react'
+import { CocirculerContext } from '../../../context/cocirculer'
 
 const AllEvent = () => {
+  const { getEvent,handelgetEvent} = useContext( CocirculerContext)
+     useEffect(()=>{
+      handelgetEvent()
+     },[])
   return (
-    <div>AllEvent</div>
+    <div>{getEvent&& getEvent.map((item,idx)=>{
+      return (
+        <div key={idx}>
+            {
+              item
+            }
+        </div>
+      )
+    })}</div>
   )
 }
 

@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center px-8 py-4 bg-white shadow-sm">
+    <nav className="flex justify-between items-center px-8 py-4 bg-blue10 text-white shadow-sm">
       {/* Logo Section */}
       <NavLink to={'/'}>
       <div className="flex  h-auto items-center gap-2">
@@ -26,11 +26,11 @@ const Navbar = () => {
 
       {/* Navigation Links - Hidden on mobile */}
       <ul className={`md:flex gap-8 items-center hidden`}>
-        <NavLink to={'/events'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">Events</li></NavLink>
-        <NavLink to={'/mentors'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">Mentor</li></NavLink>
-        <NavLink to={'/announcement'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">Announcement</li></NavLink>
-        <NavLink to={'/about'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">About us</li></NavLink>
-        <NavLink to={'/contact'}><li className="text-gray-700 hover:text-indigo-600 transition-colors">Contact us</li></NavLink>
+        <NavLink to={'/events'}><li className=" hover:text-indigo-600 transition-colors">Events</li></NavLink>
+        <NavLink to={'/mentors'}><li className=" hover:text-indigo-600 transition-colors">Mentor</li></NavLink>
+        <NavLink to={'/announcement'}><li className=" hover:text-indigo-600 transition-colors">Announcement</li></NavLink>
+        <NavLink to={'/about'}><li className=" hover:text-indigo-600 transition-colors">About us</li></NavLink>
+        <NavLink to={'/contact'}><li className=" hover:text-indigo-600 transition-colors">Contact us</li></NavLink>
       </ul>
 
       {/* Auth Buttons - Hidden on mobile */}

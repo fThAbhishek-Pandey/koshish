@@ -1,8 +1,21 @@
-import React from 'react'
+import React, {useContext,useEffect} from 'react'
+import { CocirculerContext } from '../../../context/cocirculer'
 
 const AllTestimorals = () => {
+  const {getTestimoral, handelgetTestimoral} = useContext( CocirculerContext)
+     useEffect(()=>{
+      handelgetTestimoral()
+     },[])
   return (
-    <div>AllTestimorals</div>
+    <div>{getTestimoral && getTestimoral.map((item,idx)=>{
+      return (
+        <div key={idx}>
+            {
+              item.name
+            }
+        </div>
+      )
+    })}</div>
   )
 }
 

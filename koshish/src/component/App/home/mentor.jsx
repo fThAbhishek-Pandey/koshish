@@ -8,7 +8,7 @@ const Mentor = () => {
   },[])
   const teachers = TopMentor;
   return (
-    <div className="bg-white pb-20 sm:pb-16 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
+    <div className="pb-20 sm:pb-16 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-8xl mx-auto">
         <h1 className="text-4xl sm:text-5xl font-bold text-blue10 pt-16 text-center">
           Our Teachers
