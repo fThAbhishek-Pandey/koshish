@@ -28,7 +28,7 @@ const IndexHeader = () => {
     infinite: true,
     speed: 800,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     rtl: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -38,7 +38,7 @@ const IndexHeader = () => {
   };
 
   return (
-    <div className=' w-full bg-[#fafafa] pb-20 sm:pb-16 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8'>
+    <div className=' w-full h-full pb-20 sm:pb-16 md:pb-16 lg:pb-20 sm:px-6 lg:px-2'>
       <div className='px-4 py-4 md:py-10 lg:py-10'>
         <h1 className='text-blue11 text-center text-3xl font-semibold md:text-4xl lg:text-5xl'>
           Welcome to <span className='text-4xl font-bold text-blue10 underline md:text-5xl lg:text-6xl'>KOSHISH</span>
@@ -48,25 +48,25 @@ const IndexHeader = () => {
         </p>
       </div>
       
-      <div className='mx-auto  w-full px-4 sm:px-6 md:px-8 lg:w-4/5 xl:w-3/4 2xl:w-[70%]'>
+      <div className='mx-auto  w-full h-full px-4 sm:px-6 md:px-2 lg:w-4/5 xl:w-3/4 2xl:w-[90%]'>
      { isloaded ? <Slider {...settings} >
            { console.log(sliderData, typeof(sliderData))}
          
           {
            
           sliderData.map((data) => (
-            <div key={data._id}  className='bg-blue11 border-2 border-blue10 rounded-xl shadow-lg overflow-hidden'>
-              <div className='relative pt-[56.25%]'>
+            <div key={data._id}  className='text-blue10 max-w-full max-h-full bg-white border-2 border-blue10 rounded-xl shadow-lg overflow-hidden'>
+              <div className='relative pt-[56.25%] h-5'>
                 <img 
                   src={data.image} 
                   alt={`Slide ${data._id} - ${data.para.slice(0, 10)}...`} 
                   className='absolute top-0 left-0 w-full h-full object-cover rounded-xl'
                 />
-               
+              
               </div>
-              <div className='h-24'>
-              <div  className=' text-2xl font-semibold'>{data.heading}</div>
-              <div  className=' text-lg'>{data.para}</div>
+              <div className='p-5'>
+              <div  className=' text-2xl  font-semibold'>{data.heading}</div>
+              <div  className='hidden md:block text-lg text-black'>{data.para}</div>
               </div>
                
             </div>

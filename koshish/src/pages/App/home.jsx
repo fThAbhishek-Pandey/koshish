@@ -14,13 +14,13 @@ const HomeApp = () => {
   //     handelTestimorals()
   //   },[])
   return (
-    <div>
+    <div className='pr-16 pl-16 bg-green-50'>
        <IndexHeader/>
        <Culture/>
         <Event/>
         <Education/>
         <Mentor/>
-        <Achievement/>
+        {/* <Achievement/> */}
         <Testimorals/>
     </div>
   )

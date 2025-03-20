@@ -7,8 +7,8 @@ const Education = () => {
   return (
 
    <div className="flex flex-col md:flex-row items-start">
-    <div className="w-full md:w-1/2 h-auto bg-green-50 flex items-center justify-center py-8 md:py-0">
-        <img src={education} alt="" className="max-w-full  h-[10%]" />
+    <div className="w-full md:w-1/2  flex items-center justify-center py-8 md:py-0">
+        <img src={education} alt="" className="max-w-[80%] bg-green-100 rounded-2xl p-5  h-auto" />
     </div>
     <div className="w-full md:w-1/2 flex flex-col items-start px-4 md:px-0">
         <div className="text-left py-10 w-full">

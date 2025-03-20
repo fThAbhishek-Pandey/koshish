@@ -1,12 +1,12 @@
 import React from 'react';
 import { FaYoutube, FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
-
+import Logo from '../assets/koshishlogo.png'
 const Footer = () => {
   return (
-    <div className='w-full bg-[#8fcaeaa1] flex flex-col md:flex-row justify-between items-center p-6 text-black'>
+    <div className='w-full bg-blue10 text-white flex flex-col md:flex-row justify-between items-center p-6'>
       <div className='w-full md:w-[30%] p-4 rounded-lg text-center md:text-left'>
         <div className='flex flex-col items-center md:items-start'>
-          <img src='' alt='Logo' className='w-20 h-20 rounded-full' />
+          <img src={Logo} alt='Logo' className='w-20 h-20 rounded-full' />
           <h1 className='text-3xl font-bold mt-2'>Koshish</h1>
           <h3 className='text-lg mt-2'>One step towards education..</h3>
         </div>

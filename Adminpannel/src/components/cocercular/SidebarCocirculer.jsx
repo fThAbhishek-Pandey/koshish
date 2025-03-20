@@ -69,7 +69,7 @@ const SidebarCocirculer = () => {
             <button onClick={()=>setEventButton(!eventButton)}>{eventButton ? <AiOutlineClose />: <AiOutlinePlus />}</button>
           <div>
          { eventButton && <ul>
-          <Link to={'/landpage/header/add'}><li>Add</li></Link>
+          <Link to={'/landpage/event/add'}><li>Add</li></Link>
           <Link to={'/landpage/header/all'}><li>All</li></Link>
           </ul>}
           </div>

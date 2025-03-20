@@ -24,6 +24,7 @@ const Contact = () => {
   };
 
   return (
+
     <div className="max-w-lg mx-auto bg-purple-200 p-8 rounded-4xl mt-7">
       <h2 className="text-3xl font-mono text-center mb-6">Contact Us</h2>
       <form onSubmit={onSubmitHandler} className="space-y-4">
@@ -34,7 +35,7 @@ const Contact = () => {
             onChange={(e) => setName(e.target.value)}
             type="text"
             required
-            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-200"
+            className="w-full p-2 border bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue00"
           />
         </div>
         <div>
@@ -43,7 +44,7 @@ const Contact = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full p-2 border bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue00"
           />
         </div>
         <div>
@@ -52,7 +53,7 @@ const Contact = () => {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             type="text"
-            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full p-2 border  bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue00"
           />
         </div>
         <div>
@@ -61,7 +62,7 @@ const Contact = () => {
             value={heading}
             onChange={(e) => setHeading(e.target.value)}
             type="text"
-            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full p-2 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue00"
           />
         </div>
         <div>
@@ -70,7 +71,7 @@ const Contact = () => {
             value={para}
             onChange={(e) => setPara(e.target.value)}
             rows="4"
-            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full p-2 border bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue00"
           ></textarea>
         </div>
         <button

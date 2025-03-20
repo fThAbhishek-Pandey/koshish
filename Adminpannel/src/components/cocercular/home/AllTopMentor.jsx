@@ -1,8 +1,22 @@
-import React from 'react'
+import React, {useContext,useEffect} from 'react'
+import { CocirculerContext } from '../../../context/cocirculer'
 
 const AllTopMentor = () => {
+  const {getTopMentor, handelgetTopMentor,} = useContext( CocirculerContext)
+     useEffect(()=>{
+      handelgetTopMentor()
+     },[])
+    
   return (
-    <div>AllTopMentor</div>
+    <div>{getTopMentor && getTopMentor.map((item ,idx)=>{
+      return (
+        <div key={idx}>
+            {
+              item.name
+            }
+        </div>
+      )
+    })}</div>
   )
 }
 
