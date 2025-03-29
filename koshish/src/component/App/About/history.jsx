@@ -2,30 +2,21 @@ import React from "react";
 
 const History = () => {
   return (
-    <div>
-      <h2>history</h2>
-      <p>
-        When a try is given whole heartedly, it accomplishes the ultimate goal
-        and then a revolution is on the verge of being started. Such kind of
-        thing was a venture started by our seniors to educate the children
-        belonging to the trodden society, giving them elementary knowledge.
-        'KOSHISH' is a philanthropic deed in chain by our seniors and this
-        legacy is brought forward by us.
-      </p>
-      <p>
-        We, the students of Rajkiya Engineering College Ambedkar Nagar, educate
-        and impart basic knowledge down trodden community of the village nearby
-        our hostels. This act of humanity and serene mentality fills our souls
-        with the eternal peace. We will keep forwarding this goal of filling
-        light of education in one's life, as it counts for the development of
-        our country.
-      </p>
-      <p>
-        It is initiated by our seniors (2011-2012 batch) by their own
-        contribution and efforts. It comes in the Council of Social Awareness
-        Activities, REC Ambedkar Nagar.
-      </p>
-    </div>
+    <div className="bg-white p-6 rounded-xl shadow-md max-w-3xl mx-auto border-l-4 border-green-500">
+    <h2 className="text-3xl font-bold text-gray-800 mb-4">History</h2>
+    <p className="text-gray-700 text-lg leading-relaxed mb-4">
+      When a try is given wholeheartedly, it accomplishes the ultimate goal, and then a revolution is on the verge of being started. Such kind of initiative was a venture started by our seniors to educate the children belonging to the underprivileged society, giving them elementary knowledge. 
+      <span className="font-semibold text-green-700"> 'KOSHISH' </span> is a philanthropic deed in chain by our seniors, and this legacy is brought forward by us.
+    </p>
+    <p className="text-gray-700 text-lg leading-relaxed mb-4">
+      We, the students of <span className="font-semibold text-blue-700">Rajkiya Engineering College Ambedkar Nagar</span>, educate and impart basic knowledge to the underprivileged community of the village near our hostels. This act of humanity and selflessness fills our souls with eternal peace. We will keep carrying forward this goal of spreading the light of education, as it contributes to the development of our country.
+    </p>
+    <p className="text-gray-700 text-lg leading-relaxed">
+      It was initiated by our seniors (2011-2012 batch) through their own contributions and efforts. It is a part of the 
+      <span className="font-semibold text-green-700"> Council of Social Awareness Activities, REC Ambedkar Nagar.</span>
+    </p>
+  </div>
+  
   );
 };
 

@@ -4,16 +4,6 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AppContext } from '../../../context/App';
-function MyArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style,color:'#8883FB', display: "block",margin:"15px 5px 5px 1px", background:"#8883FB" ,padding:"5px", border:"1px solid #8883FB" ,borderRadius: "25px"}}
-      onClick={onClick}
-    />
-  );
-}
 const IndexHeader = () => {
    const {headerData,handleHeader} = useContext(AppContext);
    const [isloaded, setIsLoaded] = useState(false);
@@ -33,8 +23,6 @@ const IndexHeader = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     pauseOnHover: true,
-    nextArrow: <MyArrow/>,
-    prevArrow : <MyArrow/>,
   };
 
   return (

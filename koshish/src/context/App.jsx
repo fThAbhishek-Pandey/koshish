@@ -6,6 +6,7 @@ import getHomeEvent from "../utils/home/getEvent";
 import getTestimorals from "../utils/home/getTestimorals";
 import getAllMentor from "../utils/mentor/getAllMentor";
 import contactus from "../utils/contactus";
+import getmyMentor from "../utils/mentor/getMentor";
 export const AppContext = createContext(1);
 const  AppContextProvider = (props) => {
  const [headerData,setHeaderData ] = useState([]);
@@ -13,6 +14,7 @@ const  AppContextProvider = (props) => {
  const [homeEvent, setHomeEvent] = useState([])
  const [testimorals, setTestimorals] = useState([]);
  const [allMentor, setAllMentor] = useState([]);
+ const [myMentor, setmyMentor] = useState([]);
  const backendURL = import.meta.env.VITE_BACKEND_URL
 const handleHeader = ()=>{
   getHeader(backendURL, setHeaderData)
@@ -29,6 +31,10 @@ const handelTestimorals =()=>{
 const handelgetAllMentor =()=>{
   getAllMentor(backendURL,setAllMentor)
 }
+const handelgetmyMentor =(id)=>{
+   console.log("_id: ",id);
+  getmyMentor(backendURL,setmyMentor,id)
+}
 const handleContactus = (data)=>{
       contactus(backendURL, data);
 }
@@ -38,7 +44,8 @@ const value = {
       homeEvent, setHomeEvent,handleHomeEvent,
       testimorals, setTestimorals,handelTestimorals,
       allMentor, setAllMentor,handelgetAllMentor,
-      handleContactus
+      handleContactus,
+      myMentor, setmyMentor,handelgetmyMentor
  }
 return (
     <>

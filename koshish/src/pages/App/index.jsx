@@ -9,6 +9,9 @@ import Announcements from './announcements';
 import Contact from './contact';
 import About from './about';
 import Error404 from '../../component/Error404';
+import Mymentors from '../../component/App/mentor/mymentors';
+import Myanouncement from '../../component/App/announcement/myanouncement';
+import Myevent from '../../component/App/events/myevent';
 const IndexApp = () => {
   return (
     <div>
@@ -20,8 +23,11 @@ const IndexApp = () => {
               <Routes>
                 <Route path='/' element={<HomeApp/>} />
                 <Route path='/events' element={<Events/>} />
+                <Route path='/events/:id' element={<Myevent/>} />
                 <Route path='/mentors' element={<Mentor/>} />
+                <Route path='/mentors/:id' element={<Mymentors/>}/>
                 <Route path='/announcement' element={<Announcements/>} />
+                <Route path='/announcement/:id' element={<Myanouncement/>} />
                 <Route path='/about' element={<About/>} />
                 <Route path='/contact' element={<Contact/>} />
                 <Route path='*' element={<Error404/>} />
