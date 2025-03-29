@@ -55,21 +55,21 @@ const Navbar = () => {
       {isOpen && (
         <div className="fixed top-16 left-0 right-0 bg-white shadow-md md:hidden">
           <ul className="flex flex-col p-4">
-            <li className="py-2">
-              <a href="#home" className="text-gray-700 hover:text-indigo-600 transition-colors">Events</a>
-            </li>
-            <li className="py-2">
-              <a href="#courses" className="text-gray-700 hover:text-indigo-600 transition-colors">Mentors</a>
-            </li>
-            <li className="py-2">
-              <a href="#about" className="text-gray-700 hover:text-indigo-600 transition-colors">Announcement</a>
-            </li>
-            <li className="py-2">
-              <a href="#blog" className="text-gray-700 hover:text-indigo-600 transition-colors">About us</a>
-            </li>
-            <li className="py-2">
-              <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact us</a>
-            </li>
+            <NavLink to={'/events'} className="py-2">
+              <li  className="text-gray-700 hover:text-indigo-600 transition-colors">Events</li>
+            </NavLink>
+            <NavLink to={'/mentors'} className="py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+              Mentors
+              </NavLink>
+            <NavLink to={'/announcement'} className="py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+            Announcement
+            </NavLink>
+            <NavLink to={'/about'} className="py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+            About us
+            </NavLink>
+            <NavLink to={'/contact'} className="py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+            Contact us
+            </NavLink>
             <li className="py-2">
               <button className="w-full px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors">
                 Join us

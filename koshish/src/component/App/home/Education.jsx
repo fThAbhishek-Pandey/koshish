@@ -4,6 +4,12 @@ import { LiaUserGraduateSolid } from "react-icons/lia";
 import { LiaUniversitySolid } from "react-icons/lia";
 
 const Education = () => {
+    let student =0;
+    let story=0;
+    setInterval(()=>{
+         student +=10;
+         story+=1
+    }, 100)
   return (
 
    <div className="flex flex-col md:flex-row items-start">
@@ -20,11 +26,11 @@ const Education = () => {
                 <div className="text-2xl font-bold flex items-center ml-13 ">
 
                     <LiaUserGraduateSolid className="mr-2 rounded-full bg-violet-300" />
-                   <span className='text-green00'>1000+</span>  <span className="text-base font-normal m-2 ">Students Join Us</span>
+                   <span className='text-green00'>{student}+</span>  <span className="text-base font-normal m-2 ">Students Join Us</span>
                 </div>
                 <div className="text-2xl font-bold flex items-center p-1 ml-12">
                     <LiaUniversitySolid className="mr-2 rounded-full bg-violet-300 " />
-                   <span className='text-green00'>100+</span> <span className="text-base font-normal  m-2">Success Story</span>
+                   <span className='text-green00'>{story}+</span> <span className="text-base font-normal  m-2">Success Story</span>
 
                 </div>
   

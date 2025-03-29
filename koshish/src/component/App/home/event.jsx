@@ -1,11 +1,13 @@
-import React , {useContext, useEffect}from 'react';
+import React , {useContext,useState, useEffect}from 'react';
 import { Slide, Fade } from 'react-awesome-reveal';
 import { AppContext } from '../../../context/App';
 import Loader from '../../Loader';
 const Event = () => {
   const { homeEvent, handleHomeEvent} = useContext(AppContext);
+  const [isloaded, setIsLoaded] = useState(true);
   useEffect(()=>{
     handleHomeEvent();
+    if(homeEvent) setIsLoaded(false)
   },[])
   const cardData=homeEvent
   
@@ -18,7 +20,7 @@ const Event = () => {
       </p>
       
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer'>
-        {!cardData ?<Loader/> : cardData.slice(-4).map(({ _id, thumbnail, name,desc, date }) => (
+        {isloaded ?<Loader/> : cardData.slice(-4).map(({ _id, thumbnail, name,desc, date }) => (
           <div key={_id} className='text-green20  border-2 border-blue10 shadow-md hover:rounded-2xl overflow-hidden relative group mb-4 transition-all duration-300'>
             <div className='relative w-full aspect-square'> 
               <img 
