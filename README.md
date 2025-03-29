@@ -2,17 +2,18 @@
 
 ## Features
 
-- **Admin Dashboard:** Administrators can manage student records, teacher information, courses, exams, assignments, track student attendance, add teachers, and view school performance metrics.
-- **Student Dashboard:** Students have access to their own dashboard where they can view their class schedules, assignments, submit assignments, and track their academic progress.
-- **Teachers Dashboard:** Teachers can manage class schedules, assign and grade exams and assignments, and view student performance metrics.
+- **Co-ordinator Dashboard:** Administrators can view student records, teacher information,  exams,  track student attendance, and view school performance metrics.
+- **Cocirculer Dashboard:** Cocirculer can manage student records, teacher information,  exams, assignments, track student attendance, add teachers, and view school performance metrics.
+- **Student Dashboard (currently working):** Students have access to their own dashboard where they can view their class schedules, assignments, submit assignments, and track their academic progress.
+- **Teachers Dashboard:(Currently working)** Teachers can manage class schedules, assign and grade exams and assignments, and view student performance metrics.
 
 ### Operations Include:
-- **Adding Students:** Admins can add new student records, including personal details and academic information.
-- **Class Management:** Admins can create and manage classes, assign teachers, and schedule classes.
-- **Exam Management:** Teachers can create and manage exams, assign them to classes, and grade student submissions.
-- **Assignment Management:** Teachers can create assignments, assign them to classes, and track student submissions.
+- **Adding Students:** Teacter can add new student records, including personal details and academic information.
+- **Class Management:** Admins can create and manage classes, assign teachers, and remark classes.
+- **Event Management:** Co-circuler can create and manage events.
+- **Announcement Management:** Co-circuler can create anouncement.
 - **Student Submission:** Students can submit assignments through the student dashboard.
-- **Adding Teachers:** Admins can add new teachers to the system.
+- **Adding Teachers:** Co-circuler can add new teachers to the system.
 - **School Performance Metrics:** Admins can view various metrics related to the school's performance.
 
 ## Technologies Used
@@ -33,7 +34,7 @@ git clone https://github.com/fThAbhishek-Pandey/koshish.git
 
 2. **Install dependencies:**
 
-cd koshish
+cd koshish-project
 npm install
 
 
