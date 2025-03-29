@@ -2,6 +2,7 @@ import React , {useContext,useState, useEffect}from 'react';
 import { Slide, Fade } from 'react-awesome-reveal';
 import { AppContext } from '../../../context/App';
 import Loader from '../../Loader';
+import ServerErr from '../../SeverErr';
 const Event = () => {
   const { homeEvent, handleHomeEvent} = useContext(AppContext);
   const [isloaded, setIsLoaded] = useState(true);
@@ -20,7 +21,10 @@ const Event = () => {
       </p>
       
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer'>
-        {isloaded ?<Loader/> : cardData.slice(-4).map(({ _id, thumbnail, name,desc, date }) => (
+        {isloaded ?<Loader/> : <div>
+
+
+         { cardData=='5xx'? <ServerErr/> : cardData.slice(-4).map(({ _id, thumbnail, name,desc, date }) => (
           <div key={_id} className='text-green20  border-2 border-blue10 shadow-md hover:rounded-2xl overflow-hidden relative group mb-4 transition-all duration-300'>
             <div className='relative w-full aspect-square'> 
               <img 
@@ -48,6 +52,8 @@ const Event = () => {
             </div>
           </div>
         ))}
+        </div> 
+}
       </div>
     </div>
   </div>

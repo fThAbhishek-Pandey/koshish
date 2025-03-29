@@ -10,6 +10,7 @@ const getAllMentor = async (backendURL,setAllMentor) => {
        else toast.error(data.message);
    } catch (error) {
      console.log(error);
+     setAllMentor('5xx');
      toast.error(error.message);
    }
 }

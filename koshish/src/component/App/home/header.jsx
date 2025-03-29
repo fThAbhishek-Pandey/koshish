@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AppContext } from '../../../context/App';
+import ServerErr from '../../SeverErr';
 const IndexHeader = () => {
    const {headerData,handleHeader} = useContext(AppContext);
    const [isloaded, setIsLoaded] = useState(false);
@@ -37,7 +38,10 @@ const IndexHeader = () => {
       </div>
       
       <div className='mx-auto  w-full h-full px-4 sm:px-6 md:px-2 lg:w-4/5 xl:w-3/4 2xl:w-[90%]'>
-     { isloaded ? <Slider {...settings} >
+     { isloaded ?<div>
+       {       
+       headerData == '5xx'? <ServerErr/> :
+      <Slider {...settings} >
            { console.log(sliderData, typeof(sliderData))}
          
           {
@@ -59,7 +63,8 @@ const IndexHeader = () => {
                
             </div>
           ))}
-        </Slider>:<div>
+        </Slider>}
+     </div> :<div>
         {console.log("---> ",sliderData)}
         <Loader/>
        </div>}

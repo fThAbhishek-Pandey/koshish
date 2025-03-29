@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Anouncement from '../../component/App/announcement'
 const Announcements = () => {
   return (
-    <div>Announcements</div>
+    <div>
+      <Anouncement />
+    </div>
   )
 }
 

@@ -10,6 +10,7 @@ const getHomeEvent = async (backendURL,setHomeEvent) => {
      else toast.error(data.message);
   } catch (error) {
      console.log(error);
+     setHomeEvent('5xx')
     toast.error(error.message);
   }
 }

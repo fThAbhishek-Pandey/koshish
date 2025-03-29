@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { AppContext } from "../../../context/App";
 import { useNavigate } from "react-router-dom";
+import ServerErr from "../../SeverErr";
 const IndexMentor = () => {
   const { allMentor, handelgetAllMentor } = useContext(AppContext);
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const IndexMentor = () => {
       <div className=" bg-green-50 p-5 m-2">
         {allMentor && (
           <div className="flex gap-2   justify-evenly ">
-            {allMentor.map((item, idx) => {
+            {allMentor=='5xx'? <ServerErr />:  allMentor.map((item, idx) => {
               return (
                 <div
                 key={idx}
