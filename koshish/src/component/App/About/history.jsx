@@ -2,7 +2,7 @@ import React from "react";
 
 const History = () => {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-md max-w-3xl mx-auto border-l-4 border-green-500">
+    <div className="bg-white p-6 rounded-xl mb-4 shadow-md max-w-5xl mx-auto border-l-4 border-green-500">
     <h2 className="text-3xl font-bold text-gray-800 mb-4">History</h2>
     <p className="text-gray-700 text-lg leading-relaxed mb-4">
       When a try is given wholeheartedly, it accomplishes the ultimate goal, and then a revolution is on the verge of being started. Such kind of initiative was a venture started by our seniors to educate the children belonging to the underprivileged society, giving them elementary knowledge. 

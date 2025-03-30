@@ -2,7 +2,7 @@ import React from "react";
 
 const Wedo = () => {
   return (
-    <div className="bg-gray-50 p-6 sm:p-10 rounded-xl shadow-lg max-w-5xl mx-auto border-l-4 border-green-500">
+    <div className="bg-gray-50 p-6 sm:p-10 rounded-xl shadow-lg max-w-5xl mx-auto border-l-4 border-green-500 ">
   {/* Section Title */}
   <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">WHAT DO WE DO?</h2>
 
@@ -33,7 +33,7 @@ const Wedo = () => {
 
         <ol className="mt-4 space-y-4">
           <li className="p-4 bg-gray-100 rounded-md shadow-sm">
-            <h4 className="text-lg font-semibold text-gray-800">🔬 Waste Material Science-Based Project Exhibition:</h4>
+            <h4 className="text-lg font-semibold text-gray-800">🔬Science-Based Project Exhibition:</h4>
             <p className="text-gray-700 mt-1">
               Volunteers assist students in creating projects using waste materials. These projects are then presented before a panel for judgment. Awards are given based on creativity and execution.
             </p>

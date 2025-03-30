@@ -2,7 +2,7 @@ import React from "react";
 
 const Aim = () => {
   return (
-    <div className="bg-gray-100 p-6 rounded-xl shadow-md max-w-3xl mx-auto">
+    <div className="bg-gray-100 p-6 rounded-xl mb-4 shadow-md max-w-5xl mx-auto">
   <h2 className="text-2xl font-bold text-gray-800 mb-4">Aim:</h2>
   <div>
     <ul className="list-disc list-inside space-y-3 text-gray-700">

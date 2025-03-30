@@ -6,7 +6,7 @@ import Admin from '../../component/App/About/admin'
 import Aim from '../../component/App/About/Aim'
 const About = () => {
   return (
-    <div>
+    <div className='p-x-4'>
         <Intro/>
         <History/>
         <Aim/>
