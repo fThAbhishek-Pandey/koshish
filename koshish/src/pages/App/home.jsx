@@ -14,7 +14,7 @@ const HomeApp = () => {
   //     handelTestimorals()
   //   },[])
   return (
-    <div className='pr-16 pl-16 bg-green-50'>
+    <div className='md:pr-16 md:pl-16 bg-green-50'>
        <IndexHeader/>
        <Culture/>
         <Event/>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../context/App";
 import { FaLinkedin } from "react-icons/fa6";
 import Loader from "../../Loader";
+import ServerErr from "../../SeverErr";
 const Testimorals = () => {
   const { testimorals, handelTestimorals } = useContext(AppContext);
    const [isloaded, setIsLoaded] = useState(true);
@@ -13,11 +14,13 @@ const Testimorals = () => {
     <div className="pb-8">
       <h2 className="text-4xl sm:text-5xl pb-4 font-bold text-blue10 pt-16 text-center">Testimorals</h2>
       <div className="text-center text-lg pb-5">
-      
+      Testimonial should reflect how KOSHISH has contributed to personal growth, education, and social upliftment.
       </div>
       {isloaded ? (
         <Loader />
-      ) : (
+      ) : <div>
+      {  
+        testimorals== '5xx' ? <ServerErr/>:
         <div className=" border-0 border-blue20 ">
           <div className="grid grid-cols-1 md:grid-cols-3  gap-5">
             {testimorals.slice(-3).map((item, idx) => {
@@ -50,7 +53,9 @@ const Testimorals = () => {
             })}
           </div>
         </div>
-      )}
+      } 
+      </div>
+      }
 
       {console.log("testimorals", testimorals)}
     </div>

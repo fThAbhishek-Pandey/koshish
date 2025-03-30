@@ -10,6 +10,7 @@ const getTopmentor = async (backendURL,setTopMentor) => {
      else toast.error(data.message);
   } catch (error) {
      console.log(error);
+     setTopMentor('5xx')
     toast.error(error.message);
   }
 }

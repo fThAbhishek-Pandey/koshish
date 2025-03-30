@@ -1,6 +1,7 @@
 import React , {useContext,useState, useEffect}from 'react';
 import { AppContext } from '../../../context/App';
 import Loader from '../../Loader';
+import ServerErr from '../../SeverErr';
 const Mentor = () => {
   const {TopMentor,handleTopMentor}= useContext(AppContext)
   const [isloaded, setIsLoaded] = useState(true);
@@ -18,8 +19,13 @@ const Mentor = () => {
         <p className="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] my-10 text-gray-400 text-center mx-auto text-lg sm:text-base">
           Meet our experienced and dedicated teachers who strive to provide the best education.
         </p>
-          <div className="flex flex-wrap justify-center gap-4 xl:gap-6">
-            { isloaded? <Loader/>:  teachers.map((teacher, index) => (
+          <div>
+            { isloaded? <Loader/>:   <div  
+             className="flex flex-wrap justify-center gap-4 xl:gap-6"
+            
+            >{
+            
+            teachers=='5xx' ? <ServerErr/>  :teachers.map((teacher, index) => (
               <div 
                 key={teacher._id} 
                 className="group bg-white border-2 border-blue11 shadow-lg rounded-lg p-4 sm:p-6 text-center w-full sm:w-[45%] lg:w-[22%] transition-transform duration-300"
@@ -43,7 +49,7 @@ const Mentor = () => {
                   </p>
                 </div>
               </div>
-            ))}
+            ))}</div>}
           </div>
       </div>
     </div>

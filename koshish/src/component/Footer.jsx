@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='flex flex-col items-center md:items-start'>
           <img src={Logo} alt='Logo' className='w-20 h-20 rounded-full' />
           <h1 className='text-3xl font-bold mt-2'>Koshish</h1>
-          <h3 className='text-lg mt-2'>One step towards education..</h3>
+          <h3 className='text-lg mt-2'>One step towards education...</h3>
         </div>
         <div className='mt-4'>
           <p className='text-lg text-center md:text-left'>Follow us on:</p>

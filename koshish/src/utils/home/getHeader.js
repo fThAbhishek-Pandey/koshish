@@ -8,9 +8,10 @@ const getHeader = async(backendURL,setHeaderData ) => {
             setHeaderData(data.data||[]);
             toast.success(data.message);
         }
-        else toast.error(data.message)
+        else toast.error("hi: ",data.message)
     } catch (error) {
         console.log (error)
+        setHeaderData('5xx');
         toast.error(data.message)
     }
 }

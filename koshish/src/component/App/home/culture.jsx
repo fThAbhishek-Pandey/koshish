@@ -8,6 +8,9 @@ const Culture = () => {
        <h2 className='text-2xl p-5 m-2 text-blue10 font-bold'>The Koshish Mantra</h2>
        <div className='text-sm  md:text-lg p-5'>
         <p>In KOSHISH, We try to inspire the students to dream and enable them to achieve it through education with the belief that 'simple effort can fill colors in many lives'.</p>
+        <p>We believe in this shloka, which means: </p>
+        <p>Knowledge is a wealth that cannot be stolen by thieves, seized by kings, divided among siblings, or burdened by weight. Unlike material wealth, which decreases when spent, knowledge only grows when shared. Among all forms of wealth, knowledge is the greatest.</p>
+       
        </div>
        <div className='text-sm md:text-xl p-5 md:font-semibold '>
        <p>न चौरहार्यं न च राजहार्य, न भ्रातृभाज्यं न च भारकारि।</p>

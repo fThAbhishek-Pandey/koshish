@@ -1,8 +1,12 @@
 import React from 'react'
-
+import NewEvent from './NewEvent'
+import PastEvent from './PastEvent'
 const IndexEvent = () => {
   return (
-    <div>IndexEvent</div>
+    <div>
+     <NewEvent/>
+     <PastEvent/>
+    </div>
   )
 }
 

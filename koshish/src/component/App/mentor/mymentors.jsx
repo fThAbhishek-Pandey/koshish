@@ -12,20 +12,20 @@ const MyMentor = () => {
       }, [id]);
   
       return (
-          <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
-              <div className="max-w-4xl w-full bg-white shadow-xl rounded-lg p-10 flex flex-col items-center">
+          <div className="min-h-screen bg-green-50 flex items-center justify-center relative top-24 mb-32">
+              <div className="max-w-4xl w-full bg-green-100 shadow-xl rounded-lg p-10 flex flex-col items-center">
                   {/* Heading */}
-                  <h1 className="text-5xl font-extrabold text-gray-900 mb-6">About the Mentor</h1>
+                  <h1 className="text-5xl font-extrabold text-blue10 mb-6">About the Mentor</h1>
                   
                   {/* Profile Image */}
                   <img
                       src={myMentor.image}
                       alt={myMentor.name}
-                      className="w-48 h-48 rounded-full shadow-lg border-4 border-blue-400 object-cover"
+                      className="w-48 h-48 rounded-xl shadow-lg border-2 border-blue-400 object-cover"
                   />
                   
                   {/* Name & Speciality */}
-                  <h2 className="text-4xl font-bold text-gray-800 mt-6">{myMentor.name}</h2>
+                  <h2 className="text-4xl font-bold text-gray-700 mt-6">{myMentor.name}</h2>
                   <p className="text-blue-700 text-lg font-medium mt-2">{myMentor.speciality}</p>
                   
                   {/* Quote */}
@@ -45,7 +45,7 @@ const MyMentor = () => {
                   {/* Details Section */}
                   <div className="mt-8 w-full text-center">
                       <p className="text-gray-800 text-lg font-semibold">📖 Subject: {myMentor.subject}</p>
-                      <p className="text-gray-800 text-lg">👨‍🏫 Class Teacher: {myMentor.classTeacher === "0" ? "No" : "Yes"}</p>
+                      <p className="text-gray-800 text-lg">👨‍🏫 Class Teacher: {myMentor.classTeacher}th </p>
                       <p className="text-gray-500 text-md mt-4">Joined on {new Date(myMentor.joinTime).toDateString()}</p>
                   </div>
                   

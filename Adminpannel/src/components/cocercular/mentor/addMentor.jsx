@@ -11,6 +11,7 @@ const AddMentor = () => {
       const [ aboutHead, setAboutHead] = useState('');
       const [ about, setAbout] = useState('');
       const [image , setImage] = useState('')
+      const [linkedin, setlinkedin] = useState();
       const formData = new FormData();
       formData.append('name',name)
       formData.append('email',email)
@@ -21,6 +22,7 @@ const AddMentor = () => {
       formData.append('aboutHead',aboutHead)
       formData.append('about',about)
       formData.append('image',image);
+      formData.append('linkedin',linkedin);
       const onsubmitHandler =(e)=>{
           e.preventDefault();
           console.log("hi i am onsubmit handler")
@@ -52,6 +54,14 @@ const AddMentor = () => {
               <input 
                value ={email}
                 onChange={(e)=>setEmail(e.target.value)}
+                required
+              type="text" />
+            </div>
+            <div>
+              <label >Linkedin</label>
+              <input 
+               value ={linkedin}
+                onChange={(e)=>setlinkedin(e.target.value)}
                 required
               type="text" />
             </div>

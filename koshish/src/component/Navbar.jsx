@@ -9,16 +9,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center px-8 py-4 bg-blue10 text-white shadow-sm">
+    <nav  className='fixed bg-blue10 z-50 text-white w-full'>
+       <div  className="flex justify-between items-center px-8 py-4  shadow-sm">
       {/* Logo Section */}
       <NavLink to={'/'}>
-      <div className="flex  h-auto items-center gap-2">
+      <div className="hidden md:flex  h-auto items-center gap-2">
         <img 
           src={koshishLogo}
           alt="koshish Logo" 
           className="h-16 w-16"
         />
-        <span className="text-xl font-bold text-gray-800">Koshish</span>
+        <span className="text-5xl font-bold ">Koshish</span>
       </div>
         
       </NavLink>
@@ -44,8 +45,9 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Button */}
+      <div className='bg-blue10 md:hidden w-full'></div>
       <button 
-        className="md:hidden text-gray-700 text-2xl"
+        className="fixed bg-blue10 text-white top-0 z-50  right-5 md:hidden  text-2xl"
         onClick={toggleMenu}
       >
         ☰
@@ -53,21 +55,24 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="fixed top-16 left-0 right-0 bg-white shadow-md md:hidden">
+        <div className="fixed top-5 left-0 right-0 z-40 bg-blue10 text-white shadow-md md:hidden">
           <ul className="flex flex-col p-4">
-            <NavLink to={'/events'} className="py-2">
-              <li  className="text-gray-700 hover:text-indigo-600 transition-colors">Events</li>
+          <NavLink to={'/'} className="py-2">
+              <li  className=" hover:text-indigo-600 transition-colors">Home</li>
             </NavLink>
-            <NavLink to={'/mentors'} className="py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+            <NavLink to={'/events'} className="py-2">
+              <li  className=" hover:text-indigo-600 transition-colors">Events</li>
+            </NavLink>
+            <NavLink to={'/mentors'} className="py-2  hover:text-indigo-600 transition-colors">
               Mentors
               </NavLink>
-            <NavLink to={'/announcement'} className="py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+            <NavLink to={'/announcement'} className="py-2  hover:text-indigo-600 transition-colors">
             Announcement
             </NavLink>
-            <NavLink to={'/about'} className="py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+            <NavLink to={'/about'} className="py-2 t hover:text-indigo-600 transition-colors">
             About us
             </NavLink>
-            <NavLink to={'/contact'} className="py-2 text-gray-700 hover:text-indigo-600 transition-colors">
+            <NavLink to={'/contact'} className="py-2  hover:text-indigo-600 transition-colors">
             Contact us
             </NavLink>
             <li className="py-2">
@@ -83,6 +88,7 @@ const Navbar = () => {
           </ul>
         </div>
       )}
+      </div>
     </nav>
   );
 };
