@@ -27,7 +27,7 @@ const IndexHeader = () => {
   };
 
   return (
-    <div className=' w-full h-full pb-20 sm:pb-16 md:pb-16 lg:pb-20 sm:px-6 lg:px-2'>
+    <div className=' w-full h-full pb-20 sm:pb-16 md:pb-16 lg:pb-20 sm:px-1 lg:px-2 relative top-24 mb-16 md:mb-5'>
       <div className='px-4 py-4 md:py-10 lg:py-10'>
         <h1 className='text-blue11 text-center text-3xl font-semibold md:text-4xl lg:text-5xl'>
           Welcome to <span className='text-4xl font-bold text-blue10 underline md:text-5xl lg:text-6xl'>KOSHISH</span>

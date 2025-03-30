@@ -20,12 +20,12 @@ const Event = () => {
         KOSHISH is an organization dedicated to empowering children through cultural and technical events. They foster creativity, innovation, and talent, providing a platform for young minds to showcase their skills and potential.
       </p>
       
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer'>
-        {isloaded ?<Loader/> : <div>
+      <div className=''>
+        {isloaded ?<Loader/> : <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer'>
 
 
          { cardData=='5xx'? <ServerErr/> : cardData.slice(-4).map(({ _id, thumbnail, name,desc, date }) => (
-          <div key={_id} className='text-green20  border-2 border-blue10 shadow-md hover:rounded-2xl overflow-hidden relative group mb-4 transition-all duration-300'>
+          <div key={_id} className='text-blue10  border-2 border-blue10 shadow-md rounded-2xl  overflow-hidden relative group mb-4 transition-all duration-300'>
             <div className='relative w-full aspect-square'> 
               <img 
                 src={thumbnail} 

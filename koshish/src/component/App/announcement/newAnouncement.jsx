@@ -1,8 +1,10 @@
 import React from 'react'
-
+import NoAnouncement from './NoAnouncement'
 const NewAnouncement = () => {
   return (
-    <div>NewAnouncement</div>
+    <div>NewAnouncement
+      <NoAnouncement/>
+    </div>
   )
 }
 

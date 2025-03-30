@@ -1,8 +1,11 @@
 import React from 'react'
+import NoAnouncement from './NoAnouncement'
 
 const PastAnouncement = () => {
   return (
-    <div>PastAnouncement</div>
+    <div>PastAnouncement
+      <NoAnouncement/>
+    </div>
   )
 }
 

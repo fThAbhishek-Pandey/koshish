@@ -19,8 +19,11 @@ const Mentor = () => {
         <p className="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] my-10 text-gray-400 text-center mx-auto text-lg sm:text-base">
           Meet our experienced and dedicated teachers who strive to provide the best education.
         </p>
-          <div className="flex flex-wrap justify-center gap-4 xl:gap-6">
-            { isloaded? <Loader/>:   <div>{
+          <div>
+            { isloaded? <Loader/>:   <div  
+             className="flex flex-wrap justify-center gap-4 xl:gap-6"
+            
+            >{
             
             teachers=='5xx' ? <ServerErr/>  :teachers.map((teacher, index) => (
               <div 

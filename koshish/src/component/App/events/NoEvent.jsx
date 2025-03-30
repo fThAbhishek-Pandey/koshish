@@ -1,8 +1,11 @@
 import React from 'react'
-
+import NoEventImg from '../../../assets/Noevent.svg'
 const NoEvent = () => {
   return (
-    <div>NoEvent</div>
+    <div>
+
+      <img src={NoEventImg} alt="" />
+    </div>
   )
 }
 export default NoEvent

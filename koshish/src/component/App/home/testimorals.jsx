@@ -14,7 +14,7 @@ const Testimorals = () => {
     <div className="pb-8">
       <h2 className="text-4xl sm:text-5xl pb-4 font-bold text-blue10 pt-16 text-center">Testimorals</h2>
       <div className="text-center text-lg pb-5">
-      
+      Testimonial should reflect how KOSHISH has contributed to personal growth, education, and social upliftment.
       </div>
       {isloaded ? (
         <Loader />
