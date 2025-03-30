@@ -33,7 +33,7 @@ const Wedo = () => {
 
         <ol className="mt-4 space-y-4">
           <li className="p-4 bg-gray-100 rounded-md shadow-sm">
-            <h4 className="text-lg font-semibold text-gray-800">🔬 Waste Material Science-Based Project Exhibition:</h4>
+            <h4 className="text-lg font-semibold text-gray-800">🔬Science-Based Project Exhibition:</h4>
             <p className="text-gray-700 mt-1">
               Volunteers assist students in creating projects using waste materials. These projects are then presented before a panel for judgment. Awards are given based on creativity and execution.
             </p>
