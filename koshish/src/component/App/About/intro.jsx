@@ -2,7 +2,7 @@ import React from "react";
 
 const Intro = () => {
   return (
-    <div className="bg-gray-50 p-6 rounded-xl shadow-md max-w-3xl mx-auto border-l-4 border-blue-500">
+    <div className="bg-gray-50 p-6 rounded-xl shadow-md max-w-5xl mb-36 mx-auto border-l-4 border-blue-500 relative top-20 md:top-32">
   <h2 className="text-3xl font-bold text-gray-800 mb-4">ABOUT US</h2>
   <p className="text-gray-700 text-lg leading-relaxed mb-4">
     True to its Hindi literal meaning, 

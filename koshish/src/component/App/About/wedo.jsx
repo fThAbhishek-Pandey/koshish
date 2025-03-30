@@ -2,7 +2,7 @@ import React from "react";
 
 const Wedo = () => {
   return (
-    <div className="bg-gray-50 p-6 sm:p-10 rounded-xl shadow-lg max-w-5xl mx-auto border-l-4 border-green-500">
+    <div className="bg-gray-50 p-6 sm:p-10 rounded-xl shadow-lg max-w-5xl mx-auto border-l-4 border-green-500 ">
   {/* Section Title */}
   <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">WHAT DO WE DO?</h2>
 
