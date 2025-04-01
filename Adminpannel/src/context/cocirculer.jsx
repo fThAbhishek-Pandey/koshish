@@ -13,6 +13,7 @@ import getAllHeader from "../utilities/cocirculer/home/getHeader";
 import getAllEvent from "../utilities/cocirculer/home/getEvent";
 import getAllTestimoral from "../utilities/cocirculer/home/getTestimorals";
 import getAllTopMentor from "../utilities/cocirculer/home/getTopmentor";
+import AddAnouncement from "../utilities/cocirculer/home/AddAnouncement";
 export const CocirculerContext = createContext(1);
 const  CocirculerContextProvider = (props) => {
   const [cirToken , setCirToken]= useState(localStorage.getItem('cirToken'));
@@ -62,6 +63,9 @@ const handelgetTestimoral = ()=>{
 const handelgetTopMentor = ()=>{
   getAllTopMentor(backendURL,setTopMentor,cirToken )
 }
+const handelAnnouncement = (data)=>{
+  AddAnouncement(backendURL,data,cirToken )
+}
 
   const value = {
   cirToken , setCirToken,  backendURL,
@@ -72,7 +76,7 @@ const handelgetTopMentor = ()=>{
   getTestimoral, setTestimoral,handelgetTestimoral,
   getTopMentor, setTopMentor,handelgetTopMentor,
   //  mentor section
-  handelAddMentor,handelAllMentor, handelUpdateMentor, handelTerminateMentor,
+  handelAddMentor,handelAllMentor, handelUpdateMentor, handelTerminateMentor,handelAnnouncement,
   // announcement section
 
   //  about section

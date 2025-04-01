@@ -13,10 +13,11 @@ const IndexMentor = () => {
   }, []);
 
   return (
-    <div className="px-4 py-6 sm:px-6 lg:px-8">
+    <div className="px-4 relative md:mt-32 py-6 sm:px-6 lg:px-8">
       <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-6">
         Meet Our Mentors
       </h2>
+      <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit, placeat voluptatibus ut tempore, totam fuga veritatis tempora nulla nam libero quo et eius, eum explicabo hic nihil maxime atque. Velit.</div>
       <div className="bg-green-50 p-5 rounded-lg shadow-md">
         {allMentor && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
