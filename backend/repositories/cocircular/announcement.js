@@ -2,7 +2,7 @@ import { Announcement } from "../../models/App/announcementSchema.js";
 
 const saveAnnouncementDB = async(data)=>{
     try {
-       await Announcement.create({data})
+       await Announcement.create(data)
     } catch (error) {
         console.log(error);
         throw Error(error.message)

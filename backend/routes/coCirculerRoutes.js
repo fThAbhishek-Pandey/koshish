@@ -12,10 +12,11 @@ import upload from '../middleware/cloudimage/multer.js'
 import getHeader from '../controller/app/getHeader.js';
 import getTopmentor from '../controller/app/getTopmentor.js';
 import getevents from '../controller/app/getevents.js';
-import getAnnouncement from '../controller/app/getAnnouncement.js';
+import {getAllAnnouncement,getmyAnnouncement} from '../controller/app/getAnnouncement.js';
 import getTestmorals from '../controller/app/getTestmorals.js';
 import getAllMentor from '../controller/app/getAllMentor.js';
 import contactcontroller from '../controller/app/contactcontroller.js';
+import announcement from '../controller/cocirculer/announcement.js';
 const coCirculerRoutes = express.Router();
 coCirculerRoutes.post('/login', loginCociculer);
 
@@ -33,7 +34,9 @@ coCirculerRoutes.get('/contact/all', authCociculer,getcontact )
 coCirculerRoutes.get('/header/all',authCociculer,getHeader );
 coCirculerRoutes.get('/top-mentor/all',authCociculer,getTopmentor )
 coCirculerRoutes.get('/events/all',authCociculer,getevents)
-coCirculerRoutes.get('/announcement/all',authCociculer,getAnnouncement )
+coCirculerRoutes.get('/announcement/all',authCociculer,getAllAnnouncement )
+coCirculerRoutes.post('/announcement/id',authCociculer,getmyAnnouncement )
 coCirculerRoutes.get('/testimorals/all',authCociculer, getTestmorals);
 coCirculerRoutes.get('/mentor/all',authCociculer, getAllMentor);
+coCirculerRoutes.post('/announcement/add',authCociculer,upload.single('image'),announcement )
 export default coCirculerRoutes

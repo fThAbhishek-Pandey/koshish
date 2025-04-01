@@ -7,6 +7,7 @@ import getTestimorals from "../utils/home/getTestimorals";
 import getAllMentor from "../utils/mentor/getAllMentor";
 import contactus from "../utils/contactus";
 import getmyMentor from "../utils/mentor/getMentor";
+import { getNewAnnouncement,getpastAnnouncement} from "../utils/App/Announcement/getAllAnnouncement";
 export const AppContext = createContext(1);
 const  AppContextProvider = (props) => {
  const [headerData,setHeaderData ] = useState([]);
@@ -15,6 +16,8 @@ const  AppContextProvider = (props) => {
  const [testimorals, setTestimorals] = useState([]);
  const [allMentor, setAllMentor] = useState([]);
  const [myMentor, setmyMentor] = useState([]);
+ const [newAnnouncement, setnewAnnouncement] = useState([]);
+ const [pastAnnouncement, setPastAnnouncement] = useState([]);
  const backendURL = import.meta.env.VITE_BACKEND_URL
 const handleHeader = ()=>{
   getHeader(backendURL, setHeaderData)
@@ -36,7 +39,14 @@ const handelgetmyMentor =(id)=>{
   getmyMentor(backendURL,setmyMentor,id)
 }
 const handleContactus = (data)=>{
-      contactus(backendURL, data);
+  contactus(backendURL, data);
+}
+
+const handleNewAnnouncement = ()=>{
+  getNewAnnouncement(backendURL,setnewAnnouncement);
+}
+const handlePastAnnouncement = ()=>{
+  getpastAnnouncement(backendURL,setPastAnnouncement);
 }
 const value = {
       headerData,setHeaderData ,handleHeader,
@@ -45,7 +55,9 @@ const value = {
       testimorals, setTestimorals,handelTestimorals,
       allMentor, setAllMentor,handelgetAllMentor,
       handleContactus,
-      myMentor, setmyMentor,handelgetmyMentor
+      myMentor, setmyMentor,handelgetmyMentor,
+      newAnnouncement, setnewAnnouncement,handleNewAnnouncement,
+      pastAnnouncement, setPastAnnouncement,handlePastAnnouncement
  }
 return (
     <>
