@@ -4,9 +4,11 @@ import { AppContext } from "../../../context/App";
 import Loader from "../../Loader";
 import ServerErr from "../../SeverErr";
 import NoData from "../../NoData";
+import { useNavigate } from "react-router-dom";
 const Event = () => {
   const { homeEvent, handleHomeEvent } = useContext(AppContext);
   const [isloaded, setIsLoaded] = useState(true);
+  const navigate = useNavigate()
   useEffect(() => {
     handleHomeEvent();
   }, []);
@@ -32,7 +34,7 @@ const Event = () => {
           {isloaded ? (
             <Loader />
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer">
+            <div >
               {cardData == "5xx" ? (
                 <ServerErr />
               ) :  
@@ -40,9 +42,11 @@ const Event = () => {
                 {  
                 cardData =="NODATA" ? <NoData/>
                 
-                :cardData
+                :
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer">
+                {cardData
                   .slice(-4)
-                  .map(({ _id, thumbnail, name, desc, date }) => (
+                  .map(({ _id, thumbnail, name, date }) => (
                     <div
                       key={_id}
                       className="text-blue10  border-2 border-blue10 shadow-md rounded-2xl  overflow-hidden relative group mb-4 transition-all duration-300"
@@ -64,13 +68,11 @@ const Event = () => {
                             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
                               {date}
                             </h1>
-                            <Fade cascade damping={0.05}>
-                              <p className="text-xs sm:text-sm line-clamp-3 md:line-clamp-4">
-                                {desc}
-                              </p>
-                            </Fade>
+          
                             <div className="text-center">
-                              <button className="border border-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-lg hover:bg-white/10 cursor-pointer transition-colors">
+                              <button 
+                              onClick={()=>navigate(`/events/${ _id}`)}
+                              className="border border-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-lg hover:bg-white/10 cursor-pointer transition-colors">
                                 View
                               </button>
                             </div>
@@ -78,7 +80,7 @@ const Event = () => {
                         </div>
                       </div>
                     </div>
-                  ))}
+                  ))} </div> }
              </div>
               }
             </div>
