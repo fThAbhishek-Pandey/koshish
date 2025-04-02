@@ -3,7 +3,12 @@ import { Announcement } from "../../models/App/announcementSchema.js"
 const getnewAnnouncement = async(req, res) => {
     try {
        const data = await Announcement.find({isAtive:true});
-      return res.json({success: true, message: "find all data", data})
+       const sendData = data.map((item)=>{
+           const {_id, isAtive,heading, image,date} = item;
+        return  {_id, isAtive,heading, image,date};
+    });
+       console.log("new data: ",sendData);
+      return res.json({success: true, message: "find new data", data: sendData.reverse()})
     } catch (error) {
         console.log(error);
         return res.json({success: false, message: error.message})
@@ -12,7 +17,11 @@ const getnewAnnouncement = async(req, res) => {
 const getAllAnnouncement = async(req, res) => {
     try {
        const data = await Announcement.find({});
-      return res.json({success: true, message: "find all data", data})
+       const sendData = data.map((item)=>{
+        const {_id, isAtive,heading, image,date} = item;
+     return  {_id, isAtive,heading, image,date};
+ });
+      return res.json({success: true, message: "find all data", data:sendData})
     } catch (error) {
         console.log(error);
         return res.json({success: false, message: error.message})
@@ -21,7 +30,11 @@ const getAllAnnouncement = async(req, res) => {
 const getpastAnnouncement = async(req, res) => {
     try {
        const data = await Announcement.find({isAtive:false});
-      return res.json({success: true, message: "find all data", data})
+       const sendData = data.map((item)=>{
+        const {_id, isAtive,heading, image,date} = item;
+     return  {_id, isAtive,heading, image,date};
+ });
+      return res.json({success: true, message: "find past data", data:sendData})
     } catch (error) {
         console.log(error);
         return res.json({success: false, message: error.message})
@@ -30,8 +43,9 @@ const getpastAnnouncement = async(req, res) => {
 const getmyAnnouncement = async(req, res)=>{
     try {
         const {id} = req.body
+        
         const data = await Announcement.findById(id);
-        return res.json({success: true, message: "find all data", data})
+        return res.json({success: true, message: "find my data", data})
     } catch (error) {
             console.log(error)
         return res.json({success: true, message: `find ${id}`})

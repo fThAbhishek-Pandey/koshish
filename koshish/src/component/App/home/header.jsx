@@ -10,8 +10,10 @@ const IndexHeader = () => {
    const [isloaded, setIsLoaded] = useState(false);
    useEffect(()=>{
     handleHeader();
-   if(headerData) setIsLoaded(true);
    },[])
+   useEffect(()=>{
+    if(headerData && headerData.length !=0) setIsLoaded(true);
+   },[headerData])
    console.log("slider data ", headerData)
    const sliderData = headerData || []
   const settings = {

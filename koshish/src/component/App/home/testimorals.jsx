@@ -8,8 +8,10 @@ const Testimorals = () => {
    const [isloaded, setIsLoaded] = useState(true);
   useEffect(() => {
     handelTestimorals();
-    if(testimorals) setIsLoaded(false);
   }, []);
+  useEffect(()=>{
+    if(testimorals && testimorals.length !=0) setIsLoaded(false);
+  },[testimorals])
   return (
     <div className="pb-8">
       <h2 className="text-4xl sm:text-5xl pb-4 font-bold text-blue10 pt-16 text-center">Testimorals</h2>

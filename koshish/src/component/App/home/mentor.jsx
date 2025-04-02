@@ -7,8 +7,11 @@ const Mentor = () => {
   const [isloaded, setIsLoaded] = useState(true);
   useEffect(()=>{
     handleTopMentor()
-   if(TopMentor) setIsLoaded(false)
+   
   },[])
+useEffect(()=>{
+  if(TopMentor &&TopMentor.length !=0) setIsLoaded(false)
+},[TopMentor])
   const teachers = TopMentor;
   return (
     <div className="pb-20 sm:pb-16 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">

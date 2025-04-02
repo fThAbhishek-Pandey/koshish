@@ -24,11 +24,14 @@ const teacherSchema = new mongoose.Schema({
   classTeacher: {
      type: String,
      required: true,
-     unique: true,
   },
   joinTime:{
     type: Date,
     default:Date.now ()
+  },
+  leaveTime:{
+    type: Date,
+    default:'00-00-0000'
   },
   speciality:{
     type:String,
@@ -51,6 +54,7 @@ const teacherSchema = new mongoose.Schema({
     type: String,
     default:"I love Koshish"
   }
+
 });
 const TeacherModel = mongoose.model('TeacherModel', teacherSchema);
 
