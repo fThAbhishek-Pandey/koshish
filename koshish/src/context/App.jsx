@@ -2,7 +2,7 @@
 import { createContext, useState } from "react";
 import getHeader from "../utils/App/home/getHeader";
 import getTopmentor from '../utils/App/home/getTopmentor'
-import { getHomeEvent,getNewEvent,getPastEvent}  from '../utils/App/Events/getAllEvents'
+import {getEventByID, getHomeEvent,getNewEvent,getPastEvent}  from '../utils/App/Events/getAllEvents'
 import getTestimorals from "../utils/App/home/getTestimorals";
 import getAllMentor from "../utils/App/mentor/getAllMentor";
 import contactus from "../utils/App/contactus";
@@ -15,6 +15,7 @@ const  AppContextProvider = (props) => {
  const [homeEvent, setHomeEvent] = useState([])
  const [newEvent, setNewEvent] = useState([])
  const [pastEvent, setPastEvent] = useState([])
+ const [idEvent, setIdEvent] = useState({})
  const [testimorals, setTestimorals] = useState([]);
  const [allMentor, setAllMentor] = useState([]);
  const [myMentor, setmyMentor] = useState([]);
@@ -29,13 +30,16 @@ const handleTopMentor = ()=>{
   getTopmentor(backendURL,setTopMentor)
 }
 const handleNewEvent = ()=>{
-  getNewEvent(backendURL,setHomeEvent)
+  getNewEvent(backendURL,setNewEvent)
 }
 const handlePastEvent = ()=>{
- getPastEvent(backendURL,setHomeEvent)
+ getPastEvent(backendURL,setPastEvent)
 }
 const handleHomeEvent = ()=>{
   getHomeEvent(backendURL,setHomeEvent)
+}
+const handleIDEvent = (id)=>{
+  getEventByID(backendURL,setIdEvent,id)
 }
 const handelTestimorals =()=>{
   getTestimorals(backendURL,setTestimorals)
@@ -66,6 +70,7 @@ const value = {
       homeEvent, setHomeEvent,handleHomeEvent,
       newEvent, setNewEvent,handleNewEvent,
       pastEvent, setPastEvent,handlePastEvent,
+      idEvent, setIdEvent,handleIDEvent,
       testimorals, setTestimorals,handelTestimorals,
       allMentor, setAllMentor,handelgetAllMentor,
       handleContactus,

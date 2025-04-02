@@ -1,7 +1,7 @@
 import express from 'express'
 import getHeader from '../controller/app/getHeader.js';
 import getTopmentor from '../controller/app/getTopmentor.js';
-import {getTopEvents,getNewEvents,getpastEvents} from '../controller/app/getevents.js';
+import {getEventById,getTopEvents,getNewEvents,getpastEvents} from '../controller/app/getevents.js';
 import {getnewAnnouncement,getpastAnnouncement,getmyAnnouncement} from '../controller/app/getAnnouncement.js';
 import getTestmorals from '../controller/app/getTestmorals.js';
 import getAllMentor from '../controller/app/getAllMentor.js';
@@ -13,6 +13,7 @@ appRoutes.get('/top-mentor',getTopmentor )
 appRoutes.get('/events',getTopEvents)
 appRoutes.get('/events/new',getNewEvents)
 appRoutes.get('/events/past',getpastEvents)
+appRoutes.post('/events/id',getEventById)
 appRoutes.get('/announcement/new',getnewAnnouncement )
 appRoutes.get('/announcement/past',getpastAnnouncement )
 appRoutes.post('/announcement/id', getmyAnnouncement )
