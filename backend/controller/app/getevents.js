@@ -3,10 +3,10 @@ const getAllEvents = async(req,res) => {
  try {
     const data = await homeEventsModel.find({});
     console.log(data);
-    res.json({success:true, message:"get all homeEvent", data})
+   return res.json({success:true, message:"get all homeEvent", data})
  } catch (error) {
     console.log(error)
-    res.json ({success:false, message:error.message});
+   return res.json ({success:false, message:error.message});
  }
 
 
@@ -47,5 +47,16 @@ const getNewEvents = async(req,res) => {
       res.json ({success:false, message:error.message});
    }
   }
+  const getEventById = async(req,res) => {
+   try {
+      const {id} = req.body
+      const data = await homeEventsModel.findById(id);
+      console.log(data);
+      res.json({success:true, message:`found Event of id ${id}`, data:data})
+   } catch (error) {
+      console.log(error)
+      res.json ({success:false, message:error.message});
+   }
+  }
 
-export  {getAllEvents,getTopEvents,getNewEvents,getpastEvents}
+export  {getEventById,getAllEvents,getTopEvents,getNewEvents,getpastEvents}

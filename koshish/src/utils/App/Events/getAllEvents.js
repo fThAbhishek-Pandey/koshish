@@ -46,5 +46,18 @@ const getNewEvent = async (backendURL,setHomeEvent) => {
       toast.error(error.message);
     }
   }
-
-export { getHomeEvent,getNewEvent,getPastEvent}
+  const getEventByID = async (backendURL,setIdEvent,id) => {
+   try {
+      const {data} = await axios.post(backendURL + '/api/app/events/id',{id})
+      if (data.success) {
+         setIdEvent(data.data)
+         toast.success(data.message)
+      }
+      else toast.error(data.message);
+   } catch (error) {
+      console.log(error);
+      setIdEvent('5xx')
+     toast.error(error.message);
+   }
+ }
+export { getEventByID,getHomeEvent,getNewEvent,getPastEvent}
