@@ -8,10 +8,10 @@ const PastAnouncement = () => {
     handlePastAnnouncement()
   },[])
   return (
-    <div>
-       { pastAnnouncement ? <div>
+    <div className='mb-36'>
+       { pastAnnouncement &&pastAnnouncement.length !=0 ? <div>
           {
-           pastAnnouncement && pastAnnouncement.map ((announcement , idx)=>{
+           pastAnnouncement.map ((announcement , idx)=>{
               return (
                 <div key={announcement._id}>
                   <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-5 border border-gray-200">
@@ -22,7 +22,7 @@ const PastAnouncement = () => {
       />
       <div className="p-4">
         <h2 className="text-xl font-semibold text-gray-900">{announcement.heading}</h2>
-        <p className="mt-2 text-gray-700">{announcement.announcement}</p>
+       
         <p className="mt-2 text-gray-500 text-sm">
           Date: {new Date(announcement.date).toDateString()}
         </p>

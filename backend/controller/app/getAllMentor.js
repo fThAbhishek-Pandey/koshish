@@ -5,8 +5,11 @@ import { AllMentorDB } from "../../repositories/cocircular/mentor.js";
 const getAllMentor =async (req,res) => {
   try {
     const data = await AllMentorDB();
-    console.log("---> ",  data)
-    res.json({success:true, data: data, message: "All Mentor fond"});
+    const sendData = data.map((item)=>{
+      const {_id, name,linkedin,image,speciality,quote,joinTime,} = item;
+   return  {_id, name,linkedin,image,speciality,quote,joinTime};
+});
+    res.json({success:true, data: sendData, message: "All Mentor fond"});
 
   } catch (error) {
      console.log(error)

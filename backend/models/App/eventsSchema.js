@@ -6,7 +6,7 @@ const homeEventsSchema = new mongoose.Schema({
     required: true
   },
   date:{
-    type: String, 
+    type: Date, 
     required:true
   },
   desc: {
@@ -16,6 +16,14 @@ const homeEventsSchema = new mongoose.Schema({
   thumbnail:{
     type:String,
     required:true
+  },
+  isActive:{
+    type:Boolean,
+    default:true
+  },
+  isTop:{
+    type:Boolean,
+    default:false
   }
 });
 

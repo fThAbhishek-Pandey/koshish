@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Loading from '../assets/loading2.svg';
 
-import Loading from '../assets/loading2.svg'
 const Loader = () => {
   return (
-    <div className='text-5xl text-blue11'>
-
-        <img className='bg-amber-800' src={Loading} alt="loaging..." />
+    <div className='flex items-center justify-center'>
+      <img className='w-full h-20  sm:h-24 animate-spin' src={Loading} alt='Loading...' />
     </div>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

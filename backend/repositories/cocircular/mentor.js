@@ -2,7 +2,7 @@
 import TeacherModel from '../../models/teacher/teacherSchema.js'
 
 const addMentorDB = async(mentorData)=>{
-     console.log(mentorData)
+   console.log(mentorData)
    const newMentor =  await  TeacherModel.create(mentorData);
     await newMentor.save()
 }
@@ -12,6 +12,13 @@ const terminateMentorDB = async(email)=>{
 }
 const AllMentorDB = async ()=>{
    const data = await TeacherModel.find({});
+   console.log(data);
+   
+//    const myData = 
+   return data.reverse()
+}
+const AllAlumniDB = async ()=>{
+   const data = await TeacherModel.find({isActive:false});
    console.log(data);
 //    const myData = 
    return data.reverse()
@@ -23,5 +30,6 @@ export {
     addMentorDB,
     terminateMentorDB,
     AllMentorDB,
-    updateMentor
+    updateMentor,
+    AllAlumniDB
 }
