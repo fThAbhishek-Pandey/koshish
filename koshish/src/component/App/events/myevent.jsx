@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../../../context/App';
-
+import Markdown from 'react-markdown';
 const Myevent = () => {
   const { id } = useParams();
   const { idEvent, handleIDEvent } = useContext(AppContext);
@@ -28,7 +28,7 @@ const Myevent = () => {
         />
         <div className="mt-4 text-center">
           <h2 className="text-2xl font-bold text-gray-900">{idEvent.name}</h2>
-          <p className="mt-2 text-gray-600">{idEvent.desc}</p>
+          <p className="mt-2 text-gray-600"><Markdown>{idEvent.desc}</Markdown> </p>
           <p className="mt-2 text-gray-500 text-sm">📅 Date: {new Date(idEvent.date).toDateString()}</p>
           {idEvent.isActive && (
             <span className="inline-block bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded mt-3">
