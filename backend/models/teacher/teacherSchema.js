@@ -31,7 +31,7 @@ const teacherSchema = new mongoose.Schema({
   },
   leaveTime:{
     type: Date,
-    default:'0000-00-00'
+    default:new Date(1552261496289)
   },
   speciality:{
     type:String,
