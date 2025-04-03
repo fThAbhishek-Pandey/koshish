@@ -48,7 +48,17 @@ const AllMentor = async()=>{
 
 const updateMentor = async(req, res)=>{
       try {
-        
+      const {userId} = req.params;
+      const updates = req.body;
+      const updatedUser = await User.findByIdAndUpdate(
+        userId,
+        {$set: updates},
+        {new: true, runValidators: true}
+      );
+      if(!updatedUser){
+        return res.status(404).json({message: "User not found"});
+      }
+      res.status(200).json({message: "user updated",updatedUser});
       } catch (error) {
         console.log(error)
         res.json({success:true, message: error.message})
