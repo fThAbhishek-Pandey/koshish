@@ -3,11 +3,11 @@ import { AppContext } from '../../../context/App';
 import Loader from '../../Loader';
 import ServerErr from '../../SeverErr';
 import { BsLinkedin } from 'react-icons/bs';
-
+import { useNavigate } from 'react-router-dom';
 const Mentor = () => {
   const { TopMentor, handleTopMentor } = useContext(AppContext);
   const [isLoaded, setIsLoaded] = useState(true);
-
+  const navigate = useNavigate();
   useEffect(() => {
     handleTopMentor();
   }, []);
@@ -47,27 +47,31 @@ const Mentor = () => {
                   <div className="flex justify-center mb-4">
                     <img
                       src={teacher.image}
+                      onClick={()=>navigate(`/mentors/${teacher._id}`)}
                       alt={teacher.name}
                       className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full object-cover shadow-lg transition-transform duration-300 group-hover:scale-110"
                     />
-                  </div>
-                  <h2 className="text-xl font-bold text-gray-800">{teacher.name}</h2>
-                  <p className="text-sm text-blue-600 font-medium mt-1">{teacher.speciality}</p>
-                  <p className="text-xs text-gray-500 mt-1">Joined in {joinYear}</p>
-
-                  <blockquote className="text-sm italic text-gray-600 mt-3">
-                    “{teacher.quote.replace(/^["']|["']$/g, '')}”
-                  </blockquote>
+                  </div >
+                  <div className='flex justify-around'>
+                  <h2 
+                   onClick={()=>navigate(`/mentors/${teacher._id}`)}
+                  className="text-xl font-bold text-gray-800">{teacher.name}</h2>
 
                   <a
                     href={teacher.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 mt-4 text-blue-700 text-sm font-semibold hover:underline"
+                    className="inline-flex items-center justify-center gap-2 mt-2 text-blue-700 text-sm font-semibold hover:underline"
                   >
                     <BsLinkedin className="text-blue-700 text-lg" />
-                    Connect on LinkedIn
                   </a>
+                  </div>
+                  <p className="text-sm text-blue-600 font-medium mt-2">{teacher.speciality}</p>
+                  <p className="text-xs text-gray-500 mt-1">Joined in {joinYear}</p>
+
+                  <blockquote className="text-sm italic text-gray-600 mt-3">
+                    “{teacher.quote.replace(/^["']|["']$/g, '')}”
+                  </blockquote>
                 </div>
               );
             })}
