@@ -10,14 +10,18 @@ const NewEvent = () => {
     },[])
     console.log("newEvent: ",newEvent)
   return (
-    <div className='relative top-32'>
-      {newEvent && newEvent.length !=0 ?  <div className="min-h-screen bg-gray-100 p-6 flex flex-wrap gap-6 justify-center">
+    <div className="relative pt-28 pb-10 px-4 sm:px-6 lg:px-8">
+  {newEvent && newEvent.length !== 0 ? (
+    <div className="min-h-screen bg-gray-100 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
       {newEvent.map((event) => (
         <EventCard key={event._id} event={event} />
       ))}
-    </div> :<NoEvent/>}
-      
-      </div>
+    </div>
+  ) : (
+    <NoEvent />
+  )}
+</div>
+
   )
 }
 

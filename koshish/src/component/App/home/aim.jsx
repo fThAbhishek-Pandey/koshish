@@ -14,7 +14,7 @@ const Culture = () => {
             can fill colors in many lives'.
           </p>
           <p>We believe in this shloka,</p>
-          <div className="text-sm md:text-xl p-5 md:font-semibold ">
+          <div className="text-sm md:text-xl text-blue00 p-5 md:font-semibold ">
             <p>न चौरहार्यं न च राजहार्य, न भ्रातृभाज्यं न च भारकारि।</p>
             <p>व्यये कृते वर्द्धत एव नित्यं, विद्याधनं सर्वधनप्रधानम्।।</p>
           </div>

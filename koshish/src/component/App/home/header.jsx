@@ -1,21 +1,25 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import Loader from '../../Loader';
-import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { AppContext } from '../../../context/App';
 import ServerErr from '../../SeverErr';
+
 const IndexHeader = () => {
-   const {headerData,handleHeader} = useContext(AppContext);
-   const [isloaded, setIsLoaded] = useState(false);
-   useEffect(()=>{
+  const { headerData, handleHeader } = useContext(AppContext);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
     handleHeader();
-   },[])
-   useEffect(()=>{
-    if(headerData && headerData.length !=0) setIsLoaded(true);
-   },[headerData])
-   console.log("slider data ", headerData)
-   const sliderData = headerData || []
+  }, []);
+
+  useEffect(() => {
+    if (headerData && headerData.length !== 0) setIsLoaded(true);
+  }, [headerData]);
+
+  const sliderData = headerData || [];
+
   const settings = {
     dots: true,
     infinite: true,
@@ -26,53 +30,47 @@ const IndexHeader = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     pauseOnHover: true,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          arrows: false,
+        },
+      },
+    ],
   };
 
   return (
-    <div className=' w-full h-full pb-20 sm:pb-16 md:pb-16 lg:pb-20 sm:px-1 lg:px-2 relative top-24 mb-16 md:mb-5'>
-      <div className='px-4 py-4 md:py-10 lg:py-10'>
-        <h1 className='text-blue11 text-center text-3xl font-semibold md:text-4xl lg:text-5xl'>
-          Welcome to <span className='text-4xl font-bold text-blue10 underline md:text-5xl lg:text-6xl'>KOSHISH</span>
-        </h1>
-        <p className='w-full md:w-3/4 lg:w-1/2 my-2 sm:mt-8 text-gray-500 text-center mx-auto text-sm sm:text-base px-4'>
-          <span className='font-bold'>KOSHISH</span> is a social initiative dedicated to empowering marginalized communities, promoting education, fostering equality, and creating sustainable opportunities.
-        </p>
-      </div>
-      
-      <div className='mx-auto  w-full h-full px-4 sm:px-6 md:px-2 lg:w-4/5 xl:w-3/4 2xl:w-[90%]'>
-     { isloaded ?<div>
-       {       
-       headerData == '5xx'? <ServerErr/> :
-      <Slider {...settings} >
-           { console.log(sliderData, typeof(sliderData))}
-         
-          {
-           
-          sliderData.map((data) => (
-            <div key={data._id}  className='text-blue10 max-w-full max-h-full bg-white border-2 border-blue10 rounded-xl shadow-lg overflow-hidden'>
-              <div className='relative pt-[56.25%] h-5'>
-                <img 
-                  src={data.image} 
-                  alt={`Slide ${data._id} - ${data.para.slice(0, 10)}...`} 
-                  className='absolute top-0 left-0 w-full h-full object-cover rounded-xl'
-                />
-              
+    <div className="w-full px-2 sm:px-4 md:px-10 lg:px-16 xl:px-24">
+      {!isLoaded ? (
+        <Loader />
+      ) : headerData === '5xx' ? (
+        <ServerErr />
+      ) : (
+        <Slider {...settings}>
+          {sliderData.map((data) => (
+            <div key={data._id} className="px-2">
+              <div className="bg-white border-2 border-blue-400 rounded-2xl shadow-lg overflow-hidden">
+                <div className="relative pt-[56.25%] sm:pt-[50%] md:pt-[45%] lg:pt-[40%]">
+                  <img
+                    src={data.image}
+                    alt={`Slide ${data._id}`}
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-4 sm:p-6">
+                  <h2 className="text-xl sm:text-2xl font-bold text-blue10 mb-2">{data.heading}</h2>
+                  <p className="text-sm sm:text-base text-gray-700 hidden md:block">{data.para}</p>
+                </div>
               </div>
-              <div className='p-5'>
-              <div  className=' text-2xl  font-semibold'>{data.heading}</div>
-              <div  className='hidden md:block text-lg text-black'>{data.para}</div>
-              </div>
-               
             </div>
           ))}
-        </Slider>}
-     </div> :<div>
-        {console.log("---> ",sliderData)}
-        <Loader/>
-       </div>}
-      </div>
+        </Slider>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default IndexHeader
+export default IndexHeader;
