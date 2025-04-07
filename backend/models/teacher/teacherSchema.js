@@ -23,7 +23,7 @@ const teacherSchema = new mongoose.Schema({
   },
   classTeacher: {
      type: String,
-     required: true,
+     required: false,
   },
   joinTime:{
     type: Date,
@@ -39,6 +39,10 @@ const teacherSchema = new mongoose.Schema({
 
   },
   isActive:{
+    type: String ,
+    default:true
+  },
+  isTop:{
     type: String ,
     default:true
   },
