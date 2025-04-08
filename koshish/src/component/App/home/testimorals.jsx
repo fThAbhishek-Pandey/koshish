@@ -29,7 +29,7 @@ const Testimorals = () => {
               return (
                 <div
                 key={idx}
-                className="group bg-white border border-gray-300 shadow-md rounded-xl p-6 w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                className="group bg-green-100 border border-gray-300 shadow-md rounded-xl p-6 w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   <img

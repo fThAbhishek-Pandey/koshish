@@ -1,15 +1,30 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import education from '../../../assets/edu.png'
 import { LiaUserGraduateSolid } from "react-icons/lia";
 import { LiaUniversitySolid } from "react-icons/lia";
 
 const Education = () => {
-    let student =0;
-    let story=0;
-    setInterval(()=>{
-         student +=10;
-         story+=1
-    }, 100)
+    
+    const [student, setStudent] = useState(0);
+    const [story, setStory] = useState(0);
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setStudent((prevStudent) => {
+          if (prevStudent + 10 >= 1000) {
+            clearInterval(interval);
+            return 1000;
+          }
+          return prevStudent + 10;
+        });
+  
+        setStory((prevStory) => prevStory + 1);
+      }, 100);
+  
+      return () => clearInterval(interval); // Cleanup
+    }, []);
+  
+      
   return (
 
    <div className="flex flex-col md:flex-row items-start">
@@ -25,11 +40,11 @@ const Education = () => {
             <div className="flex flex-col items-start space-y-2 mb-2">
                 <div className="text-2xl font-bold flex items-center ml-13 ">
 
-                    <LiaUserGraduateSolid className="mr-2 rounded-full bg-violet-300" />
+                    <LiaUserGraduateSolid className="mr-2 p-1 text-2xl rounded-full bg-blue10 text-white" />
                    <span className='text-green00'>{student}+</span>  <span className="text-base font-normal m-2 ">Students Join Us</span>
                 </div>
                 <div className="text-2xl font-bold flex items-center p-1 ml-12">
-                    <LiaUniversitySolid className="mr-2 rounded-full bg-violet-300 " />
+                    <LiaUniversitySolid className="mr-2 p-1 rounded-full bg-blue10 text-white" />
                    <span className='text-green00'>{story}+</span> <span className="text-base font-normal  m-2">Success Story</span>
 
                 </div>

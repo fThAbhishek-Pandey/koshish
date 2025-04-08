@@ -52,7 +52,7 @@ const IndexHeader = () => {
         <Slider {...settings}>
           {sliderData.map((data) => (
             <div key={data._id} className="px-2">
-              <div className="bg-white border-2 border-blue-400 rounded-2xl shadow-lg overflow-hidden">
+              <div className="bg-green-100 border-2 border-blue-400 rounded-2xl shadow-lg overflow-hidden">
                 <div className="relative pt-[56.25%] sm:pt-[50%] md:pt-[45%] lg:pt-[40%]">
                   <img
                     src={data.image}

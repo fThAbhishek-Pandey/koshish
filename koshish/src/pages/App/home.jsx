@@ -25,7 +25,7 @@ const HomeApp = () => {
         <Event/>
         <Education/>
         <Mentor/>
-        {/* <Achievement/> */}
+        <Achievement/>
         <Testimorals/>
     </div>
   )
