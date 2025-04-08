@@ -22,7 +22,10 @@ const getNewEvent = async (backendURL,setHomeEvent) => {
     try {
        const {data} = await axios.get(backendURL + '/api/app/events/new')
        if (data.success) {
-          setHomeEvent(data.data)
+         if(data.data.length==0) {
+            setHomeEvent("NODATA")
+           }
+         else  setHomeEvent(data.data)
           toast.success(data.message)
        }
        else toast.error(data.message);
@@ -36,7 +39,10 @@ const getNewEvent = async (backendURL,setHomeEvent) => {
     try {
        const {data} = await axios.get(backendURL + '/api/app/events/past')
        if (data.success) {
-          setHomeEvent(data.data)
+           if(data.data.length==0) {
+            setHomeEvent("NODATA")
+           }
+         else  setHomeEvent(data.data)
           toast.success(data.message)
        }
        else toast.error(data.message);

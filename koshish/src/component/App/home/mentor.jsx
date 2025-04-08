@@ -42,7 +42,7 @@ const Mentor = () => {
               return (
                 <div
                   key={teacher._id}
-                  className="group bg-white border border-blue-200 shadow-md rounded-2xl p-6 text-center transition-transform hover:scale-[1.03] duration-300"
+                  className="group bg-green-100 border border-blue-200 shadow-md rounded-2xl p-6 text-center transition-transform hover:scale-[1.03] duration-300"
                 >
                   <div className="flex justify-center mb-4">
                     <img
