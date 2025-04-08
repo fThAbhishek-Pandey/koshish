@@ -13,23 +13,22 @@ const IndexMentor = () => {
   }, []);
 
   return (
-    <div className="px-4 relative md:mt-32 py-6 sm:px-6 lg:px-8 mb-24">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-6">
+    <div className="md:mb-32 py-6 sm:px-6 lg:px-8 mb-24 text-center relative top-20 md:top-32">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center text-blue10 mb-6">
         Meet Our Mentors
       </h2>
-      <div>
+      <div className="my-4 p-4 max-w-5xl text-center">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit,
         placeat voluptatibus ut tempore, totam fuga veritatis tempora nulla nam
         libero quo et eius, eum explicabo hic nihil maxime atque. Velit.
       </div>
       <div className="bg-green-50 p-5 rounded-lg shadow-md">
         {allMentor && (
-          <div  className="" >
+          <div className="">
             {allMentor === "5xx" ? (
               <ServerErr />
             ) : (
               <div>
-                {" "}
                 {allMentor == "NODATA" ? (
                   <NoData />
                 ) : (
@@ -37,14 +36,11 @@ const IndexMentor = () => {
                     {allMentor.length == 0 ? (
                       <Loader />
                     ) : (
-                      allMentor.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"
-                        >
-                          <MentorCard item={item} />
-                        </div>
-                      ))
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+                        {allMentor.map((item, idx) => (
+                          <MentorCard item={item} key={idx} />
+                        ))}
+                      </div>
                     )}
                   </div>
                 )}
