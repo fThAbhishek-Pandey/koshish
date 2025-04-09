@@ -23,7 +23,7 @@ const teacherSchema = new mongoose.Schema({
   },
   classTeacher: {
      type: String,
-     required: false,
+     required: true,
   },
   joinTime:{
     type: Date,
@@ -53,7 +53,11 @@ const teacherSchema = new mongoose.Schema({
   aboutHead:{
       type: String,
       require: true
-  }, 
+  },
+  yog:{
+      type: Number,
+      default: 2026
+  } ,
   about:{
     type: String,
     default:"I love Koshish"

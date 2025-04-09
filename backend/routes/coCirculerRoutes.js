@@ -2,7 +2,7 @@ import express from 'express'
 import authCociculer from '../middleware/authentication/cocirculerAuth.js';
 import loginCociculer from '../middleware/authentication/logincocerculer.js';
 import updatecocerculerprofile from '../controller/cocirculer/cocerculer.js';
-import{ addMentor, terminateMentor, AllMentor, updateMentor} from '../controller/cocirculer/mentor.js';
+import{ addMentor, terminateMentor, AllMentor,getMentorById, updateMentorById} from '../controller/cocirculer/mentor.js';
 import { addHeader } from '../controller/cocirculer/manageHeader.js';
 import { Addevent } from '../controller/cocirculer/event.js';
 import { addtestimorals } from '../controller/cocirculer/testimorals.js';
@@ -12,7 +12,7 @@ import getHeader from '../controller/app/getHeader.js';
 import {getAllEvents} from '../controller/app/getevents.js';
 import {getAllAnnouncement,getmyAnnouncement} from '../controller/app/getAnnouncement.js';
 import getTestmorals from '../controller/app/getTestmorals.js';
-import getAllMentor from '../controller/app/getAllMentor.js';
+// import getAllMentor from '../controller/app/getAllMentor.js';
 import contactcontroller from '../controller/app/contactcontroller.js';
 import announcement from '../controller/cocirculer/announcement.js';
 const coCirculerRoutes = express.Router();
@@ -21,9 +21,10 @@ coCirculerRoutes.post('/login', loginCociculer);
 // coCirculerRoutes.get('/auth', authCociculer);
 coCirculerRoutes.patch('/update/cocirculer-profile', authCociculer, updatecocerculerprofile);
 coCirculerRoutes.post('/mentor/add', authCociculer,upload.single('image'),addMentor )
-coCirculerRoutes.patch('/mentor/update', authCociculer,upload.single('image'),updateMentor )
+coCirculerRoutes.get('/mentor/u/:id', authCociculer,getMentorById )
+coCirculerRoutes.patch('/mentor/update/:id', authCociculer,upload.single('image'),updateMentorById )
 coCirculerRoutes.patch('/mentor/terminate', authCociculer,terminateMentor )
-coCirculerRoutes.get('/mentor/all', authCociculer, AllMentor )
+coCirculerRoutes.get('/mentor/all', authCociculer, AllMentor)
 coCirculerRoutes.post('/addheader', authCociculer,upload.single('image'),addHeader)
 coCirculerRoutes.post('/addevent', authCociculer,upload.single('image'),Addevent)
 coCirculerRoutes.post('/addtestimorals', authCociculer,upload.single('image'),addtestimorals )
@@ -33,6 +34,5 @@ coCirculerRoutes.get('/events/all',authCociculer,getAllEvents)
 coCirculerRoutes.get('/announcement/all',authCociculer,getAllAnnouncement )
 coCirculerRoutes.post('/announcement/id',authCociculer,getmyAnnouncement )
 coCirculerRoutes.get('/testimorals/all',authCociculer, getTestmorals);
-coCirculerRoutes.get('/mentor/all',authCociculer, getAllMentor);
 coCirculerRoutes.post('/announcement/add',authCociculer,upload.single('image'),announcement )
 export default coCirculerRoutes
