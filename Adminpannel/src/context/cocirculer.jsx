@@ -6,13 +6,13 @@ import AddEvent from "../utilities/cocirculer/home/AddEvent";
 import AddTestimorals from "../utilities/cocirculer/home/AddTestimorals";
 import AddMentor from "../utilities/cocirculer/Mentor/AddMentor";
 import AllMentor from "../utilities/cocirculer/Mentor/AllMentor";
+import getMentorById from "../utilities/cocirculer/Mentor/getMentorById";
 import updateMentor from "../utilities/cocirculer/Mentor/updateMentor";
 import terminateMentor from "../utilities/cocirculer/Mentor/terminateMentor";
 import contact from "../utilities/cocirculer/contact";
 import getAllHeader from "../utilities/cocirculer/home/getHeader";
 import getAllEvent from "../utilities/cocirculer/home/getEvent";
 import getAllTestimoral from "../utilities/cocirculer/home/getTestimorals";
-import getAllTopMentor from "../utilities/cocirculer/home/getTopmentor";
 import AddAnouncement from "../utilities/cocirculer/home/AddAnouncement";
 export const CocirculerContext = createContext(1);
 const  CocirculerContextProvider = (props) => {
@@ -21,7 +21,8 @@ const  CocirculerContextProvider = (props) => {
   const [getHeader, setHeader] = useState([]);
   const [getEvent, setEvent] = useState([]);
   const [getTestimoral, setTestimoral] = useState([]);
-  const [getTopMentor, setTopMentor] = useState([]);
+  const [getMentor, setMentor] = useState([]);
+  const [MentorById, setMentorById]= useState({});
   const backendURL = import.meta.env.VITE_BACKEND_URL
   console.log(".env-->",import.meta.env)
   const HeaderHandler = (formdata)=>{
@@ -39,11 +40,15 @@ const handelTestimorals = (formdata)=>{
 const handelAddMentor = ( formdata)=>{
   AddMentor(backendURL, formdata, cirToken)
 }
-const handelAllMentor = ()=>{
-  AllMentor(backendURL,  cirToken)
+const handelgetMentor = ()=>{
+  AllMentor(backendURL,setMentor,cirToken )
 }
-const handelUpdateMentor = ( formdata)=>{
-  updateMentor(backendURL, formdata, cirToken)
+const handelMentorById=(id)=> {
+  getMentorById(backendURL, setMentorById,id, cirToken)
+}
+const handelUpdateMentorById = (id, formdata)=>{
+  console.log(id);
+  updateMentor(backendURL, formdata, id, cirToken)
 }
 const handelTerminateMentor = (email)=>{
   terminateMentor (backendURL, email, cirToken)
@@ -60,9 +65,7 @@ const handelgetEvent = ()=>{
 const handelgetTestimoral = ()=>{
   getAllTestimoral(backendURL,setTestimoral,cirToken )
 }
-const handelgetTopMentor = ()=>{
-  getAllTopMentor(backendURL,setTopMentor,cirToken )
-}
+
 const handelAnnouncement = (data)=>{
   AddAnouncement(backendURL,data,cirToken )
 }
@@ -74,11 +77,13 @@ const handelAnnouncement = (data)=>{
   getHeader, setHeader,handelgetHeader,
   getEvent, setEvent,handelgetEvent,
   getTestimoral, setTestimoral,handelgetTestimoral,
-  getTopMentor, setTopMentor,handelgetTopMentor,
+  
   //  mentor section
-  handelAddMentor,handelAllMentor, handelUpdateMentor, handelTerminateMentor,handelAnnouncement,
+  getMentor, setMentor,handelgetMentor,
+  MentorById, setMentorById ,handelMentorById,
+  handelAddMentor, handelUpdateMentorById, handelTerminateMentor,
   // announcement section
-
+  handelAnnouncement,
   //  about section
   //  contact
   getcontact, setContact,handelContact

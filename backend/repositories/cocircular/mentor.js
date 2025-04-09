@@ -11,11 +11,23 @@ const terminateMentorDB = async(email)=>{
        TeacherModel.updateOne(email, {isActive: false})
 }
 const AllMentorDB = async ()=>{
-   const data = await TeacherModel.find({});
-   console.log(data);
+   try {
+      const data = await TeacherModel.find({});
+      console.log(data);
+      return data.reverse()
+   } catch (error) {
+      console.log("AllMentorDB :", error)
+   }
+   
    
 //    const myData = 
-   return data.reverse()
+  
+}
+const mentorByIdDB = async (id)=>{
+   const data = await TeacherModel.findById(id);
+   console.log(data);
+//    const myData = 
+   return data
 }
 const AllAlumniDB = async ()=>{
    const data = await TeacherModel.find({isActive:false});
@@ -23,13 +35,29 @@ const AllAlumniDB = async ()=>{
 //    const myData = 
    return data.reverse()
 }
-const updateMentor = ()=>{
-
+const updateMentor = async (id, data)=>{
+   try {
+      await  TeacherModel.findByIdAndUpdate(id, data)
+      .then(updatedUser => {
+         if (updatedUser) {
+           console.log('User updated successfully:', updatedUser);
+         } else {
+           console.log('User not found');
+         }
+       })
+       .catch(error => {
+         console.error('Error updating user:', error);
+       });
+   } catch (error) {
+      console.log(error);
+   }
+    
 }
 export {
     addMentorDB,
     terminateMentorDB,
     AllMentorDB,
     updateMentor,
-    AllAlumniDB
+    AllAlumniDB,
+    mentorByIdDB
 }

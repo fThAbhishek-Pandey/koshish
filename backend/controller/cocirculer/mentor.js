@@ -1,5 +1,5 @@
-import  {cloudinaryUploadImage}  from '../../middleware/cloudimage/cloudinary.js'
-import { addMentorDB, terminateMentorDB, AllMentorDB}   from '../../repositories/cocircular/mentor.js'
+import  {cloudinaryUploadImage, cloudinaryRemoveImage }  from '../../middleware/cloudimage/cloudinary.js'
+import { addMentorDB, terminateMentorDB, AllMentorDB,updateMentor,mentorByIdDB}   from '../../repositories/cocircular/mentor.js'
 const addMentor = async(req, res ) => {
    try {
           const {name,email,subject,classTeacher,linkedin,speciality,quote, aboutHead, about}= req.body;
@@ -36,9 +36,21 @@ const terminateMentor = async (req,res)=>{
            res.json({success:true, message: error.message})
   }
 }
-const AllMentor = async()=>{
+const AllMentor = async(req,res)=>{
   try {
+    console.log("i am all mentor");
     const data =  await AllMentorDB () 
+     return res.json({success:true, data, message : "All Mentor is find"});
+  } catch (error) {
+           console.log(error)
+           res.json({success:false, message: error.message})
+  }
+}
+
+const getMentorById = async(req,res)=>{
+  try {
+    const {id} =  req.params
+    const data = await  mentorByIdDB(id);
      return res.json({success:true, data, message : "All Mentor is find"});
   } catch (error) {
            console.log(error)
@@ -46,12 +58,28 @@ const AllMentor = async()=>{
   }
 }
 
-const updateMentor = async(req, res)=>{
+const updateMentorById = async( req , res)=>{
       try {
-        
+        const {id} = req.params
+         const { name,imgurl ,subject,yog,classTeacher,speciality,linkedin, about,quote, aboutHead } = req.body;
+
+         console.log("i am update by Id: ",id)
+         const imagefile = req.file
+         if(imagefile){
+          console.log("imgurl ",imgurl)
+          // await cloudinaryRemoveImage(imgurl);
+          const imageData =   await  cloudinaryUploadImage(imagefile)
+          await updateMentor(id, { name,image:  imageData.secure_url ,subject,yog,classTeacher,speciality,linkedin, about,quote, aboutHead })
+       }
+       else {
+        await updateMentor(id, { name ,subject,yog,classTeacher,speciality,linkedin, about,quote, aboutHead })
+       }
+       
+      
+      res.json({success:true, message : "successfully updated"})
       } catch (error) {
         console.log(error)
         res.json({success:true, message: error.message})
       }
 }
-export { addMentor, terminateMentor, AllMentor, updateMentor}
+export { addMentor, terminateMentor, AllMentor, updateMentorById,getMentorById}
