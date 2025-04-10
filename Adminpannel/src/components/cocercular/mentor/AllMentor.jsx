@@ -2,18 +2,18 @@ import React, { useState,useContext,useEffect } from 'react'
 import { CocirculerContext } from '../../../context/cocirculer';
 import {useNavigate } from 'react-router-dom'
 const AllMentor = () => {
-  const {AllMentor ,handelgetMentor} = useContext(CocirculerContext)
+  const {getMentor ,handelgetMentor} = useContext(CocirculerContext)
      const navigator = useNavigate()
         useEffect(()=>{
   
           handelgetMentor();
   
         },[])
-  return AllMentor ? (
+  return getMentor ? (
     <div className="p-6 space-y-4">
       <h2 className="text-2xl font-semibold mb-4">All Mentors</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {AllMentor.map((mentor) => (
+        {getMentor.map((mentor) => (
           <div
             key={mentor._id}
             className="p-4 border border-gray-200 rounded-xl shadow hover:shadow-lg transition duration-300"
