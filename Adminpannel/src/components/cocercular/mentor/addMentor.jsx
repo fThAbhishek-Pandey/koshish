@@ -1,8 +1,9 @@
 import React, { useState,useContext } from 'react'
 import { CocirculerContext } from '../../../context/cocirculer';
 // Tailwind CSS utility classes for input fields
-const inputField = "border-4 border-blue-400 bg-gray-100 w-full mt-1 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-green-400 px-3 py-2";
-const textareaField = "border-2-blue-400 w-full mt-1 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-green-400 px-3 py-2 h-24";
+const inputField = "w-full mt-1 px-3 py-2 border-2 border-blue-400 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-green-400";
+
+const textAreaField = "border-2 w-full mt-1 border-blue-400 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-green-400 px-3 py-2 h-24";
 
 const AddMentor = () => {
       const {handelAddMentor} = useContext(CocirculerContext)
@@ -112,7 +113,7 @@ const AddMentor = () => {
           value={quote}
           onChange={(e) => setQuote(e.target.value)}
           required
-          className="textarea-field"
+          className={textAreaField}
         ></textarea>
       </div>
       <div>
@@ -122,7 +123,7 @@ const AddMentor = () => {
           value={aboutHead}
           onChange={(e) => setAboutHead(e.target.value)}
           required
-          className="input-field"
+          className={inputField}
         />
       </div>
       <div>
@@ -131,7 +132,7 @@ const AddMentor = () => {
           value={about}
           onChange={(e) => setAbout(e.target.value)}
           required
-          className="textarea-field"
+          className={textAreaField}
         ></textarea>
       </div>
       <button
