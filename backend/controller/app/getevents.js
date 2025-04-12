@@ -1,4 +1,4 @@
-import { homeEventsModel } from "../../models/App/eventsSchema.js";
+import { homeEventsModel } from "../../models/Events/eventsSchema.js";
 const getAllEvents = async(req,res) => {
  try {
     const data = await homeEventsModel.find({});

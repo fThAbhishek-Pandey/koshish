@@ -1,17 +1,22 @@
-import { homeEventsModel} from "../../models/App/eventsSchema.js" 
+import { homeEventsModel} from "../../models/Events/eventsSchema.js" 
 import { cloudinaryUploadImage,cloudinaryRemoveImage } from "../../middleware/cloudimage/cloudinary.js"
 import { logger } from "../../middleware/logger/logger.js"
 
 const Addevent = async(req, res) => {
    try {
-       logger.info("add event controller find log", req.body);
-        const {eventName, date, desp} =req.body
+       logger.info("you are in add event");
+        const {eventName,startdate,isPrize,PrizeHeading,PrizePara,IIIrdPrize,IIndPrize,IstPrize,isCertification,endDate,registrationOpen, desp} =req.body
        console.log(req.body)
        const thumbnail = req.file
        console.log(thumbnail)
-       if (!eventName || !date || !desp) {
+       if (!eventName || !startdate || !desp ||!endDate) {
             console.log(eventName, date, desp)
             return res.json({success:false,message: "fill all filled the filled" })
+       }
+       if(isPrize){
+          if(!PrizeHeading || !PrizePara){
+            return res.json({success:false,message: "fill prize filled the filled" })
+          }
        }
        if (!thumbnail){
              res.json({success:false, message: "please upload thumbnail"})
@@ -19,7 +24,10 @@ const Addevent = async(req, res) => {
        const imageData=await cloudinaryUploadImage(thumbnail)
       //  .then((data)=>console.log("-->",data))
       console.log("-->",imageData)
-       const newEvent = await homeEventsModel.create({thumbnail:imageData.secure_url, name:eventName, date, desc: desp })
+      const prize = {
+        PrizeHeading,para: PrizePara,IIIrdPrize,IIndPrize,IstPrize
+      }
+       const newEvent = await homeEventsModel.create({thumbnail:imageData.secure_url, name:eventName,isPrize, startdate,endDate,registrationOpen,isCertification,prize:prize ,desc: desp })
        await newEvent.save();
        return res.json({success:true, message: "new event is created successfully" });
    } catch (error) {
