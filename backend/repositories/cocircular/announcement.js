@@ -9,11 +9,11 @@ const saveAnnouncementDB = async(data)=>{
     }
 }
 
-const updateAnnouncement = async (data)=>{
-     await Announcement.findByIdAndUpdate(data._id, {heading:data.heading, announcement:data.announcement, isActive:true });
+const updateAnnouncementDB = async (id, data)=>{
+     await Announcement.findByIdAndUpdate(id , data);
 }
 
-const hideAnnouncement = async(id)=>{
+const hideAnnouncementDB = async(id)=>{
        await Announcement.findByIdAndUpdate({_id:id},{isAtive:false} )
 }
 
@@ -21,6 +21,6 @@ const hideAnnouncement = async(id)=>{
 
 export {
     saveAnnouncementDB,
-    updateAnnouncement,
-    hideAnnouncement,
+    updateAnnouncementDB,
+    hideAnnouncementDB,
 }

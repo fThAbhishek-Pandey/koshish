@@ -11,7 +11,7 @@ const AllEvent = () => {
       return (
         <div key={idx}>
             {
-              item
+              item.name
             }
         </div>
       )

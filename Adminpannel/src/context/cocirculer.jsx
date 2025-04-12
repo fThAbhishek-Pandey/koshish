@@ -2,7 +2,6 @@
 import { createContext, useState } from "react";
 import AddHeader from "../utilities/cocirculer/home/AddHeader";
 import AddTopMentor from "../utilities/cocirculer/home/AddTopmentor";
-import AddEvent from "../utilities/cocirculer/home/AddEvent";
 import AddTestimorals from "../utilities/cocirculer/home/AddTestimorals";
 import AddMentor from "../utilities/cocirculer/Mentor/AddMentor";
 import AllMentor from "../utilities/cocirculer/Mentor/AllMentor";
@@ -11,7 +10,7 @@ import updateMentor from "../utilities/cocirculer/Mentor/updateMentor";
 import terminateMentor from "../utilities/cocirculer/Mentor/terminateMentor";
 import contact from "../utilities/cocirculer/contact";
 import getAllHeader from "../utilities/cocirculer/home/getHeader";
-import getAllEvent from "../utilities/cocirculer/home/getEvent";
+import {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventsById} from '../utilities/cocirculer/Events/events'
 import getAllTestimoral from "../utilities/cocirculer/home/getTestimorals";
 import AddAnouncement from "../utilities/cocirculer/home/AddAnouncement";
 export const CocirculerContext = createContext(1);
@@ -32,7 +31,7 @@ const  CocirculerContextProvider = (props) => {
         AddTopMentor(backendURL, formdata, cirToken)
 }
 const EventHandler = (formdata)=>{
-        AddEvent(backendURL, formdata, cirToken)
+  Addevent(backendURL, formdata, cirToken)
 }
 const handelTestimorals = (formdata)=>{
   AddTestimorals(backendURL, formdata, cirToken)
@@ -59,8 +58,20 @@ const handelContact = ()=>{
 const handelgetHeader = ()=>{
   getAllHeader(backendURL,setHeader,cirToken )
 }
+const handelgetEventById = ()=>{
+  EventsById(backendURL,setEvent,cirToken )
+}
+const handelupdateEventById = (id)=>{
+  updateEvent(backendURL,setEvent,cirToken )
+}
+const handelTopEvent = ()=>{
+  topEvent(backendURL,setEvent,cirToken )
+}
+const handelHideEvent = ()=>{
+  hideEvent(backendURL,setEvent,cirToken )
+}
 const handelgetEvent = ()=>{
-  getAllEvent(backendURL,setEvent,cirToken )
+  AllEvents(backendURL,setEvent,cirToken )
 }
 const handelgetTestimoral = ()=>{
   getAllTestimoral(backendURL,setTestimoral,cirToken )
@@ -75,7 +86,7 @@ const handelAnnouncement = (data)=>{
   //  landpage
   handelTestimorals,HeaderHandler,TopMentorHandler , EventHandler,
   getHeader, setHeader,handelgetHeader,
-  getEvent, setEvent,handelgetEvent,
+  
   getTestimoral, setTestimoral,handelgetTestimoral,
   
   //  mentor section
@@ -84,6 +95,8 @@ const handelAnnouncement = (data)=>{
   handelAddMentor, handelUpdateMentorById, handelTerminateMentor,
   // announcement section
   handelAnnouncement,
+  //  event section 
+  getEvent, setEvent,handelgetEvent,
   //  about section
   //  contact
   getcontact, setContact,handelContact

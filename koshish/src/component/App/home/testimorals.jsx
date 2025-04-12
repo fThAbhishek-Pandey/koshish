@@ -24,7 +24,7 @@ const Testimorals = () => {
       {  
         testimorals== '5xx' ? <ServerErr/>:
         <div className=" border-0 border-blue20 ">
-          <div className="grid grid-cols-1 md:grid-cols-3  gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {testimorals.slice(-3).map((item, idx) => {
               return (
                 <div
@@ -33,7 +33,7 @@ const Testimorals = () => {
               >
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   <img
-                    className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full object-cover shadow-lg transition-transform duration-300 group-hover:scale-105"
+                    className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full object-cover shadow-lg transition-transform duration-300 group-hover:scale-105"
                     src={item.image}
                     alt={item.name}
                   />

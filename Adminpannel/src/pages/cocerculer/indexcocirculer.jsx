@@ -5,18 +5,18 @@ import Navbar from '../../components/Navbar'
 import DashboardCociculer from './DashboardCociculer';
 import SidebarCocirculer from '../../components/cocercular/SidebarCocirculer';
 import Announcement from './Announcement';
-import AddEvent from '../../components/cocercular/home/AddEvent'
+import AddEvent from '../../components/cocercular/Events/AddEvent'
 import AddTestimorals from '../../components/cocercular/home/AddTestimorals';
 import AddMentor from '../../components/cocercular/mentor/addMentor';
 import GetMentorById from '../../components/cocercular/mentor/getMentorById';
-import AllEvent from '../../components/cocercular/home/AllEvent';
+import AllEvent from '../../components/cocercular/Events/AllEvent';
 import AllHeader from '../../components/cocercular/home/AllHeader';
 import Header from '../../components/cocercular/home/header';
 import AddAchievement from '../../components/cocercular/home/AddAchievement';
 import AllMentor from '../../components/cocercular/mentor/AllMentor';
 import AllTestimorals from '../../components/cocercular/home/AllTestimorals';
 import AllAchievement from '../../components/cocercular/home/AllAchievement';
-import UpdateEvent from '../../components/cocercular/home/UpdateEvent';
+import UpdateEvent from '../../components/cocercular/Events/UpdateEvent';
 import UpdateHeader from '../../components/cocercular/home/UpdateHeader';
 import UpdateTestimorals from '../../components/cocercular/home/UpdateTestimorals';
 import UpdateAchievement from '../../components/cocercular/home/UpdateAchievement';
@@ -43,9 +43,9 @@ const Indexcocirculer = () => {
                         <Route path='/landpage/header/all' element={<AllHeader/>} />
                         <Route path='/landpage/header/:id' element={<UpdateHeader/>} />
                         {/* event */}
-                        <Route path='/landpage/event/add' element={<AddEvent/>} />
-                        <Route path='/landpage/event/all' element={<AllEvent/>} />
-                        <Route path='/landpage/event/:id' element={<UpdateEvent/>} />
+                        <Route path='/event/add' element={<AddEvent/>} />
+                        <Route path='/event/all' element={<AllEvent/>} />
+                        <Route path='/event/:id' element={<UpdateEvent/>} />
                         
                         {/* testimorals */}
                         <Route path='/landpage/testimorals/add' element={<AddTestimorals/>} />
