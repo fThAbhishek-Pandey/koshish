@@ -77,6 +77,7 @@ const updateMentorById = async( req , res)=>{
        
       
       res.json({success:true, message : "successfully updated"})
+
       } catch (error) {
         console.log(error)
         res.json({success:true, message: error.message})
