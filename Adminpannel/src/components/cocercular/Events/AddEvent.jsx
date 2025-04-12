@@ -42,7 +42,7 @@ const AddEvent = () => {
                 onChange={(e)=> setDate(e.target.value)}
                 value={date}
                 className='w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
-                type="text" />
+                type="date" />
               </div>
               <div>
                 <label className='block text-gray-700 font-medium mb-2'>Description</label>

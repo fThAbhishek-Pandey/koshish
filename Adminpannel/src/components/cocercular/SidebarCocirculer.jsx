@@ -44,6 +44,20 @@ const SidebarCocirculer = () => {
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
           <FaUserPlus className="mr-3" />
           <div>
+            <span>Event</span> 
+            <button onClick={()=>setEventButton(!eventButton)}>{eventButton ? <AiOutlineClose />: <AiOutlinePlus />}</button>
+          <div>
+         { eventButton && <ul>
+          <Link to={'/event/add'}><li>Add</li></Link>
+          <Link to={'/event/all'}><li>All</li></Link>
+          </ul>}
+          </div>
+          </div>
+         
+        </li>
+        <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
+          <FaUserPlus className="mr-3" />
+          <div>
             <span>Land Page  </span> 
             <button onClick={()=>setLandpageButton(!landpageButton)}>{landpageButton ? <AiOutlineClose />: <AiOutlinePlus />}</button>
           <div>
@@ -62,33 +76,7 @@ const SidebarCocirculer = () => {
           </div>
          
         </li>
-        <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
-          <FaUserPlus className="mr-3" />
-          <div>
-            <span>Event</span> 
-            <button onClick={()=>setEventButton(!eventButton)}>{eventButton ? <AiOutlineClose />: <AiOutlinePlus />}</button>
-          <div>
-         { eventButton && <ul>
-          <Link to={'/landpage/event/add'}><li>Add</li></Link>
-          <Link to={'/landpage/header/all'}><li>All</li></Link>
-          </ul>}
-          </div>
-          </div>
-         
-        </li><li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
-          <FaUserPlus className="mr-3" />
-          <div>
-            <span>Top Mentor  </span> 
-            <button onClick={()=>setTopmentorButton(!topmentorButton)}>{topmentorButton ? <AiOutlineClose />: <AiOutlinePlus />}</button>
-          <div>
-         { topmentorButton && <ul>
-          <Link to={'/landpage/topmentor/add'}><li>Add</li></Link>
-          <Link to={'/landpage/topmentor/all'}><li>All</li></Link>
-          </ul>}
-          </div>
-          </div>
-         
-        </li><li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
+         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
           <FaUserPlus className="mr-3" />
           <div>
             <span>Testimorals  </span> 

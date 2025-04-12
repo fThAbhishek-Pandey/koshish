@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {toast} from 'react-toastify'
-const getAllEvent = async (backendURL, setEvent, cirToken) => {
+const getAllTopMentor = async (backendURL, setTopMentor, cirToken) => {
     try {
         
-        const {data} = await axios.get(backendURL+'/api/cocirculer/events/all',{headers:{authCociculertoken:cirToken}} )
+        const {data} = await axios.get(backendURL+'/api/cocirculer/top-mentor/all', {headers:{authCociculertoken:cirToken}} )
        if (data.success) {
-            setEvent(data.data)
+            setTopMentor(data.data)
             toast.success(data.message);
        }
        else{
@@ -17,4 +17,4 @@ const getAllEvent = async (backendURL, setEvent, cirToken) => {
     }
 }
 
-export default getAllEvent
+export default getAllTopMentor

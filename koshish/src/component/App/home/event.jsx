@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Event = () => {
   const { homeEvent, handleHomeEvent } = useContext(AppContext);
   const [isloaded, setIsLoaded] = useState(true);
+  const [active, setActive] = useState(false);
   const navigate = useNavigate()
   useEffect(() => {
     handleHomeEvent();
@@ -23,7 +24,7 @@ const Event = () => {
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue10 pt-16 text-center">
           Events
         </h1>
-        <p className="w-full md:w-3/4 lg:w-1/2 my-8 sm:my-10 text-gray-400 text-center mx-auto text-sm sm:text-base px-4">
+        <p className="w-full md:w-3/4  my-8 sm:my-10 text-gray-800 text-center mx-auto text-sm sm:text-base px-4">
           KOSHISH is an organization dedicated to empowering children through
           cultural and technical events. They foster creativity, innovation, and
           talent, providing a platform for young minds to showcase their skills
@@ -49,9 +50,10 @@ const Event = () => {
                   .map(({ _id, thumbnail, name, date }) => (
                     <div
                       key={_id}
-                      className="text-blue10  border-2 border-blue10 shadow-md rounded-2xl  overflow-hidden relative group mb-4 transition-all duration-300"
+                      onClick={()=>setActive(!active)}
+                      className="text-blue10   border-2 border-blue10 shadow-md rounded-2xl  overflow-hidden relative group mb-4 transition-all duration-300"
                     >
-                      <div className="relative w-full aspect-square">
+                      <div className="relative w-full peer aspect-square">
                         <img
                           src={thumbnail}
                           alt={name}
@@ -59,14 +61,14 @@ const Event = () => {
                         />
                       </div>
 
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-500 flex items-center">
+                      <div className="absolute inset-0 opacity-0 hover:opacity-100 peer-active:block active:opacity-100 focus:opacity-100 p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-500 flex items-center">
                         <div className="space-y-2 sm:space-y-4 w-full">
-                          <Slide cascade>
+                          {  <Slide cascade>
                             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
                               {name}
                             </h1>
                             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-                              {date}
+                              {new Date(date).toDateString()}
                             </h1>
           
                             <div className="text-center">
@@ -76,7 +78,7 @@ const Event = () => {
                                 View
                               </button>
                             </div>
-                          </Slide>
+                          </Slide>}
                         </div>
                       </div>
                     </div>
