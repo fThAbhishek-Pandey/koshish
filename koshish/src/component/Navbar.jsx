@@ -40,16 +40,16 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-6 items-center text-lg">
-          <NavLink to="/events" className="hover:text-orange-400 transition">Events</NavLink>
-          <NavLink to="/mentors" className="hover:text-orange-400 transition">Mentors</NavLink>
-          <NavLink to="/announcement" className="hover:text-orange-400 transition">Announcement</NavLink>
-          <NavLink to="/about" className="hover:text-orange-400 transition">About Us</NavLink>
-          <NavLink to="/contact" className="hover:text-orange-400 transition">Contact Us</NavLink>
+          <NavLink to="/events" className="hover:text-green-400 transition">Events</NavLink>
+          <NavLink to="/mentors" className="hover:text-green-400 transition">Mentors</NavLink>
+          <NavLink to="/announcement" className="hover:text-green-400 transition">Announcement</NavLink>
+          <NavLink to="/about" className="hover:text-green-400 transition">About Us</NavLink>
+          <NavLink to="/contact" className="hover:text-green-400 transition">Contact Us</NavLink>
         </ul>
 
         {/* Desktop Button */}
         <div className="hidden md:flex">
-          <button className="px-5 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition">
+          <button className="px-5 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
             Join Us
           </button>
         </div>
@@ -67,13 +67,13 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-blue10 px-6 py-4">
           <ul className="flex flex-col gap-4 text-lg">
-            <NavLink to="/" onClick={() => setIsOpen(false)} className="hover:text-orange-400">Home</NavLink>
-            <NavLink to="/events" onClick={() => setIsOpen(false)} className="hover:text-orange-400">Events</NavLink>
-            <NavLink to="/mentors" onClick={() => setIsOpen(false)} className="hover:text-orange-400">Mentors</NavLink>
-            <NavLink to="/announcement" onClick={() => setIsOpen(false)} className="hover:text-orange-400">Announcement</NavLink>
-            <NavLink to="/about" onClick={() => setIsOpen(false)} className="hover:text-orange-400">About Us</NavLink>
-            <NavLink to="/contact" onClick={() => setIsOpen(false)} className="hover:text-orange-400">Contact Us</NavLink>
-            <button className="w-full mt-2 px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition">
+            <NavLink to="/" onClick={() => setIsOpen(false)} className="hover:text-green-400">Home</NavLink>
+            <NavLink to="/events" onClick={() => setIsOpen(false)} className="hover:text-green-400">Events</NavLink>
+            <NavLink to="/mentors" onClick={() => setIsOpen(false)} className="hover:text-green-400">Mentors</NavLink>
+            <NavLink to="/announcement" onClick={() => setIsOpen(false)} className="hover:text-green-400">Announcement</NavLink>
+            <NavLink to="/about" onClick={() => setIsOpen(false)} className="hover:text-green-400">About Us</NavLink>
+            <NavLink to="/contact" onClick={() => setIsOpen(false)} className="hover:text-green-400">Contact Us</NavLink>
+            <button className="w-full mt-2 px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
               Join Us
             </button>
           </ul>
