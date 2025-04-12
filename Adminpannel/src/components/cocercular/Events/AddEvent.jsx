@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { CocirculerContext } from '../../../context/cocirculer';
-
+import Markdown from 'react-markdown'
 const AddEvent = () => {
     const {EventHandler} = useContext(CocirculerContext)
     const [eventName, setEventName] = useState('');
@@ -44,15 +44,29 @@ const AddEvent = () => {
                 className='w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
                 type="date" />
               </div>
-              <div>
-                <label className='block text-gray-700 font-medium mb-2'>Description</label>
-                <textarea
-                 onChange={(e)=>setDesp(e.target.value)}
-                 value={desp}
-                 className='w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
-                >
-                </textarea>
-              </div>
+               {/* Announcement & Markdown Preview - Grid Layout */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Announcement
+                          </label>
+                          <textarea
+                            className="w-full mt-1 block p-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            value={desp}
+                            onChange={(e) => setDesp(e.target.value)}
+                            rows="8"
+                          />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-gray-700 mb-1">
+                            Markdown Preview
+                          </div>
+                          <div className="bg-green-100 border-l-4 border-green-500 p-4 rounded-lg h-full overflow-auto">
+                            <Markdown  >{desp}</Markdown>
+                          </div>
+                        </div>
+                      </div>
+              
               <button className='w-full bg-blue-500 text-white p-3 rounded-lg font-medium hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500'>Add event</button>
         </form>
     </div>
