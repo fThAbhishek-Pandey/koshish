@@ -41,7 +41,7 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-6 items-center text-lg">
           <NavLink to="/events" className="hover:text-green-400 transition">Events</NavLink>
-          <NavLink to="/mentors" className="hover:text-green-400 transition">Mentors</NavLink>
+          <NavLink to="/family" className="hover:text-green-400 transition">Family</NavLink>
           <NavLink to="/announcement" className="hover:text-green-400 transition">Announcement</NavLink>
           <NavLink to="/about" className="hover:text-green-400 transition">About Us</NavLink>
           <NavLink to="/contact" className="hover:text-green-400 transition">Contact Us</NavLink>
@@ -69,7 +69,7 @@ const Navbar = () => {
           <ul className="flex flex-col gap-4 text-lg">
             <NavLink to="/" onClick={() => setIsOpen(false)} className="hover:text-green-400">Home</NavLink>
             <NavLink to="/events" onClick={() => setIsOpen(false)} className="hover:text-green-400">Events</NavLink>
-            <NavLink to="/mentors" onClick={() => setIsOpen(false)} className="hover:text-green-400">Mentors</NavLink>
+            <NavLink to="/mentors" onClick={() => setIsOpen(false)} className="hover:text-green-400">Family</NavLink>
             <NavLink to="/announcement" onClick={() => setIsOpen(false)} className="hover:text-green-400">Announcement</NavLink>
             <NavLink to="/about" onClick={() => setIsOpen(false)} className="hover:text-green-400">About Us</NavLink>
             <NavLink to="/contact" onClick={() => setIsOpen(false)} className="hover:text-green-400">Contact Us</NavLink>
