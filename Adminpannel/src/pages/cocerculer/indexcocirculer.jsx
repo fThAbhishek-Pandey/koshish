@@ -21,6 +21,7 @@ import UpdateHeader from '../../components/cocercular/home/UpdateHeader';
 import UpdateTestimorals from '../../components/cocercular/home/UpdateTestimorals';
 import UpdateAchievement from '../../components/cocercular/home/UpdateAchievement';
 import UpdateMentor from '../../components/cocercular/mentor/UpdateMentor';
+import EventById from '../../components/cocercular/Events/EventById';
 import Contact from '../../components/cocercular/contact';
 const Indexcocirculer = () => {
   return (
@@ -45,7 +46,8 @@ const Indexcocirculer = () => {
                         {/* event */}
                         <Route path='/event/add' element={<AddEvent/>} />
                         <Route path='/event/all' element={<AllEvent/>} />
-                        <Route path='/event/:id' element={<UpdateEvent/>} />
+                        <Route path='/event/view/:id' element={<EventById/>} />
+                        <Route path='/event/update/:id' element={<UpdateEvent/>} />
                         
                         {/* testimorals */}
                         <Route path='/landpage/testimorals/add' element={<AddTestimorals/>} />

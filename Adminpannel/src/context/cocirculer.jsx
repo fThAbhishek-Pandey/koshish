@@ -19,6 +19,7 @@ const  CocirculerContextProvider = (props) => {
   const [getcontact, setContact] = useState([]);
   const [getHeader, setHeader] = useState([]);
   const [getEvent, setEvent] = useState([]);
+  const [EventById, setEventById] = useState({});
   const [getTestimoral, setTestimoral] = useState([]);
   const [getMentor, setMentor] = useState([]);
   const [MentorById, setMentorById]= useState({});
@@ -58,17 +59,17 @@ const handelContact = ()=>{
 const handelgetHeader = ()=>{
   getAllHeader(backendURL,setHeader,cirToken )
 }
-const handelgetEventById = ()=>{
-  EventsById(backendURL,setEvent,cirToken )
+const handelgetEventById = (id)=>{
+  EventsById(backendURL,setEventById, id,cirToken )
 }
-const handelupdateEventById = (id)=>{
-  updateEvent(backendURL,setEvent,cirToken )
+const handelupdateEventById = (formdata, id)=>{
+  updateEvent(backendURL,formdata, id,cirToken )
 }
-const handelTopEvent = ()=>{
-  topEvent(backendURL,setEvent,cirToken )
+const handelTopEvent = (id)=>{
+  topEvent(backendURL,setEventById,id,cirToken )
 }
-const handelHideEvent = ()=>{
-  hideEvent(backendURL,setEvent,cirToken )
+const handelHideEvent = (id)=>{
+  hideEvent(backendURL,setEventById,id,cirToken )
 }
 const handelgetEvent = ()=>{
   AllEvents(backendURL,setEvent,cirToken )
@@ -97,6 +98,7 @@ const handelAnnouncement = (data)=>{
   handelAnnouncement,
   //  event section 
   getEvent, setEvent,handelgetEvent,
+  EventById, setEventById,handelgetEventById,handelupdateEventById,handelTopEvent,handelHideEvent,
   //  about section
   //  contact
   getcontact, setContact,handelContact

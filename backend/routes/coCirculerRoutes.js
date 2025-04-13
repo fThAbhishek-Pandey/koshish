@@ -4,7 +4,7 @@ import loginCociculer from '../middleware/authentication/logincocerculer.js';
 import updatecocerculerprofile from '../controller/cocirculer/cocerculer.js';
 import{ addMentor, terminateMentor, AllMentor,getMentorById, updateMentorById} from '../controller/cocirculer/mentor.js';
 import { addHeader } from '../controller/cocirculer/manageHeader.js';
-import { Addevent,updateEvent,hideEvent,topEvent,AllEvents } from '../controller/cocirculer/event.js';
+import { Addevent,updateEvent,hideEvent,EventById,topEvent,AllEvents } from '../controller/cocirculer/event.js';
 import { addtestimorals } from '../controller/cocirculer/testimorals.js';
 import getcontact from '../controller/cocirculer/getcontact.js';
 import upload from '../middleware/cloudimage/multer.js'
@@ -31,7 +31,7 @@ coCirculerRoutes.patch('/event/update/:id', authCociculer,upload.single('image')
 coCirculerRoutes.patch('/event/hide/:id', authCociculer,hideEvent)
 coCirculerRoutes.patch('/event/top/:id', authCociculer,topEvent)
 coCirculerRoutes.get('/event/all', authCociculer,AllEvents)
-coCirculerRoutes.get('/event/my/:id', authCociculer ,getEventById)
+coCirculerRoutes.get('/event/view/:id', authCociculer ,EventById)
 coCirculerRoutes.post('/addtestimorals', authCociculer,upload.single('image'),addtestimorals )
 coCirculerRoutes.get('/contact/all', authCociculer,getcontact )
 coCirculerRoutes.get('/header/all',authCociculer,getHeader );

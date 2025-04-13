@@ -16,13 +16,13 @@ const AllEvents =async (backendURL, setEvent, cirToken) => {
 
     }
 }
-const EventsById =async (backendURL, setMentor, cirToken) => {
+const EventsById =async (backendURL,setEventById, id,cirToken) => {
     try {
       
       console.log("I am all mentor geting")
-      const {data} = await axios.get(backendURL+ '/api/cocirculer/mentor/all', {headers: {authCociculertoken: cirToken}});
+      const {data} = await axios.get(backendURL+ `/api/cocirculer//event/view/${id}`, {headers: {authCociculertoken: cirToken}});
       if(data.success){
-          setMentor(data.data);
+          setEventById(data.data);
           toast.success(data.message);
       }
       else toast.error(data.message);
@@ -32,13 +32,15 @@ const EventsById =async (backendURL, setMentor, cirToken) => {
       toast.error(error.message);
   }
   }
-const updateEvent =async (backendURL, setMentor, cirToken) => {
+const updateEvent =async (backendURL,formdata, id,cirToken) => {
     try {
-      
-      console.log("I am all mentor geting")
-      const {data} = await axios.get(backendURL+ '/api/cocirculer/mentor/all', {headers: {authCociculertoken: cirToken}});
+        formdata.forEach((value,key)=>{
+            console.log (key ," : ", value,"\n");
+     })
+      console.log("I am all mentor geting",id)
+      const {data} = await axios.patch(backendURL+ `/api/cocirculer/event/update/${id}`, formdata, {headers: {authCociculertoken: cirToken}});
       if(data.success){
-          setMentor(data.data);
+         
           toast.success(data.message);
       }
       else toast.error(data.message);
