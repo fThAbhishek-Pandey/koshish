@@ -5,6 +5,7 @@ import Loader from "../../Loader";
 import ServerErr from "../../SeverErr";
 import NoData from "../../NoData";
 import { useNavigate } from "react-router-dom";
+import EventCard from '../events/EventCard'
 const Event = () => {
   const { homeEvent, handleHomeEvent } = useContext(AppContext);
   const [isloaded, setIsLoaded] = useState(true);
@@ -47,41 +48,8 @@ const Event = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-6 px-4 sm:px-6 lg:px-8 cursor-pointer">
                 {cardData
                   .slice(-4)
-                  .map(({ _id, thumbnail, name, date }) => (
-                    <div
-                      key={_id}
-                      onClick={()=>setActive(!active)}
-                      className="text-blue10   border-2 border-blue10 shadow-md rounded-2xl  overflow-hidden relative group mb-4 transition-all duration-300"
-                    >
-                      <div className="relative w-full peer aspect-square">
-                        <img
-                          src={thumbnail}
-                          alt={name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-
-                      <div className="absolute inset-0 opacity-0 hover:opacity-100 peer-active:block active:opacity-100 focus:opacity-100 p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-500 flex items-center">
-                        <div className="space-y-2 sm:space-y-4 w-full">
-                          {  <Slide cascade>
-                            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-                              {name}
-                            </h1>
-                            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-                              {new Date(date).toDateString()}
-                            </h1>
-          
-                            <div className="text-center">
-                              <button 
-                              onClick={()=>navigate(`/events/${ _id}`)}
-                              className="border border-white px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-lg hover:bg-white/10 cursor-pointer transition-colors">
-                                View
-                              </button>
-                            </div>
-                          </Slide>}
-                        </div>
-                      </div>
-                    </div>
+                  .map((item) => (
+                    <EventCard event={item}  />
                   ))} </div> }
              </div>
               }
