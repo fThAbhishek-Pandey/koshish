@@ -44,7 +44,7 @@ const teacherSchema = new mongoose.Schema({
   },
   isTop:{
     type: String ,
-    default:true
+    default:false
   },
   quote:{
       type:String,
