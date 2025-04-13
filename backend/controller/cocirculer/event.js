@@ -37,23 +37,24 @@ const Addevent = async(req, res) => {
 }
 const updateEvent = async(req, res)=>{
   try {
-    const {eventName,imgurl, date, desp} =req.body
+    const {eventName,startdate,imgurl,isPrize,PrizeHeading,PrizePara,IIIrdPrize,IIndPrize,IstPrize,isCertification,endDate,registrationOpen, desp} =req.body
     const {id} = req.params
-    console.log(req.body)
+    console.log("update Event", id)
+    console.log("i am update eventby id",req.body)
     const thumbnail = req.file
     console.log(thumbnail)
-    if (!eventName || !date || !imgurl || !desp) {
-         console.log(eventName, date, desp)
+    if (!eventName || !startdate || !desp ||!endDate) {
+         console.log(eventName,imgurl, date, desp)
          return res.json({success:false,message: "fill all filled the filled" })
     }
     if (thumbnail){
       await cloudinaryRemoveImage(imgurl)
       const imageData=await cloudinaryUploadImage(thumbnail)
       console.log("-->",imageData)
-      await homeEventsModel.findByIdAndUpdate( id, {thumbnail:imageData.secure_url, name:eventName, date, desc: desp })
+      await homeEventsModel.findByIdAndUpdate( id, {thumbnail:imageData.secure_url,startdate,isPrize,PrizeHeading,PrizePara,IIIrdPrize,IIndPrize,IstPrize,isCertification,endDate,registrationOpen, name:eventName,  desc: desp })
     }
     else {
-      await homeEventsModel.findByIdAndUpdate(id, {thumbnail:imageData.secure_url, name:eventName, date, desc: desp })
+      await homeEventsModel.findByIdAndUpdate(id, { name:eventName,startdate,isPrize,PrizeHeading,PrizePara,IIIrdPrize,IIndPrize,IstPrize,isCertification,endDate,registrationOpen, desc: desp })
       
     }
     return res.json({success:true, message: "new event is created successfully" });
@@ -76,12 +77,23 @@ const topEvent = async (req,res)=>{
   
   try {
     const {id} = req.params
+    
     await homeEventsModel.findByIdAndUpdate(id, {isTop: !isTop})
     res.json({success: true, message: "topped successfully"});
   } catch (error) {
     console.log(error)
     res.json ({success :false, message: error.message})
   }  
+}
+const EventById = async(req,res)=>{
+  try {
+    const {id} = req.params
+    const data = await homeEventsModel.findById(id)
+    return res.json({success:true, data, message:`event found ${id}`});
+  } catch (error) {
+    console.log(error)
+    res.json ({success :false, message: error.message})
+  }
 }
 const AllEvents = async (req, res)=>{
       try {
@@ -92,4 +104,4 @@ const AllEvents = async (req, res)=>{
         res.json ({success :false, message: error.message})
       }
 }
-export  {Addevent,updateEvent,hideEvent,AllEvents,topEvent}
+export  {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventById}
