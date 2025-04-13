@@ -66,8 +66,9 @@ const updateEvent = async(req, res)=>{
 const hideEvent = async (req,res)=>{
     try {
       const {id} = req.params
+      const {isActive} = await homeEventsModel.findById(id) 
       await homeEventsModel.findByIdAndUpdate(id, {isActive: !isActive})
-      res.json({success: true, message: "hide successfully"});
+      res.json({success: true, message: "changed successfully"});
     } catch (error) {
       console.log(error)
       res.json ({success :false, message: error.message})
@@ -77,9 +78,9 @@ const topEvent = async (req,res)=>{
   
   try {
     const {id} = req.params
-    
+    const {isTop} = await homeEventsModel.findById(id) 
     await homeEventsModel.findByIdAndUpdate(id, {isTop: !isTop})
-    res.json({success: true, message: "topped successfully"});
+    res.json({success: true, message: "changed successfully"});
   } catch (error) {
     console.log(error)
     res.json ({success :false, message: error.message})
@@ -97,11 +98,24 @@ const EventById = async(req,res)=>{
 }
 const AllEvents = async (req, res)=>{
       try {
+       
         const data = await homeEventsModel.find({})
-        return res.json({success:true, data, message:"all data event found"});
+        return res.json({success:true, data,  message:"all data event found"});
       } catch (error) {
         console.log(error)
         res.json ({success :false, message: error.message})
       }
 }
-export  {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventById}
+const deleteById = async (req, res)=>{
+  try {
+    const {id} = req.params
+    const {thumbnail} = await homeEventsModel.findById(id) 
+    await cloudinaryRemoveImage(thumbnail)
+    await homeEventsModel.findByIdAndDelete(id)
+    return res.json({success:true , message:`delete event ${id}`});
+  } catch (error) {
+    console.log(error)
+    res.json ({success :false, message: error.message})
+  }
+}
+export  {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventById,deleteById}

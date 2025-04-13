@@ -13,5 +13,31 @@ const getMentorById = async(backendURL, setgetMentorById,id, cirToken) => {
     toast.error(error.message);
   }
 }
+const TerminateMentorById = async(backendURL,id, cirToken) => {
+  try {
+      const {data} = await axios.patch(backendURL+ `/api/cocirculer/mentor/terminate/${id}`,{}, {headers: {authCociculertoken: cirToken}});
+         if(data.success){
+           
+             toast.success(data.message);
+         }
+         else toast.error(data.message);
+  } catch (error) {
+    console.log(error)
+    toast.error(error.message);
+  }
+}
+const MakeTopMentorById = async(backendURL,id, cirToken) => {
+  try {
+      const {data} = await axios.patch(backendURL+ `/api/cocirculer/mentor/top/${id}`,{}, {headers: {authCociculertoken: cirToken}});
+         if(data.success){
+           
+             toast.success(data.message);
+         }
+         else toast.error(data.message);
+  } catch (error) {
+    console.log(error)
+    toast.error(error.message);
+  }
+}
 
-export default getMentorById
+export { getMentorById,MakeTopMentorById,TerminateMentorById}
