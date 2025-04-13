@@ -1,5 +1,5 @@
 import React from 'react'
-import IndexMentor from '../../component/App/mentor/indexMentor'
+import IndexMentor from '../../component/App/family/indexMentor'
 const Mentor = () => {
   return (
     <div>

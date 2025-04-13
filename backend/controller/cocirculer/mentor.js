@@ -1,5 +1,5 @@
 import  {cloudinaryUploadImage, cloudinaryRemoveImage }  from '../../middleware/cloudimage/cloudinary.js'
-import { addMentorDB, terminateMentorDB, AllMentorDB,updateMentor,mentorByIdDB}   from '../../repositories/cocircular/mentor.js'
+import { addMentorDB, terminateMentorDB, AllMentorDB,updateMentor,mentorByIdDB,topMentorDB}   from '../../repositories/cocircular/mentor.js'
 const addMentor = async(req, res ) => {
    try {
           const {name,email,subject,classTeacher,linkedin,speciality,quote, aboutHead, about}= req.body;
@@ -27,9 +27,22 @@ const addMentor = async(req, res ) => {
 
 const terminateMentor = async (req,res)=>{
   try {
-    await terminateMentorDB()
+    const {id} = req.params
+    await terminateMentorDB(id)
     .then (()=>{
        res.json ({success:true, message: "Mentor is terminated"});
+    })
+  } catch (error) {
+           console.log(error)
+           res.json({success:true, message: error.message})
+  }
+}
+const TopMentor = async (req,res)=>{
+  try {
+    const {id} = req.params
+    await topMentorDB(id)
+    .then (()=>{
+       res.json ({success:true, message: "Mentor is Now top"});
     })
   } catch (error) {
            console.log(error)
@@ -83,4 +96,4 @@ const updateMentorById = async( req , res)=>{
         res.json({success:true, message: error.message})
       }
 }
-export { addMentor, terminateMentor, AllMentor, updateMentorById,getMentorById}
+export { addMentor, terminateMentor, AllMentor, updateMentorById,getMentorById,TopMentor}

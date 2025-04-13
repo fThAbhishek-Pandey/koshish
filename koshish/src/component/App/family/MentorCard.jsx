@@ -9,7 +9,7 @@ const MentorCard = ({item}) => {
         <img
           src={item.image}
           alt={item.name}
-          onClick={() => navigate(`/mentors/${item._id}`)}
+          onClick={() => navigate(`/family/${item._id}`)}
           className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl object-cover shadow-lg transition-transform duration-300 group-hover:scale-110"
         />
       </div>
@@ -40,7 +40,7 @@ const MentorCard = ({item}) => {
           <FaLinkedin />
         </a>
         <button
-          onClick={() => navigate(`/mentors/${item._id}`)}
+          onClick={() => navigate(`/family/${item._id}`)}
           className="bg-green-600 text-white font-medium px-4 py-2 rounded-lg shadow-md transition-all duration-300 hover:bg-green-700 hover:scale-105"
         >
           View Profile

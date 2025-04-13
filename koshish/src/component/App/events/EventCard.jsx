@@ -41,7 +41,7 @@ const EventCard = ({ event }) => {
   }, [event]);
 
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-4 max-w-sm w-full sm:w-[90%] md:w-[22rem]">
+    <div className="bg-green-100 rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-4 max-w-sm w-full sm:w-[90%] md:w-[22rem]">
       {/* Thumbnail */}
       <img
         onClick={() => navigate(`/events/${event._id}`)}

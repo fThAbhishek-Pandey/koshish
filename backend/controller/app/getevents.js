@@ -38,8 +38,8 @@ const getNewEvents = async(req,res) => {
       const data = await homeEventsModel.find({isTop:true});
       console.log(data);
       const sendData = data.slice(-4).map((item)=>{
-         const {_id,name, date, thumbnail }= item;
-         return {_id,name, date, thumbnail }
+         const {_id,name,startdate,isPrize,isActive,mode,team,thumbnail,isCertification,endDate,registrationOpen, }= item;
+         return {_id,name,startdate,thumbnail,isActive,mode,team,isPrize,isCertification,endDate,registrationOpen }
       })
       res.json({success:true, message:"get all Top Event", data:sendData})
    } catch (error) {

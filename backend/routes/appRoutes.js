@@ -4,7 +4,7 @@ import getTopmentor from '../controller/app/getTopmentor.js';
 import {getEventById,getTopEvents,getNewEvents,getpastEvents} from '../controller/app/getevents.js';
 import {getnewAnnouncement,getpastAnnouncement,getmyAnnouncement} from '../controller/app/getAnnouncement.js';
 import getTestmorals from '../controller/app/getTestmorals.js';
-import getAllMentor from '../controller/app/getAllMentor.js';
+import {getAllMentor,getAllAlumni} from '../controller/app/getAllMentor.js';
 import contactcontroller from '../controller/app/contactcontroller.js';
 import getmyMentor from '../controller/app/getmyMentor.js';
 const appRoutes = express.Router();
@@ -19,6 +19,7 @@ appRoutes.get('/announcement/past',getpastAnnouncement )
 appRoutes.post('/announcement/id', getmyAnnouncement )
 appRoutes.get('/testimorals', getTestmorals);
 appRoutes.get('/mentor/all', getAllMentor);
+appRoutes.get('/alumni/all', getAllAlumni);
 appRoutes.post('/mentor/my', getmyMentor);
 appRoutes.post('/contact', contactcontroller);
 export default appRoutes

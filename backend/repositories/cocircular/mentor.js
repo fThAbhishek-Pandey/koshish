@@ -7,8 +7,15 @@ const addMentorDB = async(mentorData)=>{
     await newMentor.save()
 }
 
-const terminateMentorDB = async(email)=>{
-       TeacherModel.updateOne(email, {isActive: false})
+const terminateMentorDB = async(id)=>{
+    console.log("terminate", id);
+      const {isActive} =await TeacherModel.findById(id)
+       await  TeacherModel.findByIdAndUpdate(id, {isActive:!isActive})
+}
+const topMentorDB = async(id)=>{
+    const {isTop} = await TeacherModel.findById(id)
+
+    await  TeacherModel.findByIdAndUpdate(id, {isTop: !isTop})
 }
 const AllMentorDB = async ()=>{
    try {
@@ -59,5 +66,6 @@ export {
     AllMentorDB,
     updateMentor,
     AllAlumniDB,
-    mentorByIdDB
+    mentorByIdDB,
+    topMentorDB
 }

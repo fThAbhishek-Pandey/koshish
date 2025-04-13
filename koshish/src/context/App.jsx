@@ -4,7 +4,7 @@ import getHeader from "../utils/App/home/getHeader";
 import getTopmentor from '../utils/App/home/getTopmentor'
 import {getEventByID, getHomeEvent,getNewEvent,getPastEvent}  from '../utils/App/Events/getAllEvents'
 import getTestimorals from "../utils/App/home/getTestimorals";
-import getAllMentor from "../utils/App/mentor/getAllMentor";
+import {getAllMentor,getAllAlumni} from "../utils/App/mentor/getAllMentor";
 import contactus from "../utils/App/contactus";
 import getmyMentor from "../utils/App/mentor/getMentor";
 import { getmyAnnouncement, getNewAnnouncement,getpastAnnouncement} from "../utils/App/Announcement/getAllAnnouncement";
@@ -18,6 +18,7 @@ const  AppContextProvider = (props) => {
  const [idEvent, setIdEvent] = useState({})
  const [testimorals, setTestimorals] = useState([]);
  const [allMentor, setAllMentor] = useState([]);
+ const [allAlumni, setAllAlumni] = useState([]);
  const [myMentor, setmyMentor] = useState([]);
  const [newAnnouncement, setnewAnnouncement] = useState([]);
  const [pastAnnouncement, setPastAnnouncement] = useState([]);
@@ -47,6 +48,9 @@ const handelTestimorals =()=>{
 const handelgetAllMentor =()=>{
   getAllMentor(backendURL,setAllMentor)
 }
+const handelgetAllAlumni =()=>{
+  getAllAlumni(backendURL,setAllAlumni)
+}
 const handelgetmyMentor =(id)=>{
    console.log("_id: ",id);
   getmyMentor(backendURL,setmyMentor,id)
@@ -74,6 +78,7 @@ const value = {
       testimorals, setTestimorals,handelTestimorals,
       allMentor, setAllMentor,handelgetAllMentor,
       handleContactus,
+      allAlumni, setAllAlumni,  handelgetAllAlumni,
       myMentor, setmyMentor,handelgetmyMentor,
       newAnnouncement, setnewAnnouncement,handleNewAnnouncement,
       pastAnnouncement, setPastAnnouncement,handlePastAnnouncement,

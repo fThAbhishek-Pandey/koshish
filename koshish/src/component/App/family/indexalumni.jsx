@@ -1,0 +1,71 @@
+import React, { useContext, useEffect } from "react";
+import { AppContext } from "../../../context/App";
+import MentorCard from "./MentorCard";
+import ServerErr from "../../SeverErr";
+import NoData from "../../NoData";
+import Loader from "../../Loader";
+import { useNavigate } from "react-router-dom";
+const IndexAlumni = () => {
+    const {  allAlumni,   handelgetAllAlumni,} = useContext(AppContext);
+    const navigate = useNavigate();
+      useEffect(() => {
+        handelgetAllAlumni();
+      }, []);
+  return (
+    <div className="md:mb-32 py-6 sm:px-6 lg:px-8 mb-24 text-center relative top-20 md:top-32">
+       <div className="flex space-x-4 border-b border-gray-300">
+  <div
+    onClick={() => navigate('/family/')}
+    className="cursor-pointer px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-500 transition"
+  >
+    Mentor
+  </div>
+  <div
+    onClick={() => navigate('/family/alumni')}
+    className="cursor-pointer px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-500 transition"
+  >
+    Alumni
+  </div>
+</div>
+
+    <h2 className="text-2xl sm:text-3xl font-bold text-center text-blue10 mb-6">
+      Meet Our Alumni
+    </h2>
+    <div className="my-4 p-4 max-w-5xl text-center">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit,
+      placeat voluptatibus ut tempore, totam fuga veritatis tempora nulla nam
+      libero quo et eius, eum explicabo hic nihil maxime atque. Velit.
+    </div>
+    <div className="bg-green-50 p-5 rounded-lg shadow-md">
+      { allAlumni && (
+        <div className="">
+          { allAlumni === "5xx" ? (
+            <ServerErr />
+          ) : (
+            <div>
+              { allAlumni == "NODATA" ? (
+                <NoData />
+              ) : (
+                <div>
+                  { allAlumni.length == 0 ? (
+                    <Loader />
+                  ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+                      { allAlumni.map((item, idx) => (
+                        <MentorCard item={item} key={idx} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
+);
+  
+}
+
+export default IndexAlumni

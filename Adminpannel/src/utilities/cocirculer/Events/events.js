@@ -50,13 +50,12 @@ const updateEvent =async (backendURL,formdata, id,cirToken) => {
       toast.error(error.message);
   }
   }
-  const hideEvent =async (backendURL, setMentor, cirToken) => {
+  const hideEvent =async (backendURL, id, cirToken) => {
     try {
       
-      console.log("I am all mentor geting")
-      const {data} = await axios.get(backendURL+ '/api/cocirculer/mentor/all', {headers: {authCociculertoken: cirToken}});
+      console.log("I am all mentor geting", cirToken)
+      const {data} = await axios.put(backendURL+ `/api/cocirculer/event/hide/${id}`,{}, {headers: {authCociculertoken: cirToken}});
       if(data.success){
-          setMentor(data.data);
           toast.success(data.message);
       }
       else toast.error(data.message);
@@ -66,13 +65,29 @@ const updateEvent =async (backendURL,formdata, id,cirToken) => {
       toast.error(error.message);
   }
   }
-  const topEvent =async (backendURL, setMentor, cirToken) => {
+  const topEvent =async (backendURL, id, cirToken) => {
     try {
       
       console.log("I am all mentor geting")
-      const {data} = await axios.get(backendURL+ '/api/cocirculer/mentor/all', {headers: {authCociculertoken: cirToken}});
+      const {data} = await axios.put(backendURL+ `/api/cocirculer/event/top/${id}`,{}, {headers: {authCociculertoken: cirToken}});
       if(data.success){
-          setMentor(data.data);
+        
+          toast.success(data.message);
+      }
+      else toast.error(data.message);
+      
+  } catch (error) {
+      console.log(error)
+      toast.error(error.message);
+  }
+  }
+  const deleteEventById =async (backendURL, id, cirToken) => {
+    try {
+      
+      console.log("I am all mentor geting")
+      const {data} = await axios.delete(backendURL+ `/api/cocirculer/event/delete/${id}`,{headers: {authCociculertoken: cirToken}});
+      if(data.success){
+        
           toast.success(data.message);
       }
       else toast.error(data.message);
@@ -100,4 +115,4 @@ const updateEvent =async (backendURL,formdata, id,cirToken) => {
 
     }
   }
-export  {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventsById}
+export  {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventsById,deleteEventById}

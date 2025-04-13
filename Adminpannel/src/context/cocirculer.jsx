@@ -5,12 +5,12 @@ import AddTopMentor from "../utilities/cocirculer/home/AddTopmentor";
 import AddTestimorals from "../utilities/cocirculer/home/AddTestimorals";
 import AddMentor from "../utilities/cocirculer/Mentor/AddMentor";
 import AllMentor from "../utilities/cocirculer/Mentor/AllMentor";
-import getMentorById from "../utilities/cocirculer/Mentor/getMentorById";
+import {getMentorById,MakeTopMentorById,TerminateMentorById} from "../utilities/cocirculer/Mentor/getMentorById";
 import updateMentor from "../utilities/cocirculer/Mentor/updateMentor";
 import terminateMentor from "../utilities/cocirculer/Mentor/terminateMentor";
 import contact from "../utilities/cocirculer/contact";
 import getAllHeader from "../utilities/cocirculer/home/getHeader";
-import {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventsById} from '../utilities/cocirculer/Events/events'
+import {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventsById,deleteEventById} from '../utilities/cocirculer/Events/events'
 import getAllTestimoral from "../utilities/cocirculer/home/getTestimorals";
 import AddAnouncement from "../utilities/cocirculer/home/AddAnouncement";
 export const CocirculerContext = createContext(1);
@@ -46,6 +46,12 @@ const handelgetMentor = ()=>{
 const handelMentorById=(id)=> {
   getMentorById(backendURL, setMentorById,id, cirToken)
 }
+const handelTearminateMentorById=(id)=> {
+  TerminateMentorById(backendURL, id, cirToken)
+}
+const handelMakeTopMentorById=(id)=> {
+  MakeTopMentorById(backendURL, id, cirToken)
+}
 const handelUpdateMentorById = (id, formdata)=>{
   console.log(id);
   updateMentor(backendURL, formdata, id, cirToken)
@@ -66,10 +72,13 @@ const handelupdateEventById = (formdata, id)=>{
   updateEvent(backendURL,formdata, id,cirToken )
 }
 const handelTopEvent = (id)=>{
-  topEvent(backendURL,setEventById,id,cirToken )
+  topEvent(backendURL,id,cirToken )
+}
+const handelDeleteEvent = (id)=>{
+  deleteEventById(backendURL,id,cirToken )
 }
 const handelHideEvent = (id)=>{
-  hideEvent(backendURL,setEventById,id,cirToken )
+  hideEvent(backendURL,id,cirToken )
 }
 const handelgetEvent = ()=>{
   AllEvents(backendURL,setEvent,cirToken )
@@ -93,12 +102,14 @@ const handelAnnouncement = (data)=>{
   //  mentor section
   getMentor, setMentor,handelgetMentor,
   MentorById, setMentorById ,handelMentorById,
-  handelAddMentor, handelUpdateMentorById, handelTerminateMentor,
+  handelAddMentor, handelUpdateMentorById, handelTerminateMentor,handelTearminateMentorById,handelMakeTopMentorById,
   // announcement section
   handelAnnouncement,
   //  event section 
   getEvent, setEvent,handelgetEvent,
-  EventById, setEventById,handelgetEventById,handelupdateEventById,handelTopEvent,handelHideEvent,
+  EventById, setEventById,handelgetEventById,handelupdateEventById,
+  handelTopEvent,handelHideEvent,
+  handelDeleteEvent,
   //  about section
   //  contact
   getcontact, setContact,handelContact
