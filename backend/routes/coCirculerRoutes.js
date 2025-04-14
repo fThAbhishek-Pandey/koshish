@@ -15,6 +15,7 @@ import getTestmorals from '../controller/app/getTestmorals.js';
 // import getAllMentor from '../controller/app/getAllMentor.js';
 import contactcontroller from '../controller/app/contactcontroller.js';
 import {CreateAnnouncement,UpdateAnnouncement,hideAnnouncement } from '../controller/cocirculer/announcement.js';
+import {UpdateGallery,DeleteGallery ,AddGallery,getAllGallery,getGalleryById} from '../controller/cocirculer/gallery.js'
 const coCirculerRoutes = express.Router();
 coCirculerRoutes.post('/login', loginCociculer);
 
@@ -43,5 +44,9 @@ coCirculerRoutes.patch('/announcement/update/:id',authCociculer,UpdateAnnounceme
 coCirculerRoutes.patch('/announcement/hide/:id',authCociculer,hideAnnouncement )
 coCirculerRoutes.get('/announcement/my/:id',authCociculer,getmyAnnouncement )
 coCirculerRoutes.get('/testimorals/all',authCociculer, getTestmorals);
-
+appRoutes.get('/gallery',authCociculer, getAllGallery);
+appRoutes.post('/gallery/add',authCociculer,upload.single('image'), AddGallery);
+appRoutes.get('/gallery/:id',authCociculer, getGalleryById);
+appRoutes.patch('/gallery/update/:id',authCociculer,upload.single('image'), UpdateGallery);
+appRoutes.delete('/gallery/delete/:id',authCociculer, DeleteGallery);
 export default coCirculerRoutes

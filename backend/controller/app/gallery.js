@@ -21,7 +21,7 @@ const getAllNews = async(req, res)=>{
                 name,date,desc,thumbnail
             }
         })
-        res.json({success:true, data:sendData, message:"All memories found"})
+        res.json({success:true, data:sendData, message:"All Newspaper found"})
     } catch (error) {
         console.log(error)
         res.json({success:false , message: error.message});
