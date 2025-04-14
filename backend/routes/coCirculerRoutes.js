@@ -44,9 +44,9 @@ coCirculerRoutes.patch('/announcement/update/:id',authCociculer,UpdateAnnounceme
 coCirculerRoutes.patch('/announcement/hide/:id',authCociculer,hideAnnouncement )
 coCirculerRoutes.get('/announcement/my/:id',authCociculer,getmyAnnouncement )
 coCirculerRoutes.get('/testimorals/all',authCociculer, getTestmorals);
-appRoutes.get('/gallery',authCociculer, getAllGallery);
-appRoutes.post('/gallery/add',authCociculer,upload.single('image'), AddGallery);
-appRoutes.get('/gallery/:id',authCociculer, getGalleryById);
-appRoutes.patch('/gallery/update/:id',authCociculer,upload.single('image'), UpdateGallery);
-appRoutes.delete('/gallery/delete/:id',authCociculer, DeleteGallery);
+coCirculerRoutes.get('/gallery',authCociculer, getAllGallery);
+coCirculerRoutes.post('/gallery/add',authCociculer,upload.single('image'), AddGallery);
+coCirculerRoutes.get('/gallery/:id',authCociculer, getGalleryById);
+coCirculerRoutes.patch('/gallery/update/:id',authCociculer,upload.single('image'), UpdateGallery);
+coCirculerRoutes.delete('/gallery/delete/:id',authCociculer, DeleteGallery);
 export default coCirculerRoutes
