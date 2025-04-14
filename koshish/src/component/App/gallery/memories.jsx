@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../../../context/App'
 const Memories = () => {
     const navigater = useNavigate()
+    const { memories,handleMemories } = useContext(AppContext)
+      useEffect(()=>{
+        handleMemories()
+      },[])
   return (
-    <div>Memories
+    <div>
+        <div>Memories</div>
       <button onClick={()=>navigater('/gallery/12367')}>click me</button>
     </div>
   

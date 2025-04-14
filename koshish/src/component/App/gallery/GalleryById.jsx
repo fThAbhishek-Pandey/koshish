@@ -1,8 +1,13 @@
-import React from 'react'
 import { useParams } from 'react-router-dom';
-import GalleryCard from './GalleryCard';
+import React, {useContext, useEffect} from 'react'
+import { AppContext } from '../../../context/App'
+import GalleryCard from './GalleryCard'
 const GalleryById = () => {
     const {id} = useParams();
+    const { galleryById, handleGallaryById,} = useContext(AppContext)
+          useEffect(()=>{
+            handleGallaryById(id)
+          },[])
     const gallery ={ 
         tittle: "This is my Gallery",
         thumbnail:"https://picsum.photos/id/1018/1000/600/",
