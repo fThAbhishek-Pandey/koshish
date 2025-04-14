@@ -7,7 +7,7 @@ import Loader from "../../Loader";
 import { useNavigate } from "react-router-dom";
 const IndexMentor = () => {
   const { allMentor, handelgetAllMentor } = useContext(AppContext);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     handelgetAllMentor();
   }, []);
@@ -15,19 +15,19 @@ const IndexMentor = () => {
   return (
     <div className="md:mb-32 py-6 sm:px-6 lg:px-8 mb-24 text-center relative top-20 md:top-32">
       <div className="flex space-x-4 border-b border-gray-300">
-  <div
-    onClick={() => navigate('/family/')}
-    className="cursor-pointer px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-500 transition"
-  >
-    Mentor
-  </div>
-  <div
-    onClick={() => navigate('/family/alumni')}
-    className="cursor-pointer px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-500 transition"
-  >
-    Alumni
-  </div>
-</div>
+        <div
+          onClick={() => navigate("/family/")}
+          className="cursor-pointer px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-500 transition"
+        >
+          Mentor
+        </div>
+        <div
+          onClick={() => navigate("/family/alumni")}
+          className="cursor-pointer px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-500 transition"
+        >
+          Alumni
+        </div>
+      </div>
 
       <h2 className="text-2xl sm:text-3xl font-bold text-center text-blue10 mb-6">
         Meet Our Mentors

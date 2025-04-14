@@ -115,6 +115,12 @@ const SidebarCocirculer = () => {
           <span>Announcement</span>
         </li>
         </Link>
+        <Link to= '/gallery'>
+        <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
+          <FaUserEdit className="mr-3" />
+          <span>Gallery</span>
+        </li>
+        </Link>
         <Link to= '/contact'>
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
           <FaUserEdit className="mr-3" />

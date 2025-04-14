@@ -7,6 +7,7 @@ import getTestmorals from '../controller/app/getTestmorals.js';
 import {getAllMentor,getAllAlumni} from '../controller/app/getAllMentor.js';
 import contactcontroller from '../controller/app/contactcontroller.js';
 import getmyMentor from '../controller/app/getmyMentor.js';
+import {getAllMemories,getAllNews,getGalleryById} from '../controller/app/gallery.js'
 const appRoutes = express.Router();
 appRoutes.get('/header',getHeader );
 appRoutes.get('/top-mentor',getTopmentor )
@@ -22,4 +23,7 @@ appRoutes.get('/mentor/all', getAllMentor);
 appRoutes.get('/alumni/all', getAllAlumni);
 appRoutes.post('/mentor/my', getmyMentor);
 appRoutes.post('/contact', contactcontroller);
+appRoutes.get('/memories', getAllMemories);
+appRoutes.get('/newspaper', getAllNews);
+appRoutes.get('/gallery/:id', getGalleryById);
 export default appRoutes

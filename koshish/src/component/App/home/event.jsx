@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Slide, Fade } from "react-awesome-reveal";
 import { AppContext } from "../../../context/App";
 import Loader from "../../Loader";
 import ServerErr from "../../SeverErr";

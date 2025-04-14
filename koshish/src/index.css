@@ -29,3 +29,11 @@
     
 
   }
+
+  
+ 
+ .lg-react-element {
+     column-count: 3;
+     column-gap: 10px;
+ }
+ 

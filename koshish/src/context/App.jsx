@@ -7,6 +7,7 @@ import getTestimorals from "../utils/App/home/getTestimorals";
 import {getAllMentor,getAllAlumni} from "../utils/App/mentor/getAllMentor";
 import contactus from "../utils/App/contactus";
 import getmyMentor from "../utils/App/mentor/getMentor";
+import {getAllMemories,getAllNews,getGalleryById} from '../utils/App/Gallery/gallary'
 import { getmyAnnouncement, getNewAnnouncement,getpastAnnouncement} from "../utils/App/Announcement/getAllAnnouncement";
 export const AppContext = createContext(1);
 const  AppContextProvider = (props) => {
@@ -23,6 +24,9 @@ const  AppContextProvider = (props) => {
  const [newAnnouncement, setnewAnnouncement] = useState([]);
  const [pastAnnouncement, setPastAnnouncement] = useState([]);
  const [myAnnouncement, setmyAnnouncement] = useState({});
+ const [memories, setMemories] = useState([]);
+ const [newspaper, setNewsPaper] = useState([]);
+ const [galleryById, setGalleryById] = useState({});
  const backendURL = import.meta.env.VITE_BACKEND_URL
 const handleHeader = ()=>{
   getHeader(backendURL, setHeaderData)
@@ -68,6 +72,15 @@ const handlePastAnnouncement = ()=>{
 const handlemyAnnouncement = (id)=>{
   getmyAnnouncement(backendURL,setmyAnnouncement,id);
 }
+const handleMemories = ()=>{
+  getAllMemories(backendURL,setMemories);
+}
+const handleNewsPaper = ()=>{
+  getAllNews(backendURL,setNewsPaper);
+}
+const handleGallaryById = (id)=>{
+  getGalleryById(backendURL,setGalleryById,id);
+}
 const value = {
       headerData,setHeaderData ,handleHeader,
       TopMentor,setTopMentor,handleTopMentor,
@@ -82,7 +95,13 @@ const value = {
       myMentor, setmyMentor,handelgetmyMentor,
       newAnnouncement, setnewAnnouncement,handleNewAnnouncement,
       pastAnnouncement, setPastAnnouncement,handlePastAnnouncement,
-      myAnnouncement, setmyAnnouncement,handlemyAnnouncement
+      myAnnouncement, setmyAnnouncement,handlemyAnnouncement,
+    // gallery
+    memories, setMemories,handleMemories,
+    newspaper, setNewsPaper,handleNewsPaper,
+    galleryById, setGalleryById,handleGallaryById,
+
+
  }
 return (
     <>

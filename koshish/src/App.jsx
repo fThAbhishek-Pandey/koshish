@@ -5,7 +5,6 @@ import IndexStudent from './pages/student'
 import IndexTeacher from './pages/teachers'
 import { StudentContext } from './context/StudentContext'
 import { TeacherContext } from './context/TeacherContext'
-import MyDOMLoader from './component/DOMloader';
 function App() {
     const {stuToken}= useContext(StudentContext);
     const {teaToken}= useContext(TeacherContext);

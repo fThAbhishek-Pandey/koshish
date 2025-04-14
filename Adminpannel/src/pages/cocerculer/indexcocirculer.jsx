@@ -23,6 +23,10 @@ import UpdateAchievement from '../../components/cocercular/home/UpdateAchievemen
 import UpdateMentor from '../../components/cocercular/mentor/UpdateMentor';
 import EventById from '../../components/cocercular/Events/EventById';
 import Contact from '../../components/cocercular/contact';
+import Addgallery from '../../components/cocercular/Gallery/Addgallery';
+import GalleryById from '../../components/cocercular/Gallery/GalleryById';
+import UpdateGallery from '../../components/cocercular/Gallery/UpdateGallery';
+import AllGallary from '../../components/cocercular/Gallery/AllGallary';
 const Indexcocirculer = () => {
   return (
     <div>
@@ -59,6 +63,14 @@ const Indexcocirculer = () => {
                         <Route path='/landpage/achievement/:id' element={<UpdateAchievement/>} />
                         {/* Announcement */}
                         <Route path='/announcement' element={<Announcement/>} />
+                        <Route path='/announcement/add' element={<Announcement/>} />
+                        <Route path='/announcement/update/:id' element={<Announcement/>} />
+                        <Route path='/announcement/:id' element={<Announcement/>} />
+                        {/* Gallary */}
+                        <Route path='/gallery' element={<AllGallary/>} />
+                        <Route path='/gallery/add' element={<Addgallery/>} />
+                        <Route path='/gallery/update/:id' element={<UpdateGallery/>} />
+                        <Route path='/gallery/:id' element={<GalleryById/>} />
                         <Route path='/contact' element={<Contact/>} />
                       </Routes>
                      </div>
