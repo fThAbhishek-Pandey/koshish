@@ -42,9 +42,10 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-6 items-center text-lg">
           <NavLink to="/events" className="hover:text-green-400 transition">Events</NavLink>
           <NavLink to="/family" className="hover:text-green-400 transition">Family</NavLink>
-          <NavLink to="/announcement" className="hover:text-green-400 transition">Announcement</NavLink>
-          <NavLink to="/about" className="hover:text-green-400 transition">About Us</NavLink>
-          <NavLink to="/contact" className="hover:text-green-400 transition">Contact Us</NavLink>
+          <NavLink to="/announcement" className="hover:text-green-400 transition">News</NavLink>
+          <NavLink to="/gallery" className="hover:text-green-400 transition">Gallery</NavLink>
+          <NavLink to="/about" className="hover:text-green-400 transition">About</NavLink>
+          <NavLink to="/contact" className="hover:text-green-400 transition">Contact</NavLink>
         </ul>
 
         {/* Desktop Button */}
