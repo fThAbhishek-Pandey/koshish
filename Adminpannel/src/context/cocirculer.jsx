@@ -1,48 +1,67 @@
 
 import { createContext, useState } from "react";
-import AddHeader from "../utilities/cocirculer/home/AddHeader";
-import AddTopMentor from "../utilities/cocirculer/home/AddTopmentor";
-import AddTestimorals from "../utilities/cocirculer/home/AddTestimorals";
+import {AddHeader,getAllHeader,hideHeaderHeader,updateHeaderById,getHeaderById} from "../utilities/cocirculer/home/Header";
 import AddMentor from "../utilities/cocirculer/member/AddMentor";
 import AllMentor from "../utilities/cocirculer/member/AllMentor";
 import {getMentorById,MakeTopMentorById,TerminateMentorById} from "../utilities/cocirculer/member/getMentorById";
 import updateMentor from "../utilities/cocirculer/member/updateMentor";
 import terminateMentor from "../utilities/cocirculer/member/terminateMentor";
 import contact from "../utilities/cocirculer/contact";
-import getAllHeader from "../utilities/cocirculer/home/getHeader";
 import {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventsById,deleteEventById} from '../utilities/cocirculer/Events/events'
-import getAllTestimoral from "../utilities/cocirculer/home/getTestimorals";
-import AddAnouncement from "../utilities/cocirculer/home/AddAnouncement";
+import {AddTestimorals,getAllTestimoral,updateTestimonial,getTestimonialById,hideTestimoralById} from "../utilities/cocirculer/home/Testimorals";
+import {AddAnouncement,AllNews,updateNewsById,getNewsById,HideNewsbyId} from "../utilities/cocirculer/news/Anouncement";
 import {getAllGallery,AddGallery,updateGallery,deleteGallery ,getGalleryById} from '../utilities/cocirculer/Gallery/gallery'
 export const CocirculerContext = createContext(1);
 const  CocirculerContextProvider = (props) => {
   const [cirToken , setCirToken]= useState(localStorage.getItem('cirToken'));
+  const backendURL = import.meta.env.VITE_BACKEND_URL
+
   const [getcontact, setContact] = useState([]);
   const [getHeader, setHeader] = useState([]);
+  const [HeaderById, setHeaderById] = useState({});
   const [getEvent, setEvent] = useState([]);
   const [EventById, setEventById] = useState({});
+  // testimorals
   const [getTestimoral, setTestimoral] = useState([]);
+  const [TestimoralById, setTestimoralById] = useState({});
+  // mentor
   const [getMentor, setMentor] = useState([]);
+  const [MentorById, setMentorById]= useState({});
+  // gallery
   const [gallaryAll, setGalleryAll] = useState([]);
   const [GalleryById, setGalleryById] = useState({});
-  const [MentorById, setMentorById]= useState({});
-  const backendURL = import.meta.env.VITE_BACKEND_URL
-  console.log(".env-->",import.meta.env)
+  // 
+  const [news, setNews] = useState([])
+  const [newsById,setNewsById] = useState({})
+
+
+  // ---------fuctions--------------
+  // header 
   const HeaderHandler = (formdata)=>{
          AddHeader(backendURL, formdata, cirToken)
   }
-  const TopMentorHandler = (formdata)=>{
-        AddTopMentor(backendURL, formdata, cirToken)
-}
-const EventHandler = (formdata)=>{
-  Addevent(backendURL, formdata, cirToken)
-}
-const handelTestimorals = (formdata)=>{
-  AddTestimorals(backendURL, formdata, cirToken)
-}
+  const handelgetHeader = ()=>{
+    getAllHeader(backendURL,setHeader,cirToken )
+  }
+  const handelUpdateHeader = (id,formdata)=>{
+    updateHeaderById(backendURL,formdata,id,cirToken )
+  }
+  const handelgetHeaderById = (id)=>{
+    getHeaderById(backendURL,setHeaderById,id,cirToken )
+  }
+
+  const handelHideHeaderById = (id)=>{
+    hideHeaderHeader(backendURL,id,cirToken )
+
+  }
+
+
+
+// mentor
 const handelAddMentor = ( formdata)=>{
   AddMentor(backendURL, formdata, cirToken)
 }
+
 const handelgetMentor = ()=>{
   AllMentor(backendURL,setMentor,cirToken )
 }
@@ -65,8 +84,9 @@ const handelTerminateMentor = (email)=>{
 const handelContact = ()=>{
   contact(backendURL,setContact,cirToken )
 }
-const handelgetHeader = ()=>{
-  getAllHeader(backendURL,setHeader,cirToken )
+// events
+const EventHandler = (formdata)=>{
+  Addevent(backendURL, formdata, cirToken)
 }
 const handelgetEventById = (id)=>{
   EventsById(backendURL,setEventById, id,cirToken )
@@ -86,13 +106,40 @@ const handelHideEvent = (id)=>{
 const handelgetEvent = ()=>{
   AllEvents(backendURL,setEvent,cirToken )
 }
+// testimonials
+const handelTestimorals = (formdata)=>{
+  AddTestimorals(backendURL, formdata, cirToken)
+}
 const handelgetTestimoral = ()=>{
   getAllTestimoral(backendURL,setTestimoral,cirToken )
 }
+const handelgetTestimoralById = (id)=>{
+  getTestimonialById(backendURL,setTestimoralById,id,cirToken )
+}
+const handelupdateTestimoralById = (id,formdata)=>{
+  updateTestimonial(backendURL,formdata, id,cirToken )
+}
+const handelHideTestimoralById = (id)=>{
+  hideTestimoralById(backendURL,id,cirToken )
+}
 
+// news
+const handelUpdateNews = (id,formdata)=>{
+  updateNewsById(backendURL,formdata,id,cirToken )
+}
+const handelgetAllNews = ()=>{
+  AllNews(backendURL,setNews,cirToken )
+}
 const handelAnnouncement = (data)=>{
   AddAnouncement(backendURL,data,cirToken )
 }
+const handelgetNewsById = (id)=>{
+  getNewsById(backendURL,setNewsById,id,cirToken )
+}
+const handelHideNewsById = (id)=>{
+  HideNewsbyId(backendURL,id,cirToken )
+}
+// gallery
 const handelGalleryAll = ()=>{
   getAllGallery(backendURL,setGalleryAll,cirToken )
 }
@@ -112,22 +159,28 @@ const handelDeleteGallery = (id)=>{
   const value = {
   cirToken , setCirToken,  backendURL,
   //  landpage
-  handelTestimorals,HeaderHandler,TopMentorHandler , EventHandler,
+  
+  HeaderHandler, 
   getHeader, setHeader,handelgetHeader,
+  HeaderById, setHeaderById,handelgetHeaderById,
+  handelUpdateHeader,handelHideHeaderById,
   
   getTestimoral, setTestimoral,handelgetTestimoral,
-  
+  TestimoralById, setTestimoralById,handelgetTestimoralById,
+  handelupdateTestimoralById,handelTestimorals,handelHideTestimoralById,
   //  mentor section
   getMentor, setMentor,handelgetMentor,
   MentorById, setMentorById ,handelMentorById,
   handelAddMentor, handelUpdateMentorById, handelTerminateMentor,handelTearminateMentorById,handelMakeTopMentorById,
   // announcement section
-  handelAnnouncement,
+  news, setNews, handelgetAllNews,
+  newsById,setNewsById,handelgetNewsById,
+  handelHideNewsById,handelUpdateNews,handelAnnouncement,
   //  event section 
   getEvent, setEvent,handelgetEvent,
   EventById, setEventById,handelgetEventById,handelupdateEventById,
   handelTopEvent,handelHideEvent,
-  handelDeleteEvent,
+  handelDeleteEvent,EventHandler,
   //  Gallery
   gallaryAll, setGalleryAll,handelGalleryAll,
   GalleryById, setGalleryById,handelGalleryById,
