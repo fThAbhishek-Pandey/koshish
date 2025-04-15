@@ -109,10 +109,10 @@ const SidebarCocirculer = () => {
           </div>
          
         </li>
-        <Link to= '/announcement'>
+        <Link to= '/news'>
         <li className="w-full py-3 flex items-center px-4 hover:bg-gray-700 cursor-pointer">
           <FaUserEdit className="mr-3" />
-          <span>Announcement</span>
+          <span>News</span>
         </li>
         </Link>
         <Link to= '/gallery'>

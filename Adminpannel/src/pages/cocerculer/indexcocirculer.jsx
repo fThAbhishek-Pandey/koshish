@@ -4,13 +4,18 @@ import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
 import DashboardCociculer from './DashboardCociculer';
 import SidebarCocirculer from '../../components/cocercular/SidebarCocirculer';
-import Announcement from './Announcement';
+import Announcement from '../../components/cocercular/News/AddNews';
+import NewsById from '../../components/cocercular/News/NewsById';
+import AllNews from '../../components/cocercular/News/AllNews';
+import UpdateNewsById from '../../components/cocercular/News/UpdateNewsById';
 import AddEvent from '../../components/cocercular/Events/AddEvent'
 import AddTestimorals from '../../components/cocercular/home/AddTestimorals';
+import TestimonialById from '../../components/cocercular/home/TestimonialById';
 import AddMentor from '../../components/cocercular/mentor/addMentor';
 import GetMentorById from '../../components/cocercular/mentor/getMentorById';
 import AllEvent from '../../components/cocercular/Events/AllEvent';
 import AllHeader from '../../components/cocercular/home/AllHeader';
+import HeaderById from '../../components/cocercular/home/HeaderById';
 import Header from '../../components/cocercular/home/header';
 import AddAchievement from '../../components/cocercular/home/AddAchievement';
 import AllMentor from '../../components/cocercular/mentor/AllMentor';
@@ -40,13 +45,13 @@ const Indexcocirculer = () => {
                         <Route path='/mentor/add' element={<AddMentor/>} />
                         <Route path='/mentor/all' element={<AllMentor/>} />
                         <Route path='/mentor/:id' element={<GetMentorById/>} />
-                        
                         <Route path='/mentor/update/:id' element={<UpdateMentor/>} />
                         {/* home */}
                         {/* header */}
                         <Route path='/landpage/header/add' element={<Header/>} />
                         <Route path='/landpage/header/all' element={<AllHeader/>} />
-                        <Route path='/landpage/header/:id' element={<UpdateHeader/>} />
+                        <Route path='/landpage/header/view/:id' element={<HeaderById/>} />
+                        <Route path='/landpage/header/update/:id' element={<UpdateHeader/>} />
                         {/* event */}
                         <Route path='/event/add' element={<AddEvent/>} />
                         <Route path='/event/all' element={<AllEvent/>} />
@@ -56,16 +61,17 @@ const Indexcocirculer = () => {
                         {/* testimorals */}
                         <Route path='/landpage/testimorals/add' element={<AddTestimorals/>} />
                         <Route path='/landpage/testimorals/all' element={<AllTestimorals/>} />
-                        <Route path='/landpage/testimorals/:id' element={<UpdateTestimorals/>} />
+                        <Route path='/landpage/testimorals/view/:id' element={<TestimonialById/>} />
+                        <Route path='/landpage/testimorals/update/:id' element={<UpdateTestimorals/>} />
                         {/* Achivement */}
                         <Route path='/landpage/achievement/add' element={<AddAchievement/>} />
                         <Route path='/landpage/achievement/all' element={<AllAchievement/>} />
                         <Route path='/landpage/achievement/:id' element={<UpdateAchievement/>} />
                         {/* Announcement */}
-                        <Route path='/announcement' element={<Announcement/>} />
-                        <Route path='/announcement/add' element={<Announcement/>} />
-                        <Route path='/announcement/update/:id' element={<Announcement/>} />
-                        <Route path='/announcement/:id' element={<Announcement/>} />
+                        <Route path='/news' element={<AllNews/>} />
+                        <Route path='/news/add' element={<Announcement/>} />
+                        <Route path='/news/update/:id' element={<UpdateNewsById/>} />
+                        <Route path='/news/:id' element={<NewsById/>} />
                         {/* Gallary */}
                         <Route path='/gallery' element={<AllGallary/>} />
                         <Route path='/gallery/add' element={<Addgallery/>} />
