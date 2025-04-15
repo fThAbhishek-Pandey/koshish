@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import PhotoSchema from "./photoSchema.js";
 const GallerySchema = new mongoose.Schema({
-  name: {
+  galleryTitle: {
     type: String,
     required: true
   },
@@ -10,7 +10,7 @@ const GallerySchema = new mongoose.Schema({
     required:true
   },
   Photo:[PhotoSchema],
-  desc: {
+  galleryDescription : {
     type:String,
     required:true
   },
@@ -18,6 +18,26 @@ const GallerySchema = new mongoose.Schema({
     type:String,
     required:true
   },
+ youtube:{
+  type:String,
+  default:false
+ },
+ linkedin:{
+  type:String,
+  default:false
+ }, 
+ googlePhoto:{
+  type:String,
+  default:false
+ },
+ instagram:{
+  type:String,
+  default:false
+ },
+ facebook:{
+  type:String,
+  default:false
+ }, 
   isNews :{
     type:Boolean,
     default:false

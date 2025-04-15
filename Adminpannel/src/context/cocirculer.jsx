@@ -3,11 +3,11 @@ import { createContext, useState } from "react";
 import AddHeader from "../utilities/cocirculer/home/AddHeader";
 import AddTopMentor from "../utilities/cocirculer/home/AddTopmentor";
 import AddTestimorals from "../utilities/cocirculer/home/AddTestimorals";
-import AddMentor from "../utilities/cocirculer/Mentor/AddMentor";
-import AllMentor from "../utilities/cocirculer/Mentor/AllMentor";
-import {getMentorById,MakeTopMentorById,TerminateMentorById} from "../utilities/cocirculer/Mentor/getMentorById";
-import updateMentor from "../utilities/cocirculer/Mentor/updateMentor";
-import terminateMentor from "../utilities/cocirculer/Mentor/terminateMentor";
+import AddMentor from "../utilities/cocirculer/member/AddMentor";
+import AllMentor from "../utilities/cocirculer/member/AllMentor";
+import {getMentorById,MakeTopMentorById,TerminateMentorById} from "../utilities/cocirculer/member/getMentorById";
+import updateMentor from "../utilities/cocirculer/member/updateMentor";
+import terminateMentor from "../utilities/cocirculer/member/terminateMentor";
 import contact from "../utilities/cocirculer/contact";
 import getAllHeader from "../utilities/cocirculer/home/getHeader";
 import {Addevent,updateEvent,hideEvent,AllEvents,topEvent,EventsById,deleteEventById} from '../utilities/cocirculer/Events/events'

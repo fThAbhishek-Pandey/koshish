@@ -22,36 +22,39 @@ const GalleryCard = ({gallery}) => {
   const onInit = () => {
     console.log('lightGallery has been initialized');
   };
-
+  
   
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">{gallery.tittle}</h2>
-      <div className="">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 pt-6">
+     
+      
       
         <LightGallery
           onInit={onInit}
           speed={500}
           plugins={[lgThumbnail, lgZoom, lgAutoplay, lgFullscreen, lgRotate,]}
         >
-          {gallery.images.map((image, index) => (
+          {gallery.map((image, index) => (
             <a
-              href={image.src}
+              href={image.image}
               key={index}
-              data-sub-html={`<h4 class='text-5xl font-medium text-center text-blue-500'>${image.title}</h4>`}
+              data-sub-html={`
+                <div>
+                  <h1 class='text-xl font-semibold text-blue-300 mb-1'>${image.tittle}</h4>
+                  <p class='text-sm text-white'>${image.desc}</p>
+                </div>`}
               className="block"
             >
               <img
-                alt={image.alt}
-                src={image.src}
-                className="w-full h-auto object-contain  rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-in-out"
+                alt={image.tittle}
+                src={image.image}
+                className="w-full h-auto object-contain rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-in-out"
               />
             </a>
           ))}
         </LightGallery>
-         
-      </div>
+
     </div>
   );
 };
