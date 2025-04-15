@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CocirculerContext } from '../../../context/cocirculer'
 const AllGallary = () => {

@@ -9,7 +9,6 @@ import { addtestimorals } from '../controller/cocirculer/testimorals.js';
 import getcontact from '../controller/cocirculer/getcontact.js';
 import upload from '../middleware/cloudimage/multer.js'
 import getHeader from '../controller/app/getHeader.js';
-import {getAllEvents, getEventById} from '../controller/app/getevents.js';
 import {getAllAnnouncement,getmyAnnouncement} from '../controller/app/getAnnouncement.js';
 import getTestmorals from '../controller/app/getTestmorals.js';
 // import getAllMentor from '../controller/app/getAllMentor.js';
@@ -45,7 +44,7 @@ coCirculerRoutes.patch('/announcement/hide/:id',authCociculer,hideAnnouncement )
 coCirculerRoutes.get('/announcement/my/:id',authCociculer,getmyAnnouncement )
 coCirculerRoutes.get('/testimorals/all',authCociculer, getTestmorals);
 coCirculerRoutes.get('/gallery',authCociculer, getAllGallery);
-coCirculerRoutes.post('/gallery/add',authCociculer,upload.single('image'), AddGallery);
+coCirculerRoutes.post('/gallery/add',authCociculer,upload.any(), AddGallery);
 coCirculerRoutes.get('/gallery/:id',authCociculer, getGalleryById);
 coCirculerRoutes.patch('/gallery/update/:id',authCociculer,upload.single('image'), UpdateGallery);
 coCirculerRoutes.delete('/gallery/delete/:id',authCociculer, DeleteGallery);
