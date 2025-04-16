@@ -16,7 +16,7 @@ import IndexGallery from '../../component/App/gallery/IndexGallery';
 import GalleryById from '../../component/App/gallery/GalleryById';
 const IndexApp = () => {
   return (
-    <div>
+    <div className='bg-green-50'>
           <Navbar />
 
             <div className=''>

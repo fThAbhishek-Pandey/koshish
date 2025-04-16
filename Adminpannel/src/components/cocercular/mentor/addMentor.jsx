@@ -30,7 +30,7 @@ const AddMentor = () => {
       formData.append('aboutHead',aboutHead)
       formData.append('about',about)
       formData.append('isTop',isTop)
-      formData.append('isActve',isActve)
+      formData.append('isAcitve',isActve)
       formData.append('isVisionary',isVisionary)
       formData.append('image',image);
       formData.append('linkedin',linkedin);
@@ -145,6 +145,7 @@ const AddMentor = () => {
           value={quote}
           onChange={(e) => setQuote(e.target.value)}
           required
+
           className={textAreaField}
         ></textarea>
       </div>

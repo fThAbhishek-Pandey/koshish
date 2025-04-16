@@ -60,7 +60,7 @@ const Navbar = () => {
           className="md:hidden text-3xl text-white focus:outline-none"
           onClick={toggleMenu}
         >
-          ☰
+           {isOpen ? "❌" : "📖"}
         </button>
       </div>
 
@@ -71,7 +71,8 @@ const Navbar = () => {
             <NavLink to="/" onClick={() => setIsOpen(false)} className="hover:text-green-400">Home</NavLink>
             <NavLink to="/events" onClick={() => setIsOpen(false)} className="hover:text-green-400">Events</NavLink>
             <NavLink to="/family" onClick={() => setIsOpen(false)} className="hover:text-green-400">Family</NavLink>
-            <NavLink to="/announcement" onClick={() => setIsOpen(false)} className="hover:text-green-400">Announcement</NavLink>
+            <NavLink to="/announcement" onClick={() => setIsOpen(false)} className="hover:text-green-400">News</NavLink>
+            <NavLink to="/gallery" className="hover:text-green-400 transition">Gallery</NavLink>
             <NavLink to="/about" onClick={() => setIsOpen(false)} className="hover:text-green-400">About Us</NavLink>
             <NavLink to="/contact" onClick={() => setIsOpen(false)} className="hover:text-green-400">Contact Us</NavLink>
             <button className="w-full mt-2 px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">

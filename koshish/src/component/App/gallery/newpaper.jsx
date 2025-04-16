@@ -8,9 +8,34 @@ const Newspaper = () => {
           handleNewsPaper() ;
         },[])
   return (
-    <div>News papper
-
-<button onClick={()=>navigater('/gallery/12367')}>click me</button>
+    <div className="p-6">
+      <div className="w-full px-4 py-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-blue10 mb-6">
+            Koshish in News Paper
+          </h2>
+          <p className="text-md sm:text-xl font-sm text-gray-700 leading-relaxed">
+            Our mentors are the backbone of Koshish, actively contributing their
+            time, skills, and passion to uplift underprivileged students.
+            Through consistent efforts and dedication, they guide, teach, and
+            inspire children to dream big and achieve more. Their hard work
+            plays a crucial role in shaping a better future for the students and
+            the community.
+          </p>
+        </div>
+      </div>
+      {newspaper?.length === 0 ? (
+       <p className="text-center text-gray-500 text-lg font-medium py-6">
+       No Newspaper found.
+     </p>
+     
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {newspaper.map((item) => (
+             <AlbumCard item={item} />
+          ))}
+        </div>
+      )}
     </div>
 
   )

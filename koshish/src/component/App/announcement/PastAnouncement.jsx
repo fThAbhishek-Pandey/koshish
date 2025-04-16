@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import NoAnouncement from './NoAnouncement'
 import { useEffect } from 'react'
 import { AppContext } from '../../../context/App'
+import NewsCard from './NewsCard'
 const PastAnouncement = () => {
   const {pastAnnouncement, handlePastAnnouncement}= useContext(AppContext);
   useEffect(()=>{
@@ -9,31 +10,30 @@ const PastAnouncement = () => {
   },[])
   return (
     <div className='mb-36'>
-       { pastAnnouncement &&pastAnnouncement.length !=0 ? <div>
+      <div className="w-full px-4 py-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-blue10 mb-6">
+            Past Announcement
+          </h2>
+          <p className="text-md sm:text-xl font-sm text-gray-700 leading-relaxed">
+            Our mentors are the backbone of Koshish, actively contributing their
+            time, skills, and passion to uplift underprivileged students.
+            Through consistent efforts and dedication, they guide, teach, and
+            inspire children to dream big and achieve more. Their hard work
+            plays a crucial role in shaping a better future for the students and
+            the community.
+          </p>
+        </div>
+      </div>
+       { pastAnnouncement &&pastAnnouncement.length !=0 ?
+       
+       <div
+       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+       >
           {
            pastAnnouncement.map ((announcement , idx)=>{
               return (
-                <div key={announcement._id}>
-                  <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-5 border border-gray-200">
-      <img
-        className="w-full h-48 object-cover rounded-lg"
-        src={announcement.image}
-        alt="Announcement"
-      />
-      <div className="p-4">
-        <h2 className="text-xl font-semibold text-gray-900">{announcement.heading}</h2>
-       
-        <p className="mt-2 text-gray-500 text-sm">
-          Date: {new Date(announcement.date).toDateString()}
-        </p>
-        {announcement.isAtive && (
-          <span className="inline-block bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded mt-3">
-            Active
-          </span>
-        )}
-      </div>
-    </div>
-                </div>
+                <NewsCard key={idx+"67"} announcement={announcement} />
               )
             })
           }

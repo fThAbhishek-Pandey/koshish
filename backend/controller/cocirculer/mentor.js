@@ -75,14 +75,14 @@ const updateMentorById = async( req , res)=>{
       try {
         const {id} = req.params
          const { name,imgurl ,subject,yog,isActive, isVisionary, isTop,classTeacher,speciality,linkedin, about,quote, aboutHead } = req.body;
-
+          console.log("updateMentorById",req.body)
          console.log("i am update by Id: ",id)
          const imagefile = req.file
          if(imagefile){
           console.log("imgurl ",imgurl)
           // await cloudinaryRemoveImage(imgurl);
           const imageData =   await  cloudinaryUploadImage(imagefile)
-          await updateMentor(id, { name,image:  imageData.secure_url ,subject,yog,classTeacher,speciality,linkedin, about,quote, aboutHead })
+          await updateMentor(id, { name,image:  imageData.secure_url ,isActive, isVisionary, isTop,subject,yog,classTeacher,speciality,linkedin, about,quote, aboutHead })
        }
        else {
         await updateMentor(id, { name ,subject,yog,isActive, isVisionary, isTop,classTeacher,speciality,linkedin, about,quote, aboutHead })
