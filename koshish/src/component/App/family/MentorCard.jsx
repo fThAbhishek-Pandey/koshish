@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLinkedin } from "react-icons/fa";
-const MentorCard = ({item}) => {
-     const navigate = useNavigate();
+const MentorCard = ({ item }) => {
+  const navigate = useNavigate();
   return (
     <div className="group cursor-pointer bg-green-100 border-2 border-green-300 shadow-lg rounded-3xl p-6 sm:p-8 text-center w-full max-w-xs transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 hover:scale-105">
       <div className="flex justify-center">
@@ -31,14 +31,16 @@ const MentorCard = ({item}) => {
         </blockquote>
       </div>
       <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <a
-          href={item.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-800 text-2xl transition-transform duration-300 hover:scale-110"
-        >
-          <FaLinkedin />
-        </a>
+        {item.linkedin != "NAN" && (
+          <a
+            href={item.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 text-2xl transition-transform duration-300 hover:scale-110"
+          >
+            <FaLinkedin />
+          </a>
+        )}
         <button
           onClick={() => navigate(`/family/${item._id}`)}
           className="bg-green-600 text-white font-medium px-4 py-2 rounded-lg shadow-md transition-all duration-300 hover:bg-green-700 hover:scale-105"

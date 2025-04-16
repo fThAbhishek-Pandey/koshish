@@ -29,7 +29,7 @@ const AddMentor = () => {
       formData.append('aboutHead',aboutHead)
       formData.append('about',about)
       formData.append('isTop',isTop)
-      formData.append('isActve',isActve)
+      formData.append('isAcitve',isActve)
       formData.append('isVisionary',isVisionary)
       formData.append('image',image);
       formData.append('linkedin',linkedin);
@@ -144,7 +144,7 @@ const AddMentor = () => {
           value={quote}
           onChange={(e) => setQuote(e.target.value)}
           required
-          className="textarea-field"
+          className={textarea-field}
         ></textarea>
       </div>
       <div>
@@ -154,7 +154,7 @@ const AddMentor = () => {
           value={aboutHead}
           onChange={(e) => setAboutHead(e.target.value)}
           required
-          className="input-field"
+          className={input-field}
         />
       </div>
       <div>
@@ -163,7 +163,7 @@ const AddMentor = () => {
           value={about}
           onChange={(e) => setAbout(e.target.value)}
           required
-          className="textarea-field"
+          className={textarea-field}
         ></textarea>
       </div>
       <button

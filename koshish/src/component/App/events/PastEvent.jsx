@@ -12,10 +12,11 @@ const PastEvent = () => {
     },[])
     console.log("pastEvent: ",pastEvent)
   return (
-    <div className="pt-28 pb-20 px-4 sm:px-6 lg:px-8">
+    <div className="sm:px-6 lg:px-8">
     {pastEvent != "5xx" ? (
       <div>
-      { pastEvent == "NODATA"  ?<NoEvent />: <div className="min-h-screen bg-gray-100 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
+      { pastEvent == "NODATA"  ?<NoEvent />
+      : <div className="mt-10 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
         { pastEvent.length ==0 ? <Loader />: pastEvent.map((event) => (
           <EventCard key={event._id} event={event} />
         ))}

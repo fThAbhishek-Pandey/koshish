@@ -57,14 +57,14 @@ const Mentor = () => {
                    onClick={()=>navigate(`/mentors/${teacher._id}`)}
                   className="text-xl font-bold text-gray-800">{teacher.name}</h2>
 
-                  <a
+                  {teacher.linkedin != "NAN" && (<a
                     href={teacher.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 mt-2 text-blue-700 text-sm font-semibold hover:underline"
                   >
                     <BsLinkedin className="text-blue-700 text-lg" />
-                  </a>
+                  </a>)}
                   </div>
                   <p className="text-sm text-blue-600 font-medium mt-2">{teacher.speciality}</p>
                   <p className="text-xs text-gray-500 mt-1">Joined in {joinYear}</p>

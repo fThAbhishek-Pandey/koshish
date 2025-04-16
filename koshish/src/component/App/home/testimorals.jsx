@@ -14,7 +14,7 @@ const Testimorals = () => {
   },[testimorals])
   return (
     <div className="pb-8">
-      <h2 className="text-4xl sm:text-5xl pb-4 font-bold text-blue10 pt-16 text-center">Testimorals</h2>
+      <h2 className="text-4xl sm:text-5xl pb-4 font-bold text-blue10 pt-16 text-center">Testimonials</h2>
       <div className="text-center text-lg pb-5">
       Testimonial should reflect how KOSHISH has contributed to personal growth, education, and social upliftment.
       </div>
@@ -40,9 +40,9 @@ const Testimorals = () => {
                   <div className="text-center sm:text-left flex flex-col gap-3 w-full">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div className="font-bold text-2xl text-gray-900">{item.name}</div>
-                      <a href={item.linkedin} target="_blank" className="text-blue-600 hover:text-blue-800 text-3xl">
+                      {item.linkedin !="NAN" && (<a href={item.linkedin} target="_blank" className="text-blue-600 hover:text-blue-800 text-3xl">
                         <FaLinkedin />
-                      </a>
+                      </a>)}
                     </div>
                     <div className="text-gray-700 text-lg font-medium italic">{item.headline}</div>
                   </div>

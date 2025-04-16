@@ -37,7 +37,7 @@ const UpdateMentor = () => {
       formData.append('aboutHead',aboutHead)
       formData.append('about',about)
       formData.append('isTop',isTop)
-      formData.append('isActve',isActve)
+      formData.append('isActive',isActve)
       formData.append('isVisionary',isVisionary)
       formData.append('image',image);
       formData.append('linkedin',linkedin);
