@@ -30,6 +30,9 @@ const AllNews = async (backendURL,setNews,cirToken) => {
 }
 const updateNewsById = async (backendURL,formdata,id,cirToken) => {
   try {
+       formdata.forEach((key, value) => {
+          console.log(key,"  ", value)
+       });
       const {data} = await axios.patch(backendURL+ `/api/cocirculer/announcement/update/${id}`,formdata ,{headers:{authCociculertoken:cirToken}})
       if (data.success){
           toast.success(data.message);

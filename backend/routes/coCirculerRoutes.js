@@ -8,8 +8,7 @@ import { Addevent,updateEvent,hideEvent,EventById,topEvent,AllEvents,deleteById 
 import { addtestimorals,updatetestimorals,Alltestimorals,testimoralsById,TerminateTestimorals } from '../controller/cocirculer/testimorals.js';
 import getcontact from '../controller/cocirculer/getcontact.js';
 import upload from '../middleware/cloudimage/multer.js'
-import {getAllAnnouncement,getmyAnnouncement} from '../controller/app/getAnnouncement.js';
-import {CreateAnnouncement,UpdateAnnouncement,hideAnnouncement } from '../controller/cocirculer/announcement.js';
+import {CreateAnnouncement,UpdateAnnouncement,hideAnnouncement,getNewsAll,getNewsById } from '../controller/cocirculer/announcement.js';
 import {UpdateGallery,DeleteGallery ,AddGallery,getAllGallery,getGalleryById} from '../controller/cocirculer/gallery.js'
 const coCirculerRoutes = express.Router();
 coCirculerRoutes.post('/login', loginCociculer);
@@ -41,11 +40,11 @@ coCirculerRoutes.get('/header/all',authCociculer,AllHeader );
 coCirculerRoutes.get('/header/view/:id',authCociculer,HeaderById );
 coCirculerRoutes.patch('/header/hide/:id',authCociculer,HeaderChange );
 // announcement
-coCirculerRoutes.get('/announcement',authCociculer,getAllAnnouncement )
+coCirculerRoutes.get('/announcement',authCociculer,getNewsAll )
 coCirculerRoutes.post('/announcement/add',authCociculer,upload.single('image'),CreateAnnouncement )
 coCirculerRoutes.patch('/announcement/update/:id',authCociculer,UpdateAnnouncement )
 coCirculerRoutes.patch('/announcement/hide/:id',authCociculer,hideAnnouncement )
-coCirculerRoutes.get('/announcement/view/:id',authCociculer,getmyAnnouncement )
+coCirculerRoutes.get('/announcement/view/:id',authCociculer,getNewsById )
 // testimonial
 coCirculerRoutes.post('/testimorals/add', authCociculer,upload.single('image'),addtestimorals )
 coCirculerRoutes.patch('/testimorals/update/:id', authCociculer,upload.single('image'),updatetestimorals )

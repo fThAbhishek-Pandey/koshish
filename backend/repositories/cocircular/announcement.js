@@ -17,10 +17,23 @@ const hideAnnouncementDB = async(id)=>{
        await Announcement.findByIdAndUpdate({_id:id},{isAtive:false} )
 }
 
+const getNewsByIdDB = async(id)=>{
+   const data =  await Announcement.findById(id )
+   return data;
+}
+const getNewsAllDB = async()=>{
+    console.log("I am get all News DB ")
+    const data =  await Announcement.find({})
+    console.log(data)
+    return data;
+ }
+ 
 
 
 export {
     saveAnnouncementDB,
     updateAnnouncementDB,
     hideAnnouncementDB,
+    getNewsByIdDB,
+    getNewsAllDB
 }
