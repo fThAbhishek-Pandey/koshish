@@ -1,40 +1,41 @@
-import React, { useContext, useState } from 'react';
-import { CocirculerContext } from '../../../context/cocirculer';
-import Markdown from 'react-markdown';
+import React, { useContext, useState } from "react";
+import { CocirculerContext } from "../../../context/cocirculer";
+import Editor from "../../App/MarkdownEditor/Editor";
+import Preview from "../../App/MarkdownEditor/preview";
 
 const AddEvent = () => {
   const { EventHandler } = useContext(CocirculerContext);
 
-  const [eventName, setEventName] = useState('');
+  const [eventName, setEventName] = useState("");
   const [thumbnail, setThumbnail] = useState();
-  const [startdate, setStartdate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [startdate, setStartdate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [registrationOpen, setRegistrationOpen] = useState(false);
   const [isPrize, setIsPrize] = useState(false);
-  const [PrizeHeading, setPrizeHeading] = useState('');
-  const [PrizePara, setPrizePara] = useState('');
-  const [IIIrdPrize, setIIIrdPrize] = useState('');
-  const [IIndPrize, setIIndPrize] = useState('');
-  const [IstPrize, setIstPrize] = useState('');
+  const [PrizeHeading, setPrizeHeading] = useState("");
+  const [PrizePara, setPrizePara] = useState("");
+  const [IIIrdPrize, setIIIrdPrize] = useState("");
+  const [IIndPrize, setIIndPrize] = useState("");
+  const [IstPrize, setIstPrize] = useState("");
   const [isCertification, setIsCertification] = useState(false);
-  const [desp, setDesp] = useState('');
+  const [desp, setDesp] = useState("");
 
   const handleonsubmit = (e) => {
     e.preventDefault();
     const formdata = new FormData();
-    formdata.append('image', thumbnail);
-    formdata.append('eventName', eventName);
-    formdata.append('startdate', startdate);
-    formdata.append('endDate', endDate);
-    formdata.append('registrationOpen', registrationOpen);
-    formdata.append('desp', desp);
-    formdata.append('isPrize', isPrize);
-    formdata.append('PrizeHeading', PrizeHeading);
-    formdata.append('PrizePara', PrizePara);
-    formdata.append('IIIrdPrize', IIIrdPrize);
-    formdata.append('IIndPrize', IIndPrize);
-    formdata.append('IstPrize', IstPrize);
-    formdata.append('isCertification', isCertification);
+    formdata.append("image", thumbnail);
+    formdata.append("eventName", eventName);
+    formdata.append("startdate", startdate);
+    formdata.append("endDate", endDate);
+    formdata.append("registrationOpen", registrationOpen);
+    formdata.append("desp", desp);
+    formdata.append("isPrize", isPrize);
+    formdata.append("PrizeHeading", PrizeHeading);
+    formdata.append("PrizePara", PrizePara);
+    formdata.append("IIIrdPrize", IIIrdPrize);
+    formdata.append("IIndPrize", IIndPrize);
+    formdata.append("IstPrize", IstPrize);
+    formdata.append("isCertification", isCertification);
     EventHandler(formdata);
   };
 
@@ -47,7 +48,7 @@ const AddEvent = () => {
           <input
             onChange={(e) => setEventName(e.target.value)}
             value={eventName}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 border border-gray-300 rounded-lg"
             type="text"
           />
         </div>
@@ -56,7 +57,7 @@ const AddEvent = () => {
           <label className="block text-gray-700 font-medium mb-2">Upload Thumbnail</label>
           <input
             onChange={(e) => setThumbnail(e.target.files[0])}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 border border-gray-300 rounded-lg"
             type="file"
           />
         </div>
@@ -67,7 +68,7 @@ const AddEvent = () => {
             <input
               onChange={(e) => setStartdate(e.target.value)}
               value={startdate}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-lg"
               type="date"
             />
           </div>
@@ -76,7 +77,7 @@ const AddEvent = () => {
             <input
               onChange={(e) => setEndDate(e.target.value)}
               value={endDate}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-lg"
               type="date"
             />
           </div>
@@ -84,78 +85,46 @@ const AddEvent = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <label className="flex items-center space-x-2">
-            <input
-              type="checkbox"
-              checked={isPrize}
-              onChange={(e) => setIsPrize(e.target.checked)}
-            />
+            <input type="checkbox" checked={isPrize} onChange={(e) => setIsPrize(e.target.checked)} />
             <span>Prize</span>
           </label>
           <label className="flex items-center space-x-2">
-            <input
-              type="checkbox"
-              checked={registrationOpen}
-              onChange={(e) => setRegistrationOpen(e.target.checked)}
-            />
+            <input type="checkbox" checked={registrationOpen} onChange={(e) => setRegistrationOpen(e.target.checked)} />
             <span>Registration Open</span>
           </label>
           <label className="flex items-center space-x-2">
-            <input
-              type="checkbox"
-              checked={isCertification}
-              onChange={(e) => setIsCertification(e.target.checked)}
-            />
+            <input type="checkbox" checked={isCertification} onChange={(e) => setIsCertification(e.target.checked)} />
             <span>Certification</span>
           </label>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Event Description</label>
-            <textarea
-              className="w-full mt-1 block p-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              value={desp}
-              onChange={(e) => setDesp(e.target.value)}
-              rows="8"
-            />
-          </div>
-          <div>
-            <div className="text-sm font-medium text-gray-700 mb-1">Markdown Preview</div>
-            <div className="bg-green-100 border-l-4 border-green-500 p-4 rounded-lg h-full overflow-auto">
-              <Markdown>{desp}</Markdown>
-            </div>
+        <div>
+          <h2 className="text-lg font-semibold text-gray-700 mb-2">Event Description</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50 p-4 rounded-lg">
+            <Editor markdown={desp} setMarkdown={setDesp} />
+            <Preview markdown={desp} />
           </div>
         </div>
 
         {isPrize && (
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div>
               <label className="block text-gray-700 font-medium mb-2">Prize Heading</label>
               <input
                 value={PrizeHeading}
                 onChange={(e) => setPrizeHeading(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-lg"
                 type="text"
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Prize Criteria</label>
-                <textarea
-                  value={PrizePara}
-                  onChange={(e) => setPrizePara(e.target.value)}
-                  rows="6"
-                  className="w-full mt-1 block p-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                />
+            
+              <h2 className="text-lg font-semibold text-gray-700 mb-2">Prize Criteria</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50 p-4 rounded-lg">
+                <Editor markdown={PrizePara} setMarkdown={setPrizePara} />
+                <Preview markdown={PrizePara} />
               </div>
-              <div>
-                <div className="text-sm font-medium text-gray-700 mb-1">Markdown Preview</div>
-                <div className="bg-green-100 border-l-4 border-green-500 p-4 rounded-lg h-full overflow-auto">
-                  <Markdown>{PrizePara}</Markdown>
-                </div>
-              </div>
-            </div>
+            
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>

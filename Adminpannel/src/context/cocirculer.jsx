@@ -23,7 +23,7 @@ const  CocirculerContextProvider = (props) => {
   const [EventById, setEventById] = useState({});
   // testimorals
   const [getTestimoral, setTestimoral] = useState([]);
-  const [TestimoralById, setTestimoralById] = useState({});
+  const [testimonialById, setTestimoralById] = useState({});
   // mentor
   const [getMentor, setMentor] = useState([]);
   const [MentorById, setMentorById]= useState({});
@@ -166,7 +166,7 @@ const handelDeleteGallery = (id)=>{
   handelUpdateHeader,handelHideHeaderById,
   
   getTestimoral, setTestimoral,handelgetTestimoral,
-  TestimoralById, setTestimoralById,handelgetTestimoralById,
+  testimonialById, setTestimoralById,handelgetTestimoralById,
   handelupdateTestimoralById,handelTestimorals,handelHideTestimoralById,
   //  mentor section
   getMentor, setMentor,handelgetMentor,

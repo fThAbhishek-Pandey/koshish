@@ -7,10 +7,11 @@ const AllNews = () => {
       useEffect(()=>{
         handelgetAllNews()
       },[])
+      
      const handelChangevisibilty= (id)=>{
  
       }
-   return (
+   return news &&(
     <div>
          <h2>All news list </h2>
          <button className='border-4 ml-4 border-amber-400' onClick={()=>navigator(`/news/add`)} >Add News</button>
