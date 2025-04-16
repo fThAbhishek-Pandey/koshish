@@ -2,9 +2,9 @@ import  {cloudinaryUploadImage, cloudinaryRemoveImage }  from '../../middleware/
 import { addMentorDB, terminateMentorDB, AllMentorDB,updateMentor,mentorByIdDB,topMentorDB}   from '../../repositories/cocircular/mentor.js'
 const addMentor = async(req, res ) => {
    try {
-          const {name,email,subject,classTeacher,linkedin,speciality,quote, aboutHead, about}= req.body;
+          const {name,email,subject,isActive, isVisionary, isTop,classTeacher,linkedin,speciality,quote, aboutHead, about}= req.body;
           if(!name|| !email|| !subject || !linkedin|| !classTeacher|| !speciality|| !about || !quote || !aboutHead){
-            console.log(name,email,subject,classTeacher,speciality,linkedin, about)
+            console.log(name,email,subject,isActive, isVisionary, isTop,classTeacher,speciality,linkedin, about)
             res.json({success:false, message:"fill all details"})
           }
           const mentorImg = req.file
@@ -13,7 +13,7 @@ const addMentor = async(req, res ) => {
             res.json({success:false, message:"please upload mentor image"});
          }
          const mentorData ={
-          name,email,subject,classTeacher,speciality,linkedin, about,quote, aboutHead
+          name,email,subject,classTeacher,isActive, isVisionary, isTop,speciality,linkedin, about,quote, aboutHead
           
          }
         const imageData=   await  cloudinaryUploadImage(mentorImg)
@@ -74,7 +74,7 @@ const getMentorById = async(req,res)=>{
 const updateMentorById = async( req , res)=>{
       try {
         const {id} = req.params
-         const { name,imgurl ,subject,yog,classTeacher,speciality,linkedin, about,quote, aboutHead } = req.body;
+         const { name,imgurl ,subject,yog,isActive, isVisionary, isTop,classTeacher,speciality,linkedin, about,quote, aboutHead } = req.body;
 
          console.log("i am update by Id: ",id)
          const imagefile = req.file
@@ -85,7 +85,7 @@ const updateMentorById = async( req , res)=>{
           await updateMentor(id, { name,image:  imageData.secure_url ,subject,yog,classTeacher,speciality,linkedin, about,quote, aboutHead })
        }
        else {
-        await updateMentor(id, { name ,subject,yog,classTeacher,speciality,linkedin, about,quote, aboutHead })
+        await updateMentor(id, { name ,subject,yog,isActive, isVisionary, isTop,classTeacher,speciality,linkedin, about,quote, aboutHead })
        }
        
       

@@ -1,7 +1,7 @@
 import TeacherModel from "../../models/teacher/teacherSchema.js";
 const getAllMentor =async (req,res) => {
   try {
-    const data = await TeacherModel.find({isActive:true});
+    const data = await TeacherModel.find({isActive:true, isVisionary:false});
     const sendData = data.map((item)=>{
       const {_id, name,linkedin,image,speciality,quote,joinTime,} = item;
    return  {_id, name,linkedin,image,speciality,quote,joinTime};
@@ -15,7 +15,7 @@ const getAllMentor =async (req,res) => {
 }
 const getAllAlumni =async (req,res) => {
   try {
-    const data =  await TeacherModel.find({isActive:false});
+    const data =  await TeacherModel.find({isActive:false,isVisionary:false });
     const sendData = data.map((item)=>{
       const {_id, name,linkedin,image,speciality,quote,joinTime,} = item;
    return  {_id, name,linkedin,image,speciality,quote,joinTime};
@@ -27,5 +27,19 @@ const getAllAlumni =async (req,res) => {
      res.json({success:false , message: error.message});
   }
 }
+const getAllFaculty =async (req,res) => {
+  try {
+    const data =  await TeacherModel.find({isVisionary:true});
+    const sendData = data.map((item)=>{
+      const {_id, name,linkedin,image,speciality,quote,joinTime,} = item;
+   return  {_id, name,linkedin,image,speciality,quote,joinTime};
+});
+    res.json({success:true, data: sendData.reverse(), message: "All Visionary found"});
 
-export {getAllMentor,getAllAlumni}
+  } catch (error) {
+     console.log(error)
+     res.json({success:false , message: error.message});
+  }
+}
+
+export {getAllMentor,getAllAlumni,getAllFaculty}

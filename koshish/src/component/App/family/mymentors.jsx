@@ -51,7 +51,7 @@ const MyMentor = () => {
                   
                   {/* Status Badge */}
                   <span className={`inline-block mt-6 px-5 py-2 text-lg font-semibold rounded-full ${myMentor.isActive === "true" ? "bg-green-200 text-green-800" : "bg-red-200 text-red-800"}`}>
-                      {myMentor.isActive === "true" ? "Active Mentor" : "Inactive Mentor"}
+                      {myMentor.isActive === "true" && "Active Mentor" }
                   </span>
               </div>
           </div>
