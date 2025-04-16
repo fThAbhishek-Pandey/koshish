@@ -38,6 +38,10 @@ const teacherSchema = new mongoose.Schema({
     required:true,
 
   },
+  isVisionary:{
+    type: String ,
+    default:false
+  },
   isActive:{
     type: String ,
     default:true

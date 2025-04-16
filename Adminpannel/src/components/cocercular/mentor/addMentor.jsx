@@ -16,6 +16,9 @@ const AddMentor = () => {
       const [ aboutHead, setAboutHead] = useState('');
       const [ about, setAbout] = useState('');
       const [image , setImage] = useState('')
+      const [isTop, setIsTop] = useState(false);
+      const [isActve, setIsActive] = useState(true);
+      const [isVisionary, setIsVisionary] = useState(false);
       const [linkedin, setlinkedin] = useState();
       const formData = new FormData();
       formData.append('name',name)
@@ -26,6 +29,9 @@ const AddMentor = () => {
       formData.append('quote',quote)
       formData.append('aboutHead',aboutHead)
       formData.append('about',about)
+      formData.append('isTop',isTop)
+      formData.append('isActve',isActve)
+      formData.append('isVisionary',isVisionary)
       formData.append('image',image);
       formData.append('linkedin',linkedin);
       const onsubmitHandler =(e)=>{
@@ -107,6 +113,32 @@ const AddMentor = () => {
           className={inputField}
         />
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={isTop}
+              onChange={(e) => setIsTop(e.target.checked)}
+            />
+            <span>Top Mentor</span>
+          </label>
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={isActve}
+              onChange={(e) => setIsActive(e.target.checked)}
+            />
+            <span>Active</span>
+          </label>
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={isVisionary}
+              onChange={(e) => setIsVisionary(e.target.checked)}
+            />
+            <span>Visionary</span>
+          </label>
+        </div>
       <div>
         <label className="block text-sm font-medium">Quote</label>
         <textarea

@@ -22,6 +22,9 @@ const UpdateMentor = () => {
       const [ aboutHead, setAboutHead] = useState(MentorById.aboutHead);
       const [ about, setAbout] = useState(MentorById.about);
       const [image , setImage] = useState(false)
+      const [isTop, setIsTop] = useState(MentorById.isTop);
+      const [isActve, setIsActive] = useState(MentorById.isActive);
+      const [isVisionary, setIsVisionary] = useState(MentorById.isVisionary);
       const [linkedin, setlinkedin] = useState(MentorById.linkedin);
       const formData = new FormData();
       formData.append('name',name)
@@ -33,6 +36,9 @@ const UpdateMentor = () => {
       formData.append('quote',quote)
       formData.append('aboutHead',aboutHead)
       formData.append('about',about)
+      formData.append('isTop',isTop)
+      formData.append('isActve',isActve)
+      formData.append('isVisionary',isVisionary)
       formData.append('image',image);
       formData.append('linkedin',linkedin);
       const onsubmitHandler =(e)=>{
@@ -113,6 +119,32 @@ const UpdateMentor = () => {
           className={inputField}
         />
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={isTop}
+              onChange={(e) => setIsTop(e.target.checked)}
+            />
+            <span>Top Mentor</span>
+          </label>
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={isActve}
+              onChange={(e) => setIsActive(e.target.checked)}
+            />
+            <span>Active</span>
+          </label>
+          <label className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={isVisionary}
+              onChange={(e) => setIsVisionary(e.target.checked)}
+            />
+            <span>Visionary</span>
+          </label>
+        </div>
       <div>
         <label className="block text-sm font-medium">Quote</label>
         <textarea

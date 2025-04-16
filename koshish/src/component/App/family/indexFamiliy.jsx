@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import IndexMentor from './Mentor'
 import IndexAlumni from './alumni'
-import Faculty from './Faculty'
+import Faculty from './Visionary'
 import ColabOrg from './ColabOrg'
 const IndexFamiliy = () => {
     const [tab, setTab] = useState(0)

@@ -24,9 +24,23 @@ const getAllAlumni = async (backendURL,setAllAlumni) => {
       else toast.error(data.message);
   } catch (error) {
     console.log(error);
+    setAllAlumni('5xx');handelgetAllFaculty
+    toast.error(error.message);
+  }
+}
+const getAllFaculty = async (backendURL,setAllAlumni) => {
+  try {
+      const {data} = await axios.get(backendURL+ '/api/app/faculty/all')
+      if(data.success) {
+        setAllAlumni(data.data);
+          toast.success(data.message);
+      }
+      else toast.error(data.message);
+  } catch (error) {
+    console.log(error);
     setAllAlumni('5xx');
     toast.error(error.message);
   }
 }
 
-export {getAllMentor,getAllAlumni}
+export {getAllMentor,getAllAlumni,getAllFaculty}
