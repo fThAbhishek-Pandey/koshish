@@ -36,7 +36,7 @@ const updateTestimonial = async (backendURL,formdata, id,cirToken ) => {
   try {
       console.log("backendURL", backendURL, cirToken)
      
-      const {data} = await axios.get(backendURL+`/api/cocirculer/testimorals/update/${id}`,formdata, {headers:{authCociculertoken:cirToken}} )
+      const {data} = await axios.patch(backendURL+`/api/cocirculer/testimorals/update/${id}`,formdata, {headers:{authCociculertoken:cirToken}} )
      if (data.success) {
           toast.success(data.message);
      }

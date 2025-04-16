@@ -25,6 +25,7 @@ const addtestimorals = async(req,res) => {
 const updatetestimorals = async(req,res) => {
    try {
      const {name ,imgurl,headline,quote, linkedin}=req.body
+     const {id} = req.params
      const imagefile = req.file
      if(!name ||!headline ||!quote ||!linkedin){
         console.log("req: ",headline,quote, linkedin);
@@ -33,12 +34,12 @@ const updatetestimorals = async(req,res) => {
      if(imagefile){
        await cloudinaryRemoveImage(imgurl)
       const imageData = await cloudinaryUploadImage(imagefile)
-     const newTestimorals = await TestimoralModel.create({headline,about: quote, name, linkedin, image:imageData.secure_url});
-     await newTestimorals.save()
+     await TestimoralModel.findByIdAndUpdate(id,{headline,about: quote, name, linkedin, image:imageData.secure_url});
+     
      return res.json({success:true, message:"Testimonial updated successfully"})
      }
-     const newTestimorals = await TestimoralModel.create({headline,about: quote, name, linkedin, image:imageData.secure_url});
-     await newTestimorals.save()
+     await TestimoralModel.findByIdAndUpdate(id, {headline,about: quote, name, linkedin,});
+    
     return res.json({success:true, message:"Testimoral updated successfully"})
 
    } catch (error) {

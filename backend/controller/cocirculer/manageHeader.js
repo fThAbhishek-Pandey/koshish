@@ -42,7 +42,7 @@ const updateHeader = async(req,res) => {
       await cloudinaryRemoveImage(imgurl)
       const image = await cloudinaryUploadImage(imagefile)
       await headerModel.findByIdAndUpdate(id,{image:image.secure_url, heading, para })
-      return res.json({success:false,message:"header update successfully" })
+      return res.json({success:true,message:"header update successfully" })
     }
     
     await headerModel.findByIdAndUpdate(id,{ heading, para })

@@ -48,7 +48,7 @@ coCirculerRoutes.patch('/announcement/hide/:id',authCociculer,hideAnnouncement )
 coCirculerRoutes.get('/announcement/view/:id',authCociculer,getmyAnnouncement )
 // testimonial
 coCirculerRoutes.post('/testimorals/add', authCociculer,upload.single('image'),addtestimorals )
-coCirculerRoutes.patch('/testimorals/update:id', authCociculer,upload.single('image'),updatetestimorals )
+coCirculerRoutes.patch('/testimorals/update/:id', authCociculer,upload.single('image'),updatetestimorals )
 coCirculerRoutes.get('/testimorals/view/:id', authCociculer,testimoralsById )
 coCirculerRoutes.patch('/testimorals/change/:id', authCociculer,TerminateTestimorals )
 coCirculerRoutes.get('/testimorals',authCociculer, Alltestimorals);

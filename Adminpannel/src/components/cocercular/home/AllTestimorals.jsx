@@ -7,6 +7,9 @@ const AllTestimorals = () => {
   useEffect(()=>{
       handelgetTestimoral()
      },[])
+     const handelChangevisibilty= (id)=>{
+
+     }
   return (
     <div>{getTestimoral && getTestimoral.map((item,idx)=>{
       return (
