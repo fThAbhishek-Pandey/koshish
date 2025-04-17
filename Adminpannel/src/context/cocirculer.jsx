@@ -140,6 +140,8 @@ const handelHideNewsById = (id)=>{
   HideNewsbyId(backendURL,id,cirToken )
 }
 // gallery
+
+
 const handelGalleryAll = ()=>{
   getAllGallery(backendURL,setGalleryAll,cirToken )
 }
