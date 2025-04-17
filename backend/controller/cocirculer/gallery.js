@@ -4,8 +4,8 @@ const getAllGallery = async (req, res)=>{
     try {
         const data = await GalleryModel.find({})
         const sendData = data.map ((item)=>{
-            const {name,date,desc,thumbnail} = item
-            return { name,date,desc,thumbnail }
+            const {_id, galleryTitle,date,thumbnail} = item
+            return {_id, galleryTitle,date,thumbnail }
         })
         res.json({success:true, data:sendData, message:"All memories found"})
     } catch (error) {
@@ -44,16 +44,82 @@ const AddGallery = async(req, res)=>{
         res.json({success:false , message: error.message});
     }
 }
-const UpdateGallery = async(req, res)=>{
+const UpdateGallery = async (req, res) => {
     try {
-        const {} = req.body
-        const saveData = {}
-        res.json({success:true,  message:"update Gallery Successfully"})
+      const {
+        titles,
+        descriptions,
+        galleryTitle,
+        galleryDescription,
+        youtube,
+        linkedin,
+        googlePhoto,
+        instagram,
+        facebook,
+        existingImageUrls = [],
+      } = req.body;
+  
+      const { id } = req.params;
+      const newFiles = req.files || [];
+  
+      // Upload new images
+      const newImageURLs = await Promise.all(
+        newFiles.map(async (imgFile) => {
+          const imgData = await cloudinaryUploadImage(imgFile);
+          return imgData.secure_url;
+        })
+      );
+  
+      // Combine all images (existing + new)
+      const allImageURLs = [...existingImageUrls, ...newImageURLs];
+  
+      // Build Photo array
+      const galleryImg = [];
+      for (let i = 0; i < titles.length; i++) {
+        galleryImg.push({
+          tittle: titles[i],
+          desc: descriptions[i],
+          image: allImageURLs[i],
+        });
+      }
+  
+      // Get old gallery to clean up removed images
+      const oldGallery = await GalleryModel.findById(id);
+      const oldImages = oldGallery.Photo.map((img) => img.image);
+  
+      const removedImages = oldImages.filter(
+        (url) => !existingImageUrls.includes(url)
+      );
+  
+      // Remove old images from Cloudinary
+      if (removedImages.length > 0) {
+        await cloudinaryRemoveMultipleImage(removedImages);
+      }
+  
+      // Prepare updated gallery data
+      const updatedData = {
+        Photo: galleryImg,
+        thumbnail: allImageURLs.at(-1),
+        galleryTitle,
+        galleryDescription,
+        youtube,
+        linkedin,
+        googlePhoto,
+        instagram,
+        facebook,
+      };
+  
+      await GalleryModel.findByIdAndUpdate(id, updatedData, {
+        new: true,
+      });
+  
+      res.json({ success: true, message: 'Gallery updated successfully' });
     } catch (error) {
-        console.log(error)
-        res.json({success:false , message: error.message});
+      console.error(error);
+      res.json({ success: false, message: error.message });
     }
-}
+  };
+  
 const DeleteGallery = async(req, res)=>{
     try {
         const {id} = req.params
@@ -69,13 +135,8 @@ const getGalleryById = async (req,res)=>{
      try {
         const {id} = req.params
         const data = await GalleryModel.findById(id)
-        const sendData = data.map ((item)=>{
-            const {name,date,desc,thumbnail,Photo} = item
-            return {
-                name,date,desc,thumbnail,Photo
-            }
-        })
-        res.json({success:true, data:sendData, message:`gallery  found ${id}`})
+        
+        res.json({success:true, data, message:`gallery  found ${id}`})
      } catch (error) {
         console.log(error)
         res.json({success:false , message: error.message});

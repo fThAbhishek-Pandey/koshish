@@ -149,7 +149,7 @@ const handelGalleryById = (id)=>{
 const handelAddGallery = (formdata)=>{
   AddGallery(backendURL,formdata,cirToken )
 }
-const handelUpdateGallery = (formdata, id)=>{
+const handelUpdateGallery = (id, formdata)=>{
   updateGallery(backendURL,formdata,id,cirToken )
 }
 const handelDeleteGallery = (id)=>{

@@ -38,8 +38,8 @@ const Testimorals = () => {
                     alt={item.name}
                   />
                   <div className="text-center sm:text-left flex flex-col gap-3 w-full">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                      <div className="font-bold text-2xl text-gray-900">{item.name}</div>
+                    <div className="flex sm:flex-row sm:items-center justify-between gap-2">
+                      <div className="font-bold text-lg sm:text-xl md:text-2xl text-blue10">{item.name}</div>
                       {item.linkedin !="NAN" && (<a href={item.linkedin} target="_blank" className="text-blue-600 hover:text-blue-800 text-3xl">
                         <FaLinkedin />
                       </a>)}
