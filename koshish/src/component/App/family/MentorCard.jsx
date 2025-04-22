@@ -14,13 +14,13 @@ const MentorCard = ({ item }) => {
         />
       </div>
       <div className="mt-4 text-center bg-white rounded-lg shadow-inner p-4">
-        <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">
+        {item.name !="NAN" &&<h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">
           {item.name}
-        </h2>
-        <p className="text-sm sm:text-lg text-green-700 font-semibold mb-2">
+        </h2>}
+        {item.speciality != "NAN" &&  <p className="text-sm sm:text-lg text-green-700 font-semibold mb-2">
           {item.speciality}
-        </p>
-        <blockquote className="relative text-gray-600 text-sm sm:text-base italic bg-gray-100 p-4 rounded-lg shadow-md">
+        </p>}
+        {item.quote != "NAN" && <blockquote className="relative text-gray-600 text-sm sm:text-base italic bg-gray-100 p-4 rounded-lg shadow-md">
           <span className="absolute -top-2 -left-2 text-3xl sm:text-4xl text-green-500">
             “
           </span>
@@ -28,7 +28,7 @@ const MentorCard = ({ item }) => {
           <span className="absolute -bottom-2 -right-2 text-3xl sm:text-4xl text-green-500">
             ”
           </span>
-        </blockquote>
+        </blockquote>}
       </div>
       <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
         {item.linkedin != "NAN" && (

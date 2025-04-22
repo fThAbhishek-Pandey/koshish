@@ -89,7 +89,7 @@ const UpdateGallery = async (req, res) => {
       // Get old gallery to clean up removed images
       const oldGallery = await GalleryModel.findById(id);
       const oldImages = oldGallery.Photo.map((img) => img.image);
-  
+        
       let removedImages = oldImages.filter(
         (url) => !existingImageUrls.includes(url)
       );
@@ -107,7 +107,7 @@ const UpdateGallery = async (req, res) => {
   
       // Prepare updated gallery data
       const updatedData = {
-        Photo: galleryImg,
+        Photo: newTitles != undefined ?galleryImg :oldGallery.Photo,
         thumbnail: newThumbnail? newThumbnail : thumbnailUrl ,
         galleryTitle,
         galleryDescription,
