@@ -92,7 +92,7 @@ const UpdateGallery = () => {
     const formData = new FormData();
     formData.append('galleryTitle', galleryTitle);
     formData.append('galleryDescription', galleryDescription);
-
+    formData.append('thumbnailUrl', GalleryById.thumbnail|| '')
     filesData.forEach((data, index) => {
       if (!data.isExisting && data.file) {
         formData.append(`newImages`, data.file);

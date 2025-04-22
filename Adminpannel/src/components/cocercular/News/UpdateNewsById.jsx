@@ -10,12 +10,16 @@ const UpdateNewsById = () => {
   const { id } = useParams();
   useEffect(() => {
     handelgetNewsById(id);
-  }, []);
+  }, [id ]);
   const [announcement, setAnnouncement] = useState(newsById.announcement);
   const [date, setDate] = useState(newsById.date);
   const [heading, setHeading] = useState(newsById.heading);
   const [image, setImage] = useState(false);
-
+useEffect(()=>{
+  setAnnouncement(newsById.announcement);
+  setDate(newsById.date);
+  setHeading(newsById.heading);
+},[id])
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formdata = new FormData();

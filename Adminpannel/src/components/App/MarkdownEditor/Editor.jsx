@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import TitleBar from './titlebar';
-import { useContext } from 'react';
-import { AppContext } from '../../../context/app';
-const Editor = ({markdown, setMarkdown}) => {
-    // const {markdown, setMarkdown} = useContext(AppContext)
+
+const Editor = ({ markdown, setMarkdown }) => {
   const [words, setWords] = useState(0);
   const [chars, setChars] = useState(0);
 
@@ -14,12 +12,11 @@ const Editor = ({markdown, setMarkdown}) => {
     setChars(value.length);
   };
 
-
   return (
-    <div className="flex flex-col h-full p-4 bg-white dark:bg-gray-900 rounded-lg shadow-md">
+    <div className="flex flex-col h-full p-4 bg-gray-900 rounded-lg shadow-md">
       <TitleBar title="Editor" aside={`${words} Words ${chars} Characters`} />
       <textarea
-        className="w-full flex-grow text-white mb-5 border-none outline-none appearance-none bg-transparent resize-none p-4 dark:bg-gray-800 dark:text-gray-100"
+        className="w-full flex-grow max-h-[60vh] overflow-auto text-white mb-5 border-none outline-none appearance-none bg-transparent resize-none p-4 dark:bg-gray-800 dark:text-gray-100 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
         value={markdown}
         onChange={updateMarkdown}
         placeholder="Start writing in markdown..."
