@@ -42,7 +42,7 @@ const AddMentor = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
-    <h2 className="text-2xl font-semibold text-center mb-6">Add Mentor</h2>
+    <h2 className="text-2xl font-semibold text-center mb-6">Add Members</h2>
     <form onSubmit={onsubmitHandler} className="space-y-4">
       <div>
         <label className="block text-sm font-medium">Upload Mentor Image</label>
