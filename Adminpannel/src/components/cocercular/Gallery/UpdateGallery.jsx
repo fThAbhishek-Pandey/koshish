@@ -124,7 +124,7 @@ const UpdateGallery = () => {
     <div className="p-4 space-y-4">
       <input type="file" multiple onChange={handleImageChange} />
 
-      {filesData.map((data, index) => (
+      {filesData && filesData.map((data, index) => (
         <div key={index} className="border p-2 rounded shadow space-y-2">
           <img
             src={data.preview}
@@ -182,7 +182,7 @@ const UpdateGallery = () => {
 
       <div>
         <label>Description</label>
-        <input
+        <textarea
           type="text"
           value={galleryDescription}
           onChange={(e) => setGalleryDescription(e.target.value)}
