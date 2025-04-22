@@ -69,7 +69,7 @@ const Addgallery = () => {
 
   return (
     <div className="p-4 space-y-4">
-      <input type="file" multiple onChange={handleImageChange} />
+      <input type="file" multiple className='border-2' onChange={handleImageChange} />
       
       {filesData.map((data, index) => (
         <div key={index} className="border p-2 rounded shadow space-y-2">
@@ -90,12 +90,12 @@ const Addgallery = () => {
         </div>
       ))}
 
-      {filesData.length === 0 && <div className="text-red-500">Please Upload Gallery Photos</div>}
+      {filesData.length === 0 && <div className="text-red-500  ">Please Upload Gallery Photos</div>}
       {filesData.length > 6 && <div className="text-red-500">You can upload up to 6 images only</div>}
 
-      <div>
-        <label>Gallery Thumbnail</label>
-        <input type="file" onChange={(e) => setThumbnail(e.target.files[0])} />
+      <div className='bg-gray-100'>
+        <label className='text-2xl'>Gallery Thumbnail</label>
+        <input className='border-2' type="file" onChange={(e) => setThumbnail(e.target.files[0])} />
       </div>
 
       <div>
