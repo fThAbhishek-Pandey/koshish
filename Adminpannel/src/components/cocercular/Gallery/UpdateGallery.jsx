@@ -122,6 +122,7 @@ const UpdateGallery = () => {
 
   return (
     <div className="p-4 space-y-4">
+       <h2>Update Album</h2>
       <input type="file" multiple onChange={handleImageChange} />
 
       {filesData && filesData.map((data, index) => (
