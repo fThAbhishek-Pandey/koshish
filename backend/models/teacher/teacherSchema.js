@@ -39,15 +39,15 @@ const teacherSchema = new mongoose.Schema({
 
   },
   isVisionary:{
-    type: String ,
+    type: Boolean ,
     default:false
   },
   isActive:{
-    type: String ,
-    default:true
+    type: Boolean ,
+    default:false
   },
   isTop:{
-    type: String ,
+    type: Boolean ,
     default:false
   },
   quote:{

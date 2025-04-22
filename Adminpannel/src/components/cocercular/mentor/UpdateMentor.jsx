@@ -7,26 +7,50 @@ const textareaField = "border-2-blue-400 w-full mt-1 border border-gray-300 roun
 
 const UpdateMentor = () => {
       const {MentorById ,handelMentorById,handelUpdateMentorById} = useContext(CocirculerContext)
-      // useEffect(()=>{
-      //   handelMentorById()
-      // },[])
       const {id} = useParams()
-      console.log(MentorById)
-      const [name,setName] = useState(MentorById.name);
-      const [imgurl, setImgUrl] = useState(MentorById.image)
-      const [yog, setYog] = useState(MentorById.yog);
-      const [subject,setSubject] = useState(MentorById.subject);
-      const [classTeacher, setClassTeacher] = useState(MentorById.classTeacher);
-      const [speciality, setSpeciality] = useState(MentorById.speciality);
-      const [ quote, setQuote] = useState(MentorById.quote);
-      const [ aboutHead, setAboutHead] = useState(MentorById.aboutHead);
-      const [ about, setAbout] = useState(MentorById.about);
+      useEffect(()=>{
+        handelMentorById(id)
+      },[id])
+      
+      const [name,setName] = useState('');
+      const [yog, setYog] = useState('');
+      const [subject,setSubject] = useState('');
+      const [classTeacher, setClassTeacher] = useState(-1);
+      const [speciality, setSpeciality] = useState('');
+      const [ quote, setQuote] = useState('');
+      const [ aboutHead, setAboutHead] = useState('');
+      const [ about, setAbout] = useState('');
       const [image , setImage] = useState(false)
-      const [isTop, setIsTop] = useState(MentorById.isTop);
-      const [isActve, setIsActive] = useState(MentorById.isActive);
-      const [isVisionary, setIsVisionary] = useState(MentorById.isVisionary);
-      const [linkedin, setlinkedin] = useState(MentorById.linkedin);
-      const formData = new FormData();
+      const [isTop, setIsTop] = useState(false);
+      const [isActve, setIsActive] = useState(false);
+      const [isVisionary, setIsVisionary] = useState(false);
+      const [linkedin, setlinkedin] = useState('');
+      
+      
+      useEffect(()=>{
+        setName(MentorById.name);
+        
+        setYog(MentorById.yog);
+        setSubject(MentorById.subject);
+        setClassTeacher(MentorById.classTeacher);
+        setSpeciality(MentorById.speciality);
+        setQuote(MentorById.quote);
+        setAboutHead(MentorById.aboutHead);
+        setAbout(MentorById.about);
+        setImage(false)
+        setIsTop(MentorById.isTop);
+        setIsActive(MentorById.isActive);
+        setIsVisionary(MentorById.isVisionary);
+        setlinkedin(MentorById.linkedin);
+
+      }, [id])
+      
+      console.log(MentorById)
+      
+      
+      const onsubmitHandler =(e)=>{
+          e.preventDefault();
+          const formData = new FormData();
       formData.append('name',name)
       formData.append('yog',yog)
       formData.append('imgurl',MentorById.image)
@@ -41,18 +65,16 @@ const UpdateMentor = () => {
       formData.append('isVisionary',isVisionary)
       formData.append('image',image);
       formData.append('linkedin',linkedin);
-      const onsubmitHandler =(e)=>{
-          e.preventDefault();
           console.log("hi i am onsubmit handler")
           handelUpdateMentorById(id ,formData)
       }
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
-    <h2 className="text-2xl font-semibold text-center mb-6">Update Mentor</h2>
+    <h2 className="text-2xl font-semibold text-center mb-6">Update Member</h2>
     <form onSubmit={onsubmitHandler} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium">Upload Mentor Image</label>
+        <label className="block text-sm font-medium">Upload Member Image</label>
         <input
           type="file"
           onChange={(e) => setImage(e.target.files[0])}
@@ -177,7 +199,7 @@ const UpdateMentor = () => {
         type="submit"
         className="w-full bg-green-600 text-white font-medium py-2 px-4 rounded-lg shadow-md transition-all duration-300 hover:bg-green-700 hover:scale-105"
       >
-        Update Mentor
+        Update Member
       </button>
     </form>
   </div>

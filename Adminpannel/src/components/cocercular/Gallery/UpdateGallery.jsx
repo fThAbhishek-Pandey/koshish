@@ -92,7 +92,7 @@ const UpdateGallery = () => {
     const formData = new FormData();
     formData.append('galleryTitle', galleryTitle);
     formData.append('galleryDescription', galleryDescription);
-
+    formData.append('thumbnailUrl', GalleryById.thumbnail|| '')
     filesData.forEach((data, index) => {
       if (!data.isExisting && data.file) {
         formData.append(`newImages`, data.file);
@@ -122,6 +122,7 @@ const UpdateGallery = () => {
 
   return (
     <div className="p-4 space-y-4">
+       <h2>Update Album</h2>
       <input type="file" multiple onChange={handleImageChange} />
 
       {filesData && filesData.map((data, index) => (

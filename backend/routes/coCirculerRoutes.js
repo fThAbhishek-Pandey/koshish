@@ -42,7 +42,7 @@ coCirculerRoutes.patch('/header/hide/:id',authCociculer,HeaderChange );
 // announcement
 coCirculerRoutes.get('/announcement',authCociculer,getNewsAll )
 coCirculerRoutes.post('/announcement/add',authCociculer,upload.single('image'),CreateAnnouncement )
-coCirculerRoutes.patch('/announcement/update/:id',authCociculer,UpdateAnnouncement )
+coCirculerRoutes.patch('/announcement/update/:id',authCociculer,upload.single('image'),UpdateAnnouncement )
 coCirculerRoutes.patch('/announcement/hide/:id',authCociculer,hideAnnouncement )
 coCirculerRoutes.get('/announcement/view/:id',authCociculer,getNewsById )
 // testimonial
@@ -55,6 +55,6 @@ coCirculerRoutes.get('/testimorals',authCociculer, Alltestimorals);
 coCirculerRoutes.get('/gallery',authCociculer, getAllGallery);
 coCirculerRoutes.post('/gallery/add',authCociculer,upload.any(), AddGallery);
 coCirculerRoutes.get('/gallery/:id',authCociculer, getGalleryById);
-coCirculerRoutes.patch('/gallery/update/:id',authCociculer,upload.single('image'), UpdateGallery);
+coCirculerRoutes.patch('/gallery/update/:id',authCociculer,upload.any(), UpdateGallery);
 coCirculerRoutes.delete('/gallery/delete/:id',authCociculer, DeleteGallery);
 export default coCirculerRoutes
