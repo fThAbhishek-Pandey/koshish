@@ -1,6 +1,6 @@
 import express from 'express'
 import getHeader from '../controller/app/getHeader.js';
-import getTopmentor from '../controller/app/getTopmentor.js';
+import {getTopmentor,getCoordi} from '../controller/app/getTopmentor.js';
 import {getEventById,getTopEvents,getNewEvents,getpastEvents} from '../controller/app/getevents.js';
 import {getnewAnnouncement,getpastAnnouncement,getmyAnnouncement} from '../controller/app/getAnnouncement.js';
 import getTestmorals from '../controller/app/getTestmorals.js';
@@ -11,6 +11,7 @@ import {getAllMemories,getAllNews,getGalleryById} from '../controller/app/galler
 const appRoutes = express.Router();
 appRoutes.get('/header',getHeader );
 appRoutes.get('/top-mentor',getTopmentor )
+appRoutes.get('/coordi',getCoordi )
 appRoutes.get('/events',getTopEvents)
 appRoutes.get('/events/new',getNewEvents)
 appRoutes.get('/events/past',getpastEvents)
