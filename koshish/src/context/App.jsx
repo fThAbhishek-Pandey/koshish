@@ -1,7 +1,7 @@
 
 import { createContext, useState } from "react";
 import getHeader from "../utils/App/home/getHeader";
-import getTopmentor from '../utils/App/home/getTopmentor'
+import {getTopmentor,getCoOrdinator} from '../utils/App/home/getTopmentor'
 import {getEventByID, getHomeEvent,getNewEvent,getPastEvent}  from '../utils/App/Events/getAllEvents'
 import getTestimorals from "../utils/App/home/getTestimorals";
 import {getAllMentor,getAllAlumni,getAllFaculty} from "../utils/App/mentor/getAllMentor";
@@ -13,6 +13,7 @@ export const AppContext = createContext(1);
 const  AppContextProvider = (props) => {
  const [headerData,setHeaderData ] = useState([]);
  const [TopMentor,setTopMentor ] = useState([]);
+ const [coOrdi,setCoOrdi] = useState({});
  const [homeEvent, setHomeEvent] = useState([])
  const [newEvent, setNewEvent] = useState([])
  const [pastEvent, setPastEvent] = useState([])
@@ -34,6 +35,9 @@ const handleHeader = ()=>{
 }
 const handleTopMentor = ()=>{
   getTopmentor(backendURL,setTopMentor)
+}
+const handleCoOrdinator = ()=>{
+  getCoOrdinator(backendURL,setCoOrdi)
 }
 const handleNewEvent = ()=>{
   getNewEvent(backendURL,setNewEvent)
@@ -88,6 +92,7 @@ const handleGallaryById = (id)=>{
 const value = {
       headerData,setHeaderData ,handleHeader,
       TopMentor,setTopMentor,handleTopMentor,
+      coOrdi,setCoOrdi,handleCoOrdinator,
       homeEvent, setHomeEvent,handleHomeEvent,
       newEvent, setNewEvent,handleNewEvent,
       pastEvent, setPastEvent,handlePastEvent,

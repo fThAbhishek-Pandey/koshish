@@ -24,7 +24,7 @@ const Mentor = () => {
     <div className="pb-20 sm:pb-16 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue10 pt-16 text-center">
-          Our Teachers
+          Our Mentors
         </h1>
         <p className="w-full sm:w-[80%] md:w-[65%] lg:w-[50%] my-8 text-gray-500 text-center mx-auto text-base sm:text-lg">
           Meet our experienced and dedicated teachers who strive to provide the best education.
@@ -47,14 +47,14 @@ const Mentor = () => {
                   <div className="flex justify-center mb-4">
                     <img
                       src={teacher.image}
-                      onClick={()=>navigate(`/mentors/${teacher._id}`)}
+                      onClick={()=>navigate(`/family/${teacher._id}`)}
                       alt={teacher.name}
                       className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full object-cover shadow-lg transition-transform duration-300 group-hover:scale-110"
                     />
                   </div >
                   <div className='flex justify-around'>
                   <h2 
-                   onClick={()=>navigate(`/mentors/${teacher._id}`)}
+                   onClick={()=>navigate(`/family/${teacher._id}`)}
                   className="text-xl font-bold text-gray-800">{teacher.name}</h2>
 
                   {teacher.linkedin != "NAN" && (<a
