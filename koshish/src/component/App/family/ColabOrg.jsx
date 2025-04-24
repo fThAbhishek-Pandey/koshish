@@ -9,12 +9,7 @@ const ColabOrg = () => {
           Meet Our Collaborating Organization
           </h2>
           <p className="text-md sm:text-xl font-sm text-gray-700 leading-relaxed">
-            Our mentors are the backbone of Koshish, actively contributing their
-            time, skills, and passion to uplift underprivileged students.
-            Through consistent efforts and dedication, they guide, teach, and
-            inspire children to dream big and achieve more. Their hard work
-            plays a crucial role in shaping a better future for the students and
-            the community.
+          A heartfelt thanks to our collaborator, Rajkiya Engineering College, Ambedkar Nagar, for their consistent support. Their partnership has played a crucial role in helping KOSHISH reach where it is today.
           </p>
         </div>
       </div>

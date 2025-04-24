@@ -12,7 +12,16 @@ const PastEvent = () => {
     },[])
     console.log("pastEvent: ",pastEvent)
   return (
-    <div className="sm:px-6 lg:px-8">
+    <div className="sm:px-6 lg:px-8 py-8">
+     <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-blue10 mb-6">
+            Our Past Events
+          </h2>
+          <p className="text-md sm:text-xl font-sm text-gray-700 leading-relaxed">
+          Our past events have been a great success, leaving behind incredible memories and valuable experiences. From workshops to competitions, we’ve brought together individuals who are passionate about growth and development.
+          </p>
+        </div> 
+      
     {pastEvent != "5xx" ? (
       <div>
       { pastEvent == "NODATA"  ?<NoEvent />

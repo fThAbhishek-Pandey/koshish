@@ -11,7 +11,7 @@ const About = () => {
         <History/>
         <Aim/>
         <Wedo/>
-        <Admin/>
+        {/* <Admin/> */}
     </div>
   )
 }

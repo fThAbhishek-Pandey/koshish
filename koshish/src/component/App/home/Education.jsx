@@ -1,60 +1,63 @@
-import React, {useState, useEffect} from 'react'
-import education from '../../../assets/edu.png'
-import { LiaUserGraduateSolid } from "react-icons/lia";
-import { LiaUniversitySolid } from "react-icons/lia";
+import React, { useState, useEffect } from 'react';
+import education from '../../../assets/edu.png';
+import { LiaUserGraduateSolid, LiaUniversitySolid } from 'react-icons/lia';
 
 const Education = () => {
-    
-    const [student, setStudent] = useState(0);
-    const [story, setStory] = useState(0);
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setStudent((prevStudent) => {
-          if (prevStudent + 10 >= 1000) {
-            clearInterval(interval);
-            return 1000;
-          }
-          return prevStudent + 10;
-        });
-  
-        setStory((prevStory) => prevStory + 1);
-      }, 100);
-  
-      return () => clearInterval(interval); // Cleanup
-    }, []);
-  
-      
+  const [student, setStudent] = useState(0);
+  const [story, setStory] = useState(0);
+
+  useEffect(() => {
+    const studentTarget = 1000;
+    const storyTarget = 100;
+
+    const interval = setInterval(() => {
+      setStudent((prev) => (prev < studentTarget ? prev + 20 : studentTarget));
+      setStory((prev) => (prev < storyTarget ? prev + 2 : storyTarget));
+
+      if (student >= studentTarget && story >= storyTarget) {
+        clearInterval(interval);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [student, story]);
+
   return (
+    <div className="flex flex-col md:flex-row items-center justify-between gap-10 p-6 md:p-12">
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 flex justify-center">
+        <img
+          src={education}
+          alt="Education Illustration"
+          className="w-[85%] md:w-[80%] rounded-2xl bg-green-100 p-4 shadow-lg"
+        />
+      </div>
 
-   <div className="flex flex-col md:flex-row items-start">
-    <div className="w-full md:w-1/2  flex items-center justify-center py-8 md:py-0">
-        <img src={education} alt="" className="max-w-[80%] bg-green-100 rounded-2xl p-5  h-auto" />
+      {/* Content Section */}
+      <div className="w-full md:w-1/2 text-left space-y-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-blue10">Education is Life</h2>
+        <p className="text-gray-600 text-base sm:text-lg">
+          At KOSHISH, we believe education is the foundation for a better tomorrow. 
+          We strive to empower students with the knowledge and confidence they need to transform their lives and create impact in society.
+        </p>
+
+        {/* Stats Section */}
+        <div className="space-y-4">
+          <div className="flex items-center text-xl sm:text-2xl font-semibold">
+            <LiaUserGraduateSolid className="text-white bg-blue10 p-2 rounded-full mr-3 text-4xl" />
+            <span className="text-green00">{student}+</span>
+            <span className="text-base font-normal ml-2">Students Joined</span>
+          </div>
+
+          <div className="flex items-center text-xl sm:text-2xl font-semibold">
+            <LiaUniversitySolid className="text-white bg-blue10 p-2 rounded-full mr-3 text-4xl" />
+            <span className="text-green00">{story}+</span>
+            <span className="text-base font-normal ml-2">Success Stories</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div className="w-full md:w-1/2 flex flex-col items-start px-4 md:px-0">
-        <div className="text-left py-10 w-full">
-            <h1 className="text-4xl text-blue10 font-bold mb-5 p-2 ml-10">Education is life</h1>
-            <p className="text-gray-500 mb-4 p-2 ml-10 mp-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maxime nam porro possimus fugiat quo molestiae illa.
-            </p>
-            <div className="flex flex-col items-start space-y-2 mb-2">
-                <div className="text-2xl font-bold flex items-center ml-13 ">
+  );
+};
 
-                    <LiaUserGraduateSolid className="mr-2 p-1 text-2xl rounded-full bg-blue10 text-white" />
-                   <span className='text-green00'>{student}+</span>  <span className="text-base font-normal m-2 ">Students Join Us</span>
-                </div>
-                <div className="text-2xl font-bold flex items-center p-1 ml-12">
-                    <LiaUniversitySolid className="mr-2 p-1 rounded-full bg-blue10 text-white" />
-                   <span className='text-green00'>{story}+</span> <span className="text-base font-normal  m-2">Success Story</span>
-
-                </div>
-  
-            </div>
-            </div>
-                      </div>
-            </div>
-
-  )
-}
-
-export default Education
+export default Education;
