@@ -117,9 +117,8 @@ To log out of the admin panel:
 
 For any technical issues or support:
 
-- Email: support@koshish.org
 - Call: +91-8467865427
-- Visit: [Koshish Support]()
+- Linkedin [Ahishek Pandey](https://www.linkedin.com/in/abhishek-pandey2/)
 
 ---
 
