@@ -27,7 +27,7 @@ const Mentor = () => {
           Our Mentors
         </h1>
         <p className="w-full sm:w-[80%] md:w-[65%] lg:w-[50%] my-8 text-gray-500 text-center mx-auto text-base sm:text-lg">
-          Meet our experienced and dedicated teachers who strive to provide the best education.
+        The teachers at KOSHISH are highly dedicated and experienced, with a deep understanding of exactly what content best supports student learning.
         </p>
 
         {isLoaded ? (

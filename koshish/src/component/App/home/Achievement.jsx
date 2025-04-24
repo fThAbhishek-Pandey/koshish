@@ -1,34 +1,37 @@
-import React from 'react'
-import AchivIll from "./../../../assets/faci.svg"
+import React from 'react';
+import AchivIll from '../../../assets/faci.svg';
+
 const Achievement = () => {
   return (
-    <div className="px-4 py-12 max-w-7xl mx-auto">
-    <h2 className="text-3xl font-bold text-blue10 text-center mb-4">What we have done</h2>
-    <p className="max-w-5xl mx-auto text-center text-gray-800 mb-10">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corporis et iste exercitationem perspiciatis maiores doloribus itaque pariatur. Dolorum laudantium quos quod quis earum porro quae consequatur sit voluptatem fugit.
-    </p>
-    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-      <div className="text-left space-y-4">
-        <h2 className='text-xl text-blue10 font-bold'>Our facilities</h2>
-        <ul className="list-disc list-inside text-gray-700 text-lg">
-          <li>30+ mentors mentored daily</li>
-          <li>Library for students</li>
-          <li>Interactive Reading room</li>
-          <li>Special Classes for JNV/CHS and other corresponding exams</li>
-        </ul>
-      </div>
-  
-      <div className="w-full md:w-[40%]">
-        <img
-          src={AchivIll}
-          className="w-full h-auto bg-green-100 rounded-lg shadow-md"
-          alt="what we have done"
-        />
+    <div className="px-6 py-16 max-w-7xl mx-auto">
+      <h2 className="text-4xl font-bold text-blue10 text-center mb-4">Our Work</h2>
+      <p className="max-w-4xl mx-auto text-center text-gray-700 text-lg mb-10">
+        With the dedication of our team, KOSHISH has built a nurturing environment where students can gain knowledge, sharpen their skills, and confidently showcase their talents.
+      </p>
+
+      <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+        {/* Text Section */}
+        <div className="w-full md:w-[55%] space-y-6">
+          <h3 className="text-2xl font-semibold text-blue10">Our Facilities</h3>
+          <ul className="list-disc list-inside text-gray-800 text-base md:text-lg space-y-2 pl-4">
+            <li><span className="font-semibold text-green-400">30+ mentors</span> guiding students daily</li>
+            <li>A well-equipped <span className="font-semibold text-green-400">library</span> for all learners</li>
+            <li><span className="font-semibold text-green-400">Interactive reading rooms</span> to enhance focus</li>
+            <li><span className="font-semibold text-green-400">Special classes</span> for JNV, CHS, and other competitive exams</li>
+          </ul>
+        </div>
+
+        {/* Image Section */}
+        <div className="w-full md:w-[40%]">
+          <img
+            src={AchivIll}
+            alt="KOSHISH Achievements"
+            className="w-full h-auto rounded-2xl bg-green-100 p-4 shadow-xl"
+          />
+        </div>
       </div>
     </div>
-  </div>
-  
-  )
-}
+  );
+};
 
-export default Achievement
+export default Achievement;
