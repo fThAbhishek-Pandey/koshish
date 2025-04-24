@@ -1,76 +1,202 @@
-# Koshish
 
-## Features
+# 👨‍💻 Koshish Admin Panel – Developer Documentation
 
-- **Co-ordinator Dashboard:** Administrators can view student records, teacher information,  exams,  track student attendance, and view school performance metrics.
-- **Cocirculer Dashboard:** Cocirculer can manage student records, teacher information,  exams, assignments, track student attendance, add teachers, and view school performance metrics.
-- **Student Dashboard (currently working):** Students have access to their own dashboard where they can view their class schedules, assignments, submit assignments, and track their academic progress.
-- **Teachers Dashboard:(Currently working)** Teachers can manage class schedules, assign and grade exams and assignments, and view student performance metrics.
+## Workflow
+![koshish workflow]()
+---
 
-### Operations Include:
-- **Adding Students:** Teacter can add new student records, including personal details and academic information.
-- **Class Management:** Admins can create and manage classes, assign teachers, and remark classes.
-- **Event Management:** Co-circuler can create and manage events.
-- **Announcement Management:** Co-circuler can create anouncement.
-- **Student Submission:** Students can submit assignments through the student dashboard.
-- **Adding Teachers:** Co-circuler can add new teachers to the system.
-- **School Performance Metrics:** Admins can view various metrics related to the school's performance.
+## 🧱 Tech Stack
 
-## Technologies Used
+| Layer        | Tech Used                                      |
+|--------------|------------------------------------------------|
+| Frontend     | React (w/ Vite), Tailwind CSS, Context API     |
+| Backend      | Node.js, Express.js                            |
+| Database     | MongoDB (w/ Mongoose ODM)                      |
+| Auth         | JWT + Role-based middleware                    |
+| File Storage | Cloudinary (via `multer`)                      |
+| Dev Tools    | GitHub, Postman, dotenv                        |
+| Deployment   | Vercel (frontend), Render/Heroku (backend)     |
 
-- **Frontend:** React, Vite, styled-components
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB
-- **Authentication:** JSON Web Tokens (JWT)
-<!-- - **Deployment:** Not deployed yet -->
+---
 
-## Setup Instructions
+## 🗂️ Folder Structure
 
-1. **Clone the repository:**
-```
-git clone https://github.com/fThAbhishek-Pandey/koshish.git
+### 🔹 Frontend (`Adminpannel/`)
 
 ```
+src/
+├── assets/          // Images, logos
+├── components/      // Reusable UI components (cards, inputs)
+├── context/         // React Contexts (Auth, UI, Events)
+├── pages/           // Routes: Dashboard, Events, Announcements
+├── utils/           // Axios setup, JWT decoder, helpers
+└── App.jsx          // Main routing
+```
 
-2. **Install dependencies:**
+### 🔹 Backend (`backend/`)
 
-cd koshish-project
+```
+config/              // DB connection, Cloudinary setup
+controllers/         // Logic for handling routes
+middleware/          // JWT verification, file uploads
+models/              // Mongoose schemas
+routes/              // Express routers
+uploads/             // Local fallback for files
+server.js            // Main entry point
+```
+
+---
+
+## 🧪 Local Setup
+
+### 1. **Clone Repo**
+
+```bash
+git clone https://github.com/fthabhishek-pandey/koshish-welfare-and-education-society.git
+cd koshish-welfare-and-education-society
+```
+
+### 2. **Frontend Setup**
+
+```bash
+cd Adminpannel
 npm install
+npm run dev
+```
 
+Create `.env` in `Adminpannel/`:
 
-3. **Set up environment variables:**
+```
+VITE_API_URL=http://localhost:5000/api
+```
 
-- Create a `.env` file in the root directory.
-- Define the following environment variables:
+### 3. **Backend Setup**
 
-  ```
-  PORT=5000
-  MONGODB_URI=your_mongodb_connection_string
-  SECRET_KEY=your_secret_key_for_jwt
-  ```
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-4. **Run the development servers:**
+Create `.env` in `backend/`:
 
-- Start the frontend server:
+```
+PORT=5000
+MONGO_URI=<Your MongoDB URI>
+JWT_SECRET=<Your JWT Secret>
+CLOUD_NAME=<Cloudinary Cloud Name>
+CLOUD_API_KEY=<Cloudinary API Key>
+CLOUD_API_SECRET=<Cloudinary Secret>
+```
 
-  ```
-  npm run dev
-  ```
+---
 
-- Start the backend server:
+## 🔑 Authentication & Roles
 
-  ```
-  npm run dev
-  ```
+- JWT is used for all secure API calls.
+- Middleware checks the role of the user (`admin`, `coordinator`, `cocirculer`, etc.).
 
-5. **Access the application:**
+Example:
 
-Open your browser and navigate to `http://localhost:5173` for the frontend and `http://localhost:5000` for the backend.
+```js
+router.post('/events', verifyToken, checkRole(['admin', 'coordinator']), createEvent);
+```
 
-## Contributing
+---
 
-Contributions are welcome! Feel free to submit pull requests, bug reports, feature requests, or any suggestions to improve this project.
+## 📡 API Usage
 
-<!-- ## License
+- All routes are prefixed with `/api`
+- Some core endpoints:
 
-This project is licensed under the [MIT License](LICENSE). -->
+| Endpoint                  | Method | Access Role   | Description                      |
+|---------------------------|--------|---------------|----------------------------------|
+| `/auth/login`             | POST   | Public        | Login to receive JWT             |
+| `/users/`                 | GET    | Admin only    | Get all users                    |
+| `/events/`                | GET    | All roles     | Get events based on role         |
+| `/announcements/`         | POST   | Admin, Coord  | Add announcements                |
+| `/gallery/upload`         | POST   | Cocirculer    | Upload images via Cloudinary     |
+
+Use Postman and add this in Headers:
+
+```
+Authorization: Bearer <JWT_TOKEN>
+```
+
+---
+
+## ☁️ Cloudinary Upload (File Handling)
+
+- Config is in `backend/config/cloudinary.js`
+- Used for uploading event images or gallery images
+- Middleware: `upload.single("file")`
+
+---
+
+## 🔄 Important Middleware
+
+- `verifyToken` – checks JWT
+- `checkRole([roles])` – ensures role access
+- `upload.single("file")` – multer upload handler
+- `errorHandler` – centralized error capture
+
+---
+
+## 🧩 Context Structure (Frontend)
+
+- `authContext`: user login, logout, role storage
+- `uiContext`: toggle UI states (sidebar, modals)
+- `eventContext`: fetch and update event state
+
+---
+
+## 📌 Developer Notes
+
+- Ensure all API calls have fallback/error states.
+- Use environment variables – don’t hardcode secrets.
+- Keep components modular and reusable.
+- Follow naming conventions (camelCase for variables, PascalCase for components).
+- Use `try/catch` in async API logic.
+- Deploy frontend to **Vercel**, backend to **Render**.
+
+---
+
+## 🚀 Deployment
+
+### Vercel (Frontend)
+
+- Create new project
+- Link GitHub repo
+- Add `VITE_API_URL` in Vercel's environment variables
+
+### Render (Backend)
+
+- Choose Web Service
+- Add environment variables for:
+  - `MONGO_URI`
+  - `JWT_SECRET`
+  - `CLOUDINARY_*`
+- Build Command: `npm install`
+- Start Command: `npm run dev`
+
+---
+
+## 🧾 Contribution Tips
+
+- Use feature branches:
+
+```bash
+git checkout -b feature/add-gallery
+```
+
+- Commit messages:
+
+```
+feat: add gallery route
+```
+
+- PR reviews are welcomed!
+- Maintain code readability and linting standards
+
+---
+
