@@ -4,7 +4,7 @@ import {getTopmentor,getCoordi} from '../controller/app/getTopmentor.js';
 import {getEventById,getTopEvents,getNewEvents,getpastEvents} from '../controller/app/getevents.js';
 import {getnewAnnouncement,getpastAnnouncement,getmyAnnouncement} from '../controller/app/getAnnouncement.js';
 import getTestmorals from '../controller/app/getTestmorals.js';
-import {getAllMentor,getAllAlumni,getAllFaculty} from '../controller/app/getAllMentor.js';
+import {getAllMentor,getAllAlumni,getAllFaculty,SearchMembers} from '../controller/app/getAllMentor.js';
 import contactcontroller from '../controller/app/contactcontroller.js';
 import getmyMentor from '../controller/app/getmyMentor.js';
 import {getAllMemories,getAllNews,getGalleryById} from '../controller/app/gallery.js'
@@ -21,6 +21,7 @@ appRoutes.get('/announcement/past',getpastAnnouncement )
 appRoutes.post('/announcement/id', getmyAnnouncement )
 appRoutes.get('/testimorals', getTestmorals);
 appRoutes.get('/mentor/all', getAllMentor);
+appRoutes.post('/member/search', SearchMembers);
 appRoutes.get('/alumni/all', getAllAlumni);
 appRoutes.get('/faculty/all', getAllFaculty);
 appRoutes.post('/mentor/my', getmyMentor);

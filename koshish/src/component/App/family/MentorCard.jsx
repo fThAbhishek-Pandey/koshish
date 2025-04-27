@@ -14,8 +14,11 @@ const MentorCard = ({ item }) => {
         />
       </div>
       <div className="mt-4 text-center bg-white rounded-lg shadow-inner p-4">
-        {item.name !="NAN" &&<h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">
+        {item.name !="NAN" &&<h2 className="text-lg sm:text-xl font-semibold text-blue10 mb-1">
           {item.name}
+        
+            {item.yog && <span className="text-sm ml-2 text-gray-800">{item.yog-4}-{item.yog-2000}</span>}
+          
         </h2>}
         {item.speciality != "NAN" &&  <p className="text-sm sm:text-lg text-green-700 font-semibold mb-2">
           {item.speciality}

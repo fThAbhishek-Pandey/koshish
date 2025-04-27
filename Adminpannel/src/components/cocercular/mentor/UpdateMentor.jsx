@@ -11,9 +11,10 @@ const UpdateMentor = () => {
       useEffect(()=>{
         handelMentorById(id)
       },[id])
-      
+     
       const [name,setName] = useState('');
       const [yog, setYog] = useState('');
+      const [joinTime, setJoinTime] = useState('');
       const [subject,setSubject] = useState('');
       const [classTeacher, setClassTeacher] = useState(-1);
       const [speciality, setSpeciality] = useState('');
@@ -31,6 +32,7 @@ const UpdateMentor = () => {
         setName(MentorById.name);
         
         setYog(MentorById.yog);
+        setJoinTime(MentorById.joinTime);
         setSubject(MentorById.subject);
         setClassTeacher(MentorById.classTeacher);
         setSpeciality(MentorById.speciality);
@@ -53,6 +55,7 @@ const UpdateMentor = () => {
           const formData = new FormData();
       formData.append('name',name)
       formData.append('yog',yog)
+      formData.append('joinTime',joinTime)
       formData.append('imgurl',MentorById.image)
       formData.append('subject',subject)
       formData.append('classTeacher',classTeacher)
@@ -97,6 +100,16 @@ const UpdateMentor = () => {
           type="Number"
           value={yog}
           onChange={(e) => setYog(e.target.value)}
+          required
+          className={inputField}
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium">Join Time</label>
+        <input
+          type="date"
+          value={joinTime}
+          onChange={(e) => setJoinTime(e.target.value)}
           required
           className={inputField}
         />
