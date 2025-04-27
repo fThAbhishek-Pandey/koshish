@@ -24,7 +24,7 @@ const getAllAlumni = async (backendURL,setAllAlumni) => {
       else toast.error(data.message);
   } catch (error) {
     console.log(error);
-    setAllAlumni('5xx');handelgetAllFaculty
+    setAllAlumni('5xx');
     toast.error(error.message);
   }
 }
@@ -42,5 +42,19 @@ const getAllFaculty = async (backendURL,setAllAlumni) => {
     toast.error(error.message);
   }
 }
+const SearchMembers = async (backendURL,setSearchMember,name) => {
+  try {
+      const {data} = await axios.post(backendURL+ '/api/app/member/search',{name})
+      if(data.success) {
+        setSearchMember(data.data);
+          toast.success(data.message);
+      }
+      else toast.error(data.message);
+  } catch (error) {
+    console.log(error);
+    setSearchMember('5xx');
+    toast.error(error.message);
+  }
+}
 
-export {getAllMentor,getAllAlumni,getAllFaculty}
+export {getAllMentor,getAllAlumni,getAllFaculty,SearchMembers}

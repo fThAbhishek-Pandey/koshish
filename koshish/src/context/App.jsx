@@ -4,7 +4,7 @@ import getHeader from "../utils/App/home/getHeader";
 import {getTopmentor,getCoOrdinator} from '../utils/App/home/getTopmentor'
 import {getEventByID, getHomeEvent,getNewEvent,getPastEvent}  from '../utils/App/Events/getAllEvents'
 import getTestimorals from "../utils/App/home/getTestimorals";
-import {getAllMentor,getAllAlumni,getAllFaculty} from "../utils/App/mentor/getAllMentor";
+import {getAllMentor,getAllAlumni,getAllFaculty,SearchMembers} from "../utils/App/mentor/getAllMentor";
 import contactus from "../utils/App/contactus";
 import getmyMentor from "../utils/App/mentor/getMentor";
 import {getAllMemories,getAllNews,getGalleryById} from '../utils/App/Gallery/gallary'
@@ -21,6 +21,7 @@ const  AppContextProvider = (props) => {
  const [testimorals, setTestimorals] = useState([]);
  const [allMentor, setAllMentor] = useState([]);
  const [allFuclty, setAllFuculty] = useState([]);
+ const [searchMember, setSearchMember] = useState([]);
  const [allAlumni, setAllAlumni] = useState([]);
  const [myMentor, setmyMentor] = useState([]);
  const [newAnnouncement, setnewAnnouncement] = useState([]);
@@ -63,6 +64,9 @@ const handelgetAllAlumni =()=>{
 const handelgetAllFaculty =()=>{
   getAllFaculty(backendURL,setAllFuculty)
 }
+const handelSearchMember =(name)=>{
+  SearchMembers(backendURL,setSearchMember,name)
+}
 const handelgetmyMentor =(id)=>{
    console.log("_id: ",id);
   getmyMentor(backendURL,setmyMentor,id)
@@ -102,6 +106,7 @@ const value = {
       handleContactus,
       allFuclty, setAllFuculty,handelgetAllFaculty,
       allAlumni, setAllAlumni,  handelgetAllAlumni,
+      searchMember, setSearchMember,handelSearchMember,
       myMentor, setmyMentor,handelgetmyMentor,
       newAnnouncement, setnewAnnouncement,handleNewAnnouncement,
       pastAnnouncement, setPastAnnouncement,handlePastAnnouncement,
