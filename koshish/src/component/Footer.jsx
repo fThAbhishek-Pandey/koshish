@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import { FaYoutube, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+});
+L.Marker.prototype.options.icon = DefaultIcon;
+
 import Logo from "../assets/koshishlogo.png";
 import { useNavigate } from "react-router-dom";
 const Footer = () => {
   const navigate = useNavigate();
-  const [latitude, setLatitude] = useState();
-  const [longitude, setLongitude] = useState();
-  const mapStyles = {
-    height: "400px",
-    width: "100%",
-  };
-  const defaultCenter = {
-    lat: latitude,
-    lng: longitude,
-  };
-
+  const [position, setPosition] = useState([26.45835, 82.56189]);
+  const googleMapsUrl = `https://www.google.com/maps?q=${position[0]},${position[1]}`;
+  
   return (
-    <div className="w-full bg-blue10 text-white flex flex-col md:flex-row justify-between items-center p-6">
+    <div className="w-full bg-blue10 text-white flex flex-col md:flex-row justify-between items-start p-6">
       <div className="w-full md:w-[30%] p-4 rounded-lg text-center md:text-left">
         <div className="flex flex-col items-center md:items-start">
           <img src={Logo} alt="Logo" className="w-20 h-20 rounded-full" />
@@ -50,10 +54,12 @@ const Footer = () => {
               <FaInstagram />
             </a>
           </div>
+          { <div>&copy;{new Date().getFullYear()} <span>all right reserved</span></div>}
+          <div>made with heart by <span><a href="https://www.linkedin.com/company/99205021" target="_blank">SDC-ABN</a></span></div>
         </div>
       </div>
 
-      <div className="w-full md:w-[60%] flex flex-col md:flex-row justify-evenly items-center p-4 mt-4 md:mt-0">
+      <div className="w-full md:w-[60%] flex flex-col md:flex-row justify-evenly items-start p-4 mt-4 md:mt-0">
         <div className="w-full md:w-[40%] text-center md:text-left mb-6 md:mb-0">
           <h2 className="text-2xl font-bold">Contact Us</h2>
           <p className="text-md mt-2">
@@ -62,19 +68,23 @@ const Footer = () => {
             <span>Email: koshish.edu@gmail.com</span>
           </p>
           <h2 className="text-2xl font-bold mt-4">Our Location</h2>
-
-          <p className="text-md">
-            Rajkiya Engineering College, Ambedkar Nagar, Uttar Pradesh - 224122
-          </p>
-          <LoadScript googleMapsApiKey="YOUR_API_KEY">
-            <GoogleMap
-              mapContainerStyle={mapStyles}
-              zoom={15}
-              center={defaultCenter}
-            >
-              <Marker position={{ lat: latitude, lng: longitude }} />
-            </GoogleMap>
-          </LoadScript>
+          {
+            <MapContainer center={position} zoom={13} className="w-full h-48">
+              <TileLayer
+                attribution='&copy; OpenStreetMap'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={position}>
+                <Popup>
+                  Rajkiya Engineering College <br /> AmbedKar Nagar,UP,India
+                  <br />
+                  <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
+              Open in Google Maps
+            </a>
+                </Popup>
+              </Marker>
+            </MapContainer>
+          }
         </div>
 
         <div className="w-full md:w-[50%]">
