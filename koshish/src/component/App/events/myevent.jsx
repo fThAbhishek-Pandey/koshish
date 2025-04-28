@@ -5,12 +5,14 @@ import Markdown from "react-markdown";
 
 const Myevent = () => {
   const { id } = useParams();
-  const { idEvent, handleIDEvent } = useContext(AppContext);
+  const {docuTitle, setDocuTitle, idEvent, handleIDEvent } = useContext(AppContext);
 
   useEffect(() => {
     handleIDEvent(id);
   }, [id]);
-
+  useEffect(()=>{
+      setDocuTitle(`${idEvent.name}-Koshish`)
+  },[docuTitle,id])
   if (!idEvent) {
     return (
       <div className="flex items-center  justify-center min-h-[40vh]">

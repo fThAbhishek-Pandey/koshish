@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import IndexMentor from "./Mentor";
 import IndexAlumni from "./alumni";
 import Faculty from "./Visionary";
 import ColabOrg from "./ColabOrg";
 import SearchMember from "./SearchMember";
-
+import { AppContext } from "../../../context/App";
 const tabItems = [
   { id: 1, label: "Mentor" },
   { id: 2, label: "Alumni" },
@@ -14,7 +14,10 @@ const tabItems = [
 
 const IndexFamiliy = () => {
   const [tab, setTab] = useState(1);
-
+  const {docuTitle, setDocuTitle,} = useContext(AppContext)
+      useEffect(()=>{
+          setDocuTitle('family-Koshish')
+      },[docuTitle])
   return (
     <div className="bg-green-50 relative top-20 md:top-32 mb-32 px-4">
       {/* Tabs */}

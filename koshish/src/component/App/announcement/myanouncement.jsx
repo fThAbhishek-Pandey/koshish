@@ -4,12 +4,15 @@ import { useParams } from 'react-router-dom'
 import { AppContext } from '../../../context/App'
 import { useContext } from 'react'
 const Myanouncement = () => {
-    const {myAnnouncement,handlemyAnnouncement} = useContext(AppContext );
+    const {docuTitle, setDocuTitle,myAnnouncement,handlemyAnnouncement} = useContext(AppContext );
+      
     const {id} = useParams('id')
     useEffect(()=>{
       handlemyAnnouncement(id)
     },[])
-    
+    useEffect(()=>{
+      setDocuTitle(`${myAnnouncement.heading}-Koshish`)
+  },[docuTitle,id])
     console.log("_id: ",id);
     
   return myAnnouncement && (

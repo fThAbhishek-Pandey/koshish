@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 const MyMentor = () => {
   const { id } = useParams();
-  const { myMentor, handelgetmyMentor } = useContext(AppContext);
+  const {docuTitle, setDocuTitle, myMentor, handelgetmyMentor } = useContext(AppContext);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,7 +16,9 @@ const MyMentor = () => {
     };
     fetchMentor();
   }, [id]);
-
+       useEffect(()=>{
+           setDocuTitle(`${myMentor.name}-Koshish`)
+       },[docuTitle,id])
   if (loading || !myMentor) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-green-50 pt-24">

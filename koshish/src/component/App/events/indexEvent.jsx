@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useEffect,useContext } from "react";
 import NewEvent from "./NewEvent";
 import PastEvent from "./PastEvent";
+import { AppContext } from "../../../context/App";
 const IndexEvent = () => {
   const [tab, setTab] = useState(0);
+  const {docuTitle, setDocuTitle,} = useContext(AppContext)
+    useEffect(()=>{
+        setDocuTitle('Events-Koshish')
+    },[docuTitle])
   return (
     <div className="relative bg-green-50 top-20 md:top-32 mb-32">
       <div className="flex space-x-4 border-b border-gray-500">
