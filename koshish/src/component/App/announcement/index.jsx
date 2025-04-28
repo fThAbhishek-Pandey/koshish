@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState,useContext,useEffect } from 'react'
 import PastAnouncement from './PastAnouncement'
 import NewAnouncement from './newAnouncement'
+import { AppContext } from '../../../context/App'
 const Anouncement = () => {
   const [tab, setTab] = useState(0)
+  const {docuTitle, setDocuTitle,} = useContext(AppContext)
+    useEffect(()=>{
+        setDocuTitle('News-Koshish')
+    },[docuTitle])
   return (
     <div className='relative top-20 md:top-32 mb-20 md:mb-32'> 
          <div className="flex space-x-4 border-b border-gray-500">

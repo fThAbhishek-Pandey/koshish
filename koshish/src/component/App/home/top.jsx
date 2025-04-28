@@ -1,6 +1,10 @@
-import React, {useState, useEffect} from 'react'
-
+import React, {useState, useEffect,useContext} from 'react'
+import { AppContext } from '../../../context/App'
 const Top = () => {
+  const {docuTitle, setDocuTitle,} = useContext(AppContext)
+        useEffect(()=>{
+            setDocuTitle('Koshish-Welfare')
+        },[docuTitle])
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);

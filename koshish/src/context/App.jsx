@@ -1,5 +1,5 @@
 
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import getHeader from "../utils/App/home/getHeader";
 import {getTopmentor,getCoOrdinator} from '../utils/App/home/getTopmentor'
 import {getEventByID, getHomeEvent,getNewEvent,getPastEvent}  from '../utils/App/Events/getAllEvents'
@@ -11,6 +11,11 @@ import {getAllMemories,getAllNews,getGalleryById} from '../utils/App/Gallery/gal
 import { getmyAnnouncement, getNewAnnouncement,getpastAnnouncement} from "../utils/App/Announcement/getAllAnnouncement";
 export const AppContext = createContext(1);
 const  AppContextProvider = (props) => {
+ const [docuTitle, setDocuTitle] =useState('Koshish-Welfare');
+     
+ useEffect(()=>{
+  document.title = docuTitle
+ },[docuTitle])
  const [headerData,setHeaderData ] = useState([]);
  const [TopMentor,setTopMentor ] = useState([]);
  const [coOrdi,setCoOrdi] = useState({});
@@ -94,6 +99,7 @@ const handleGallaryById = (id)=>{
   getGalleryById(backendURL,setGalleryById,id);
 }
 const value = {
+      docuTitle, setDocuTitle,
       headerData,setHeaderData ,handleHeader,
       TopMentor,setTopMentor,handleTopMentor,
       coOrdi,setCoOrdi,handleCoOrdinator,

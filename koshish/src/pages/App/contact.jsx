@@ -1,9 +1,13 @@
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/App";
 
 const Contact = () => {
-  const { handleContactus } = useContext(AppContext);
+  const {docuTitle, setDocuTitle, handleContactus } = useContext(AppContext);
+  useEffect(()=>{
+    setDocuTitle("Contact-Koshish")
+  },[docuTitle])
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");

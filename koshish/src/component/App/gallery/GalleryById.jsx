@@ -5,12 +5,15 @@ import GalleryCard from './GalleryCard';
 
 const GalleryById = () => {
   const { id } = useParams();
-  const { galleryById, handleGallaryById } = useContext(AppContext);
+  const {docuTitle, setDocuTitle, galleryById, handleGallaryById } = useContext(AppContext);
 
   useEffect(() => {
     handleGallaryById(id);
   }, [id]);
-
+  
+  useEffect(()=>{
+      setDocuTitle(`${galleryById.galleryTitle}-Koshish`)
+  },[docuTitle,id])
   const {
     galleryTitle,
     galleryDescription,

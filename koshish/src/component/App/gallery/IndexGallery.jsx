@@ -1,8 +1,13 @@
-import React, { useState } from "react"
+import React, { useState,useContext,useEffect } from "react"
 import Memories from "./memories"
 import Newspaper from "./newpaper"
+import { AppContext } from "../../../context/App"
 const IndexGallery = () => {
    const [tab, setTab]= useState(0)
+   const {docuTitle, setDocuTitle,} = useContext(AppContext)
+      useEffect(()=>{
+          setDocuTitle('Gallery-Koshish')
+      },[docuTitle])
   return (
     <div className="relative top-32 mb-32">
        <div className="flex space-x-4 border-b border-gray-300">
