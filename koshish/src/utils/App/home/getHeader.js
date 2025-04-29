@@ -6,7 +6,7 @@ const getHeader = async(backendURL,setHeaderData ) => {
         const {data} = await axios(backendURL+'/api/app/header')
         if(data.success){
             setHeaderData(data.data||[]);
-            toast.success(data.message);
+            // toast.success(data.message);
         }
         else toast.error("hi: ",data.message)
     } catch (error) {

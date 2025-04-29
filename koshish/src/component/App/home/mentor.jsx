@@ -55,7 +55,7 @@ const Mentor = () => {
                   <div className='flex justify-around'>
                   <h2 
                    onClick={()=>navigate(`/family/${teacher._id}`)}
-                  className="text-xl font-bold text-gray-800">{teacher.name}</h2>
+                  className="text-xl font-bold text-blue10">{teacher.name}</h2>
 
                   {teacher.linkedin != "NAN" && (<a
                     href={teacher.linkedin}
