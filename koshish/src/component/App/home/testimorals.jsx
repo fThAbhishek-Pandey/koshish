@@ -3,65 +3,75 @@ import { AppContext } from "../../../context/App";
 import { FaLinkedin } from "react-icons/fa6";
 import Loader from "../../Loader";
 import ServerErr from "../../SeverErr";
-const Testimorals = () => {
+
+const Testimonials = () => {
   const { testimorals, handelTestimorals } = useContext(AppContext);
-   const [isloaded, setIsLoaded] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(true);
+
   useEffect(() => {
     handelTestimorals();
   }, []);
-  useEffect(()=>{
-    if(testimorals && testimorals.length !=0) setIsLoaded(false);
-  },[testimorals])
+
+  useEffect(() => {
+    if (testimorals && testimorals.length !== 0) setIsLoaded(false);
+  }, [testimorals]);
+
   return (
-    <div className="pb-8">
-      <h2 className="text-4xl sm:text-5xl pb-4 font-bold text-blue10 pt-16 text-center">Testimonials</h2>
-      <div className="text-center text-lg pb-5">
-      Testimonial should reflect how KOSHISH has contributed to personal growth, education, and social upliftment.
-      </div>
-      {isloaded ? (
+    <div className="pb-16 px-4">
+      <h2 className="text-4xl sm:text-5xl font-bold text-blue10 text-center pt-16 pb-4">
+        Testimonials
+      </h2>
+      <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto pb-6">
+      These testimonials highlight how KOSHISH has played a transformative role in fostering personal growth, empowering education, and uplifting communities through meaningful support and opportunities.
+      </p>
+
+      {isLoaded ? (
         <Loader />
-      ) : <div>
-      {  
-        testimorals== '5xx' ? <ServerErr/>:
-        <div className=" border-0 border-blue20 ">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {testimorals.slice(-3).map((item, idx) => {
-              return (
-                <div
-                key={idx}
-                className="group bg-green-100 border border-gray-300 shadow-md rounded-xl p-6 w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-              >
-                <div className="flex flex-col sm:flex-row items-center gap-6">
-                  <img
-                    className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full object-cover shadow-lg transition-transform duration-300 group-hover:scale-105"
-                    src={item.image}
-                    alt={item.name}
-                  />
-                  <div className="text-center sm:text-left flex flex-col gap-3 w-full">
-                    <div className="flex sm:flex-row sm:items-center justify-between gap-2">
-                      <div className="font-bold text-lg sm:text-xl md:text-2xl text-blue10">{item.name}</div>
-                      {item.linkedin !="NAN" && (<a href={item.linkedin} target="_blank" className="text-blue-600 hover:text-blue-800 text-3xl">
+      ) : testimorals === "5xx" ? (
+        <ServerErr />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimorals.slice(-3).map((item, idx) => (
+            <div
+              key={idx}
+              className="group bg-green-50 border border-gray-200 shadow-md rounded-xl p-6 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
+            >
+              <div className="flex flex-col sm:flex-row items-center gap-6">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="text-center sm:text-left w-full">
+                  <div className="flex items-center justify-center sm:justify-start gap-2 font-bold text-xl text-blue10">
+                    {item.name}
+                    {item.linkedin !== "NAN" && (
+                      <a
+                        href={item.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800"
+                      >
                         <FaLinkedin />
-                      </a>)}
-                    </div>
-                    <div className="text-gray-700 text-lg font-medium italic">{item.headline}</div>
+                      </a>
+                    )}
+                  </div>
+                  <div className="text-gray-700 text-base italic mt-1">
+                    {item.headline}
                   </div>
                 </div>
-                <div className="mt-5 text-gray-600 text-base p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
-                  {item.about}
-                </div>
               </div>
-              );
-            })}
-          </div>
+              <div className="mt-4 text-gray-600 text-sm bg-white p-4 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                {item.about}
+              </div>
+            </div>
+          ))}
         </div>
-      } 
-      </div>
-      }
+      )}
 
       {console.log("testimorals", testimorals)}
     </div>
   );
 };
 
-export default Testimorals;
+export default Testimonials;

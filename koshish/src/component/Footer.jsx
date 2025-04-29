@@ -67,7 +67,7 @@ const Footer = () => {
           <p className="text-md mt-2">
             <span>Mon-Sat: 5:00pm to 6:00pm</span><br/>
             <span>Mob No.: +91 8467865427, +91 9519774060 </span><br/>
-            <span>Email: koshish.edu@gmail.com</span>
+            <span href="mailto:koshish.edu@gmail.com">Email: koshish.edu@gmail.com</span>
           </p>
           <h2 className="text-2xl font-bold mt-4">Our Location</h2>
           {
@@ -78,7 +78,7 @@ const Footer = () => {
               />
               <Marker position={position}>
                 <Popup>
-                  Koshish Welfare<br /> AmbedKar Nagar,UP,India
+                  Koshish Welfare<br />AmbedKar Nagar,UP,India
                   <br />
                   <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
               Open in Google Maps

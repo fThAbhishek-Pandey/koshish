@@ -5,7 +5,7 @@ const getTestimorals = async (backendURL,setTestimorals) => {
          const {data} = await axios.get(backendURL +'/api/app/testimorals' )
          if (data.success){
             setTestimorals(data.data)
-            toast.success(data.message);
+            // toast.success(data.message);
          }
          else{
             toast.error(data.message);
