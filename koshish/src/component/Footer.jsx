@@ -32,7 +32,7 @@ const Footer = () => {
           <p className="text-lg text-center md:text-left">Follow us on:</p>
           <div className="flex justify-center md:justify-start items-center gap-4 mt-2">
             <a
-              href="#"
+              href="https://youtube.com/@koshishwefareoffical"
               className="text-4xl transition-all duration-300 hover:text-[#FF0000]"
             >
               {" "}
@@ -47,7 +47,7 @@ const Footer = () => {
             </a>
             {/* <a href="#" className='text-4xl transition-all duration-300 hover:text-[#1877F2]'> <FaFacebook /></a> */}
             <a
-              href="#"
+              href="https://www.instagram.com/koshishwesociety"
               className="text-4xl transition-all duration-300 hover:text-[#C13584]"
             >
               {" "}
@@ -55,7 +55,9 @@ const Footer = () => {
             </a>
           </div>
           { <div>&copy;{new Date().getFullYear()} <span>all right reserved</span></div>}
-          <div>made with heart by <span><a href="https://www.linkedin.com/company/99205021" target="_blank">SDC-ABN</a></span></div>
+          <div>Made with &#x2764;&#xfe0f; by <span
+          className="text-lg text-extrabold hover:text-green-400"
+          ><a href="https://www.linkedin.com/company/99205021" target="_blank">SDC-ABN</a></span></div>
         </div>
       </div>
 
@@ -63,8 +65,8 @@ const Footer = () => {
         <div className="w-full md:w-[40%] text-center md:text-left mb-6 md:mb-0">
           <h2 className="text-2xl font-bold">Contact Us</h2>
           <p className="text-md mt-2">
-            {/* <span>Mon-Sat: 5:00pm to 6:00pm</span><br/> */}
-            {/* <span>Mob No.: +91 </span><br/> */}
+            <span>Mon-Sat: 5:00pm to 6:00pm</span><br/>
+            <span>Mob No.: +91 8467865427, +91 9519774060 </span><br/>
             <span>Email: koshish.edu@gmail.com</span>
           </p>
           <h2 className="text-2xl font-bold mt-4">Our Location</h2>
@@ -76,7 +78,7 @@ const Footer = () => {
               />
               <Marker position={position}>
                 <Popup>
-                  Rajkiya Engineering College <br /> AmbedKar Nagar,UP,India
+                  Koshish Welfare<br /> AmbedKar Nagar,UP,India
                   <br />
                   <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
               Open in Google Maps
@@ -91,7 +93,7 @@ const Footer = () => {
           <h1 className="text-3xl text-center font-semibold mb-4">
             Important Links
           </h1>
-          <div className="grid grid-cols-2 gap-4 text-center md:text-left">
+          <div className="grid grid-cols-2 gap-4 text-left md:text-left">
             <ul className="space-y-2 text-lg">
               <li
                 className="transition-all duration-300 cursor-pointer hover:underline hover:font-semibold"
