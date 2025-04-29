@@ -66,7 +66,7 @@ const Mentor = () => {
                     <BsLinkedin className="text-blue-700 text-lg" />
                   </a>)}
                   </div>
-                  <p className="text-sm text-blue-600 font-medium mt-2">{teacher.speciality}</p>
+                  <p className="text-sm text-green-600 font-medium mt-2">{teacher.speciality}</p>
                   <p className="text-xs text-gray-500 mt-1">Joined in {joinYear}</p>
 
                   <blockquote className="text-sm italic text-gray-600 mt-3">
