@@ -1,8 +1,8 @@
 
-import  TeacherModel  from "../../models/teacher/teacherSchema.js"
+import MemberModel from "../../models/member/MemberSchema.js";
 const getTopmentor = async(req,res) => {
   try {
-       const data = await TeacherModel.find({isTop:true, isActive:true});
+       const data = await MemberModel.find({isTop:true, isActive:true});
        const sendData = data.slice(-4).map((item)=>{
         const {_id, name,linkedin,image,speciality,quote,joinTime,} = item;
      return  {_id, name,linkedin,image,speciality,quote,joinTime};
@@ -15,7 +15,7 @@ const getTopmentor = async(req,res) => {
 }
 const getCoordi = async(req,res) => {
    try {
-        const data = await TeacherModel.find({isTop:true, isActive:true, isVisionary:true});
+        const data = await MemberModel.find({isTop:true, isActive:true, isVisionary:true});
          if (data.length ==0) 
             return res.json({success:true, message:"No co-ordinator succesffuly", data:false })
          const {_id, name,linkedin,image,speciality,quote,joinTime} = data.at(-1);

@@ -1,4 +1,5 @@
-import TeacherModel from "../../models/teacher/teacherSchema.js";
+
+import MemberModel from "../../models/member/MemberSchema.js";
 const getmyMentor =async (req,res) => {
   try {
     const {id} = req.body
@@ -6,7 +7,7 @@ const getmyMentor =async (req,res) => {
     if(!id) {
         return res.json ({success:false, message: "please fill valid id"})
     }
-    const data = await TeacherModel.findById(id);
+    const data = await MemberModel.findById(id);
     const {name,linkedin,image,speciality,yog,isActive,quote,aboutHead,about, classTeacher,subject,leaveTime,joinTime,}=data;
     const sendData = {name,linkedin,yog,image,isActive,speciality,quote, aboutHead,about, classTeacher,subject,leaveTime,joinTime,}
     console.log("---> ",  data)

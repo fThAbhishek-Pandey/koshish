@@ -1,25 +1,25 @@
 
-import TeacherModel from '../../models/teacher/teacherSchema.js'
+import MemberModel from "../../models/member/MemberSchema";
 
 const addMentorDB = async(mentorData)=>{
    console.log(mentorData)
-   const newMentor =  await  TeacherModel.create(mentorData);
+   const newMentor =  await  MemberModel.create(mentorData);
     await newMentor.save()
 }
 
 const terminateMentorDB = async(id)=>{
     console.log("terminate", id);
-      const {isActive} =await TeacherModel.findById(id)
-       await  TeacherModel.findByIdAndUpdate(id, {isActive:!isActive})
+      const {isActive} =await MemberModel.findById(id)
+       await  MemberModel.findByIdAndUpdate(id, {isActive:!isActive})
 }
 const topMentorDB = async(id)=>{
-    const {isTop} = await TeacherModel.findById(id)
+    const {isTop} = await MemberModel.findById(id)
 
-    await  TeacherModel.findByIdAndUpdate(id, {isTop: !isTop})
+    await MemberModel.findByIdAndUpdate(id, {isTop: !isTop})
 }
 const AllMentorDB = async ()=>{
    try {
-      const data = await TeacherModel.find({});
+      const data = await MemberModel.find({});
       console.log(data);
       return data.reverse()
    } catch (error) {
@@ -31,20 +31,20 @@ const AllMentorDB = async ()=>{
   
 }
 const mentorByIdDB = async (id)=>{
-   const data = await TeacherModel.findById(id);
+   const data = await MemberModel.findById(id);
    console.log(data);
 //    const myData = 
    return data
 }
 const AllAlumniDB = async ()=>{
-   const data = await TeacherModel.find({isActive:false});
+   const data = await MemberModel.find({isActive:false});
    console.log(data);
 //    const myData = 
    return data.reverse()
 }
 const updateMentor = async (id, data)=>{
    try {
-      await  TeacherModel.findByIdAndUpdate(id, data)
+      await  MemberModel.findByIdAndUpdate(id, data)
       .then(updatedUser => {
          if (updatedUser) {
            console.log('User updated successfully:', updatedUser);

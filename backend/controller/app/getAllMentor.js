@@ -1,7 +1,8 @@
-import TeacherModel from "../../models/teacher/teacherSchema.js";
+
+import MemberModel from "../../models/member/MemberSchema.js";
 const getAllMentor =async (req,res) => {
   try {
-    const data = await TeacherModel.find({isActive:true, isVisionary:false});
+    const data = await MemberModel.find({isActive:true, isVisionary:false});
     const sendData = data.map((item)=>{
       const {_id, name,linkedin,yog,image,speciality,quote,joinTime,} = item;
    return  {_id, name,linkedin,image,yog,speciality,quote,joinTime};
@@ -15,7 +16,7 @@ const getAllMentor =async (req,res) => {
 }
 const getAllAlumni =async (req,res) => {
   try {
-    const data =  await TeacherModel.find({isActive:false,isVisionary:false });
+    const data =  await MemberModel.find({isActive:false,isVisionary:false });
     const sendData = data.map((item)=>{
       const {_id, name,linkedin,image,yog,speciality,quote,joinTime,} = item;
    return  {_id, name,linkedin,image,yog,speciality,quote,joinTime};
@@ -29,7 +30,7 @@ const getAllAlumni =async (req,res) => {
 }
 const getAllFaculty =async (req,res) => {
   try {
-    const data =  await TeacherModel.find({isVisionary:true});
+    const data =  await MemberModel.find({isVisionary:true});
     const sendData = data.map((item)=>{
       const {_id, name,linkedin,image,speciality,quote,joinTime,} = item;
    return  {_id, name,linkedin,image,speciality,quote,joinTime};
@@ -50,7 +51,7 @@ const SearchMembers =async (req,res) => {
 
      // Use a regular expression to search for movies starting with the input letters
   const regex = new RegExp(`^${name}`, 'i');
-   await TeacherModel.find({ name: { $regex: regex } })
+   await MemberModel.find({ name: { $regex: regex } })
     .then((members) => {
       if (!members || members.length === 0) {
         return res.json({success:false,data:[], message: "No Member found" });
