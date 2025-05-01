@@ -9,8 +9,8 @@ const getAllMemories = async (backendURL,setMemories) => {
        }
        else toast.error(data.message);
    } catch (error) {
-     console.log(error);
-     setMemories('5xx');getAllAlumni
+    //  console.log(error);
+    //  setMemories('5xx');
      toast.error(error.message);
    }
 }
@@ -23,7 +23,7 @@ const getAllNews = async (backendURL,setNewsPaper) => {
       }
       else toast.error(data.message);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     setNewsPaper('5xx');
     toast.error(error.message);
   }
@@ -37,7 +37,7 @@ const getGalleryById = async (backendURL,setGalleryById,id) => {
         }
         else toast.error(data.message);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setGalleryById('5xx');
       toast.error(error.message);
     }

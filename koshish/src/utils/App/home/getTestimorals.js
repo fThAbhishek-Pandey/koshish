@@ -11,7 +11,7 @@ const getTestimorals = async (backendURL,setTestimorals) => {
             toast.error(data.message);
          }
       } catch (error) {
-         console.log(error)
+         // console.log(error)
          setTestimorals('5xx')
          toast.error(error.message);
       }

@@ -24,7 +24,7 @@ const Memories = () => {
         </div>
       </div>
 
-      {memories?.length === 0 ? (
+      { memories && memories?.length === 0 ? (
         <p className="text-center text-gray-500 text-lg font-medium py-6">
         No memories found.
       </p>

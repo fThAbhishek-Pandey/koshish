@@ -12,7 +12,7 @@ const Myevent = () => {
   }, [id]);
   useEffect(()=>{
       setDocuTitle(`${idEvent.name}-Koshish`)
-  },[docuTitle,id])
+  },[docuTitle,id, idEvent])
   if (!idEvent) {
     return (
       <div className="flex items-center  justify-center min-h-[40vh]">

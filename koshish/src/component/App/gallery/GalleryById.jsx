@@ -9,7 +9,7 @@ const GalleryById = () => {
 
   useEffect(() => {
     handleGallaryById(id);
-  }, [id]);
+  }, [id,galleryById]);
   
   useEffect(()=>{
       setDocuTitle(`${galleryById.galleryTitle}-Koshish`)

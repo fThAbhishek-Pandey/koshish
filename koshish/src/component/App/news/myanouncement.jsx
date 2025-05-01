@@ -12,7 +12,7 @@ const Myanouncement = () => {
     },[])
     useEffect(()=>{
       setDocuTitle(`${myAnnouncement.heading}-Koshish`)
-  },[docuTitle,id])
+  },[docuTitle,id,myAnnouncement])
     console.log("_id: ",id);
     
   return myAnnouncement && (

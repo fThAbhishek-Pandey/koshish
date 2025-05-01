@@ -9,7 +9,7 @@ import Contact from './contact';
 import About from './about';
 import Error404 from '../../component/Error404';
 import Mymentors from '../../component/App/family/mymentors';
-import Myanouncement from '../../component/App/announcement/myanouncement';
+import Myanouncement from '../../component/App/news/myanouncement';
 import Myevent from '../../component/App/events/myevent';
 import IndexFamiliy from '../../component/App/family/indexFamiliy';
 import IndexGallery from '../../component/App/gallery/IndexGallery';
@@ -29,8 +29,8 @@ const IndexApp = () => {
                 <Route path='/events/:id' element={<Myevent/>} />
                 <Route path='/family' element={<IndexFamiliy/>} />
                 <Route path='/family/:id' element={<Mymentors/>}/>
-                <Route path='/announcement' element={<Announcements/>} />
-                <Route path='/announcement/:id' element={<Myanouncement/>} />
+                <Route path='/news' element={<Announcements/>} />
+                <Route path='/news/:id' element={<Myanouncement/>} />
                 <Route path='/gallery' element={<IndexGallery/>} />
                 <Route path='/gallery/:id' element={<GalleryById/>} />
                 <Route path='/about' element={<About/>} />
