@@ -10,7 +10,7 @@ const getNewAnnouncement = async(backendURL,setAllAnnouncement) => {
        else if(data.data.length ==0) toast.info(data.message)
        else  toast.error(data.message)
     } catch (error) {
-       console.log(error)
+    //    console.log(error)
        toast.error(error.message);
     }
 }
@@ -23,7 +23,7 @@ const getpastAnnouncement = async(backendURL,setAllAnnouncement) => {
        }
        else  toast.error(data.message)
     } catch (error) {
-       console.log(error)
+    //    console.log(error)
        toast.error(error.message);
     }
 }
@@ -36,7 +36,7 @@ const getmyAnnouncement = async(backendURL,setmyAnnouncement,id) => {
        }
        else  toast.error(data.message)
     } catch (error) {
-       console.log(error)
+    //    console.log(error)
        toast.error(error.message);
     }
 }

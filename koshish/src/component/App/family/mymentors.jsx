@@ -18,7 +18,7 @@ const MyMentor = () => {
   }, [id]);
        useEffect(()=>{
            setDocuTitle(`${myMentor.name}-Koshish`)
-       },[docuTitle,id])
+       },[docuTitle,id,myMentor])
   if (loading || !myMentor) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-green-50 pt-24">

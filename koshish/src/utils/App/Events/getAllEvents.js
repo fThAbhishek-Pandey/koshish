@@ -5,7 +5,7 @@ const getHomeEvent = async (backendURL,setHomeEvent) => {
      const {data} = await axios.get(backendURL + '/api/app/events')
      if (data.success && data.data.length !=0) {
         setHomeEvent(data.data)
-        toast.success(data.message)
+      //   toast.success(data.message)
      }
      else if(data.data.length ==0){
       setHomeEvent('NODATA')
@@ -13,7 +13,7 @@ const getHomeEvent = async (backendURL,setHomeEvent) => {
      }
      else toast.error(data.message);
   } catch (error) {
-     console.log(error);
+   //   console.log(error);
      setHomeEvent('5xx')
     toast.error(error.message);
   }
@@ -30,7 +30,7 @@ const getNewEvent = async (backendURL,setHomeEvent) => {
        }
        else toast.error(data.message);
     } catch (error) {
-       console.log(error);
+      //  console.log(error);
        setHomeEvent('5xx')
       toast.error(error.message);
     }
@@ -47,7 +47,7 @@ const getNewEvent = async (backendURL,setHomeEvent) => {
        }
        else toast.error(data.message);
     } catch (error) {
-       console.log(error);
+      //  console.log(error);
        setHomeEvent('5xx')
       toast.error(error.message);
     }
@@ -61,7 +61,7 @@ const getNewEvent = async (backendURL,setHomeEvent) => {
       }
       else toast.error(data.message);
    } catch (error) {
-      console.log(error);
+      // console.log(error);
       setIdEvent('5xx')
      toast.error(error.message);
    }

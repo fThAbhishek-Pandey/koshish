@@ -8,11 +8,6 @@ import { TeacherContext } from './context/TeacherContext'
 function App() {
     const {stuToken}= useContext(StudentContext);
     const {teaToken}= useContext(TeacherContext);
-     console.log("hi--> ", stuToken,teaToken )
-     const notify = () => toast("Wow so easy!");
-useEffect (()=>{
-  notify ()
-},[])
 
  useEffect(() => {
   const onLoad = () => {

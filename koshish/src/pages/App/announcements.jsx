@@ -1,5 +1,5 @@
 import React from 'react'
-import Anouncement from '../../component/App/announcement'
+import Anouncement from '../../component/App/news'
 const Announcements = () => {
   return (
     <div>

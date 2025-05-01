@@ -10,7 +10,7 @@ const NewsCard = ({announcement}) => {
             >
               <img
                 className="w-full h-52 object-cover cursor-pointer"
-                onClick={() => navigate(`/announcement/${announcement._id}`)}
+                onClick={() => navigate(`/news/${announcement._id}`)}
                 src={announcement.image}
                 alt={announcement.heading}
               />
