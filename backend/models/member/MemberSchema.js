@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import defaultImg from "../../controller/defaultimg.js";
-const teacherSchema = new mongoose.Schema({
+const MemberSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -68,6 +68,6 @@ const teacherSchema = new mongoose.Schema({
   }
 
 });
-const TeacherModel = mongoose.model('TeacherModel', teacherSchema);
+const MemberModel = mongoose.model('TeacherModel', MemberSchema);
 
-export default  TeacherModel;
+export default  MemberModel;
