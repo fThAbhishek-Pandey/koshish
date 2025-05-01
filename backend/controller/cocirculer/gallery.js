@@ -66,6 +66,20 @@ const UpdateGallery = async (req, res) => {
       console.log("hello ",existing,newTitles);
       console.log("newfiles", newFiles)
       // Upload new images
+      if(newFiles.length ==0) {
+           await GalleryModel.findByIdAndUpdate(id, {
+            Photo: newTitles != undefined ?galleryImg :oldGallery.Photo,
+            thumbnail: newThumbnail? newThumbnail : thumbnailUrl ,
+            galleryTitle,
+            galleryDescription,
+            youtube,
+            linkedin,
+            googlePhoto,
+            instagram,
+            facebook,
+          });
+          return  res.json({ success: true, message: 'Gallery updated successfully' });
+      }
       const newImageURLs = await Promise.all(
         newFiles.map(async (imgFile) => {
           const imgData = await cloudinaryUploadImage(imgFile);
@@ -122,7 +136,7 @@ const UpdateGallery = async (req, res) => {
         new: true,
       });
   
-      res.json({ success: true, message: 'Gallery updated successfully' });
+     return res.json({ success: true, message: 'Gallery updated successfully' });
     } catch (error) {
       console.error(error);
       res.json({ success: false, message: error.message });
