@@ -9,11 +9,11 @@ const GalleryById = () => {
 
   useEffect(() => {
     handleGallaryById(id);
-  }, [id,galleryById]);
+  }, [id]);
   
   useEffect(()=>{
       setDocuTitle(`${galleryById.galleryTitle}-Koshish`)
-  },[docuTitle,id])
+  },[docuTitle,id,galleryById])
   const {
     galleryTitle,
     galleryDescription,

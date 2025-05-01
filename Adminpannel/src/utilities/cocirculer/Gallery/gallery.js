@@ -46,13 +46,13 @@ const deleteGallery = async (backendURL,id,cirToken) => {
     try {
         const {data} = await axios.patch(backendURL+ `/api/cocirculer/gallery/update/${id}`,formdata,{headers:{authCociculertoken:cirToken}})
         if(data.success) {
-          setNewsPaper(data.data);
+         
             toast.success(data.message);
         }
         else toast.error(data.message);
     } catch (error) {
       console.log(error);
-      setNewsPaper('5xx');
+      
       toast.error(error.message);
     }
   }

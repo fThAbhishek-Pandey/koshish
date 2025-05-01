@@ -68,8 +68,6 @@ const UpdateGallery = async (req, res) => {
       // Upload new images
       if(newFiles.length ==0) {
            await GalleryModel.findByIdAndUpdate(id, {
-            Photo: newTitles != undefined ?galleryImg :oldGallery.Photo,
-            thumbnail: newThumbnail? newThumbnail : thumbnailUrl ,
             galleryTitle,
             galleryDescription,
             youtube,
