@@ -1,5 +1,5 @@
 
-import MemberModel from "../../models/member/MemberSchema";
+import MemberModel from "../../models/member/MemberSchema.js";
 
 const addMentorDB = async(mentorData)=>{
    console.log(mentorData)
